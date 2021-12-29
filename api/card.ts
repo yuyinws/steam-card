@@ -12,6 +12,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   ctx.fillStyle = '#333333'
   ctx.fillRect(0, 0, 300, 300)
 
+  
   ctx.fillStyle = '#ffffff'
   ctx.font = '32px Anton'
   ctx.fillText('Hello', 200, 200)
