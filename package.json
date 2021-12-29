@@ -1,0 +1,22 @@
+{
+  "name": "steam-card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "vercel-build111": "yum install libuuid-devel libmount-devel wget && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && ./setup.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "canvas": "2.6.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@vercel/node": "^1.12.1"
+  },
+  "type": "module"
+}

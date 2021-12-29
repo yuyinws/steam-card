@@ -1,0 +1,17 @@
+{
+  "rewrites":[
+    {
+      "source":"/card",
+      "destination":"/api/card.ts"
+    },
+    {
+      "source":"/fonts/(.*)",
+      "destination":"/src/fonts"
+    }
+  ],
+  "functions": {
+    "api/card.ts": {
+      "includeFiles": "files/**"
+    }
+  }
+}
