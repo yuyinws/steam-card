@@ -8,10 +8,5 @@
       "source":"/fonts/(.*)",
       "destination":"/src/fonts"
     }
-  ],
-  "functions": {
-    "api/card.ts": {
-      "includeFiles": "files/**"
-    }
-  }
+  ]
 }
