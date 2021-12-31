@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { MyResponseType } from '@/types/'
 
-const proxy = {
-  host: '127.0.0.1',
-  port: 7890,
+const proxy:any = {
+  host: process.env.PROXY_HOST,
+  port: process.env.PROXY_PORT
 }
 
 const instance = axios.create({

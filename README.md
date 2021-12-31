@@ -2,15 +2,27 @@
 
 > 快速生成自己的steam资料卡
 
+[![](https://steamcard.vercel.app/card?steamid=76561198340841543)](https://github.com/yuyinws/steam-card)
+
 ## 使用
 
 ### 找到自己的steamid
 
 1.登录网页steam，进入个人主页。
 
-2.这是你会看到类似一个[https://steamcommunity.com/profiles/XXXXXXXX/](https://steamcommunity.com/profiles/76561198340841543/)的链接，如果你没有使用自定义URL，后面的一串数字就是你的steamid
+2.这是你会看到类似一个这样的链接：
 
-3.如果你使用了自定义URL，在你的自定义URL后面加上'?xml=1',类似这样[https://steamcommunity.com/profiles/your\_](https://steamcommunity.com/profiles/76561198340841543/)*[custom\_domain](https://steamcommunity.com/profiles/76561198340841543/)*[/](https://steamcommunity.com/profiles/76561198340841543/)?xml=1
+```
+https://steamcommunity.com/profiles/XXXXXXXXXX/
+```
+
+如果你没有使用自定义URL，后面的一串数字就是你的steamid
+
+3.如果你使用了自定义URL，在你的自定义URL后面加上'?xml=1',类似这样
+
+```
+https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
+```
 
 4.\<steamID64>\</steamID64>标签里的就是你的steamid
 
@@ -19,16 +31,47 @@
 HTML
 
 ```html
-<img src="https://card.yuyinws.top/card?steamid=<yoursteamid>"></img>  
+<img width="400" height="120" src="https://steamcard.vercel.app/card?steamid=<yoursteamid>"></img>  
 ```
 
 Markdown
 
 ``` markdown
-![](https://card.yuyinws.top/card?steamid=<yoursteamid>)
+![](https://steamcard.vercel.appcard?steamid=<yoursteamid>)
 ```
 
 论坛/BBS
 ```
-[img=400,120]http://www.steamsignature.com/status/polish/76561198340841543.png[/img]
+[img=400,120]hhttps://steamcard.vercel.app/card?steamid=<yoursteamid>[/img]
 ```
+
+## 开发
+
+全局安装[vercel Cli](https://vercel.com/cli)
+
+``` shell
+npm install -g vercel
+```
+
+克隆项目至本地
+
+``` shell
+git clone https://github.com/yuyinws/steam-card.git
+```
+
+申请一个[Steam Api Key](https://steamcommunity.com/dev/apikey)
+
+配置ENV文件
+
+``` shell
+mv .env.example .env
+
+#在STEAM_KEY中输入申请的KEY
+```
+
+本地调试
+
+``` shell
+vercel dev
+```
+
