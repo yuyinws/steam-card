@@ -5,7 +5,7 @@
 [![](https://steamcard.vercel.app/card?steamid=76561198340841543)](https://github.com/yuyinws/steam-card)
 
 ## 使用
-
+> 请先确保自己的Steam库处于公开状态
 ### 找到自己的steamid
 
 1.登录网页steam，进入个人主页。
