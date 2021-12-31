@@ -10,7 +10,7 @@
 
 1.登录网页steam，进入个人主页。
 
-2.这是你会看到类似一个这样的链接：
+2.这时你会看到类似一个这样的链接：
 
 ```
 https://steamcommunity.com/profiles/XXXXXXXXXX/
@@ -24,7 +24,7 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/
 https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 ```
 
-4.\<steamID64>\</steamID64>标签里的就是你的steamid
+4.<steamID64>\</steamID64>标签里的就是你的steamid
 
 ### 生成链接
 
