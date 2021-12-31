@@ -35,3 +35,10 @@ export const getBadges = (params: BaseParams) => {
     params: params,
   })
 }
+
+export const getImage = (url:string) => {
+  return request({
+    url:url,
+    responseType:'arraybuffer'
+  })
+}

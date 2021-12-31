@@ -2,22 +2,22 @@ import Card from './Card'
 
 const steamCard = (
   name: string,
-  avatarUrl: string,
+  avatarUrlBase64: string,
   playerLevel: number,
   gameCount: number,
   badgeCount: number,
   isOnline: number,
-  games:[]
+  gameImgList:string[]
 ) => {
   const card = new Card({
     name: name,
     borderRadius: 4.5,
-    avatarUrl: avatarUrl,
+    avatarUrlBase64: avatarUrlBase64,
     playerLevel: playerLevel,
     gameCount: gameCount,
     badgeCount: badgeCount,
     isOnline: isOnline,
-    games: games
+    gameImgList: gameImgList
   })
 
   card.updateIsOnline()

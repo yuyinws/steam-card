@@ -1,12 +1,12 @@
 class Card {
   name = ''
   borderRadius = 4.5
-  avatarUrl = ''
+  avatarUrlBase64 = ''
   playerLevel = 0
   gameCount = 0
   badgeCount = 0
   gamesSvg = ''
-  games = []
+  gameImgList = []
   isOnline = {
     flag: 0,
     text: '离线',
@@ -15,21 +15,21 @@ class Card {
   constructor({
     borderRadius,
     name,
-    avatarUrl,
+    avatarUrlBase64,
     playerLevel,
     gameCount,
     badgeCount,
     isOnline,
-    games,
+    gameImgList,
   }) {
     this.borderRadius = borderRadius
     this.name = name
-    this.avatarUrl = avatarUrl
+    this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
     this.gameCount = gameCount
     this.badgeCount = badgeCount
     this.isOnline.flag = isOnline
-    this.games = games
+    this.gameImgList = gameImgList
   }
 
   updateIsOnline() {
@@ -40,24 +40,20 @@ class Card {
     }
   }
 
-  renderGames() {
+  async renderGames() {
     let gamesSvg = ''
-    this.games.forEach((game: any, index: number) => {
+    this.gameImgList.forEach((game: any, index: number) => {
       if (index < 5) {
         gamesSvg =
           gamesSvg +
-          `<image width="70" xlink:href="http://media.steampowered.com/steamcommunity/public/images/apps/${
-            game.appid
-          }/${game.img_logo_url}.jpg" height="25" x="${
+          `<image width="70" xlink:href="${game}" height="25" x="${
             10 + index * 76
           }" y="50"></image>`
       } else {
         gamesSvg =
           gamesSvg +
-          `<image width="70" xlink:href="http://media.steampowered.com/steamcommunity/public/images/apps/${
-            game.appid
-          }/${game.img_logo_url}.jpg" height="25" x="${
-            10 + (index -5 ) * 76
+          `<image width="70" xlink:href="${game}" height="25" x="${
+            10 + (index - 5) * 76
           }" y="85"></image>`
       }
     })
@@ -77,7 +73,7 @@ class Card {
           </style>
         <rect rx="4.5" class="bg" width="100%" height="100%" />
         <g fill="white" font-size="12">
-          <image height="28" width="28" x="10" y="10" xlink:href="${this.avatarUrl}"></image>
+          <image height="28" width="28" x="10" y="10" xlink:href="${this.avatarUrlBase64}"></image>
           <text x="45" y="22" font-size="14" fill="white">${this.name}</text>
           <text x="45" y="38" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
           <text x="260" y="38" text-anchor="middle">游戏数</text>
