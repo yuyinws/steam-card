@@ -28,3 +28,10 @@ export const getSteamLevel = (params: BaseParams) => {
     params: params,
   })
 }
+
+export const getBadges = (params: BaseParams) => {
+  return request({
+    url: '/IPlayerService/GetBadges/v1/',
+    params: params,
+  })
+}

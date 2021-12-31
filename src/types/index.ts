@@ -13,7 +13,7 @@ export interface PlayerSummaries extends BaseParams {
 
 export interface RecentlyPlayedGames extends BaseParams {
   format: string
-  'Accept-Language'?: string,
+  count: number
 }
 
 export interface OwnedGames extends BaseParams {

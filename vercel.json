@@ -5,8 +5,8 @@
       "destination":"/api/card.ts"
     },
     {
-      "source":"/fonts/(.*)",
-      "destination":"/src/fonts"
+      "source":"/",
+      "destination":"/src/index.html"
     }
   ]
 }
