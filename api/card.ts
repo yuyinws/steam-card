@@ -55,7 +55,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
     avatarUrlBase64 = 'data:image/jpeg;base64,' + avatarUrlBase64
     res.setHeader('Content-Type', 'image/svg+xml')
-    res.setHeader('Cache-Control', `public, max-age=${7200}`);
+    // res.setHeader('Cache-Control', `public, max-age=${7200}`);
     res.send(
       steamCard(
         name,
