@@ -3,7 +3,7 @@ class Card {
   borderRadius = 4.5
   avatarUrlBase64 = ''
   playerLevel = 0
-  gameCount = 0
+  gameCount = '0'
   badgeCount = 0
   gamesSvg = ''
   gameImgList = []

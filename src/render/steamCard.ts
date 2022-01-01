@@ -4,7 +4,7 @@ const steamCard = (
   name: string,
   avatarUrlBase64: string,
   playerLevel: number,
-  gameCount: number,
+  gameCount: string,
   badgeCount: number,
   isOnline: number,
   gameImgList: string[],

@@ -2,7 +2,6 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import {
   getPlayerSummaries,
   getRecentlyPlayedGames,
-  getOwnedGames,
   getBadges,
   getSteamProfile
 } from '../src/request/steamApi'
@@ -24,15 +23,18 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         key: key,
         count: 0,
       }),
-      // getOwnedGames({ format: 'json', key: key, steamid: steamid }),
       getSteamProfile(steamid),
       getBadges({ key: key, steamid: steamid }),
     ])
-
     const [player, playedGames, ownedGames, badges] = AllData
-    console.log("🚀 ~ file: card.ts ~ line 32 ~ ownedGames", ownedGames)
-    let $ = cheerio.load(ownedGames);
-    console.log("🚀 ~ file: card.ts ~ line 35 ~ $", $)
+    let gameCount = '0'
+    let $ = cheerio.load(ownedGames as any);
+    $('.profile_count_link_total').each((i, el) => {
+      if (i === 1) {
+        gameCount = $(el).text()
+        return false
+      }
+    })
     const userInfo = player?.response?.players[0]
     const {
       avatarfull: avatarUrl,
@@ -48,10 +50,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     playTime = parseInt((String(playTime/60)))
     games.splice(10, games.length - 10)
 
-    const gameCount = ownedGames.response.game_count
     const badgeCount = badges.response.badges.length
     const playerLevel = badges.response.player_level
-    // const games: any = playedGames.response.games
     let gameImgList: string[] = []
     for (let i: number = 0; i < games.length; i++) {
       const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${games[i].appid}/${games[i].img_logo_url}.jpg`
@@ -75,8 +75,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         playTime
       )
     )
-  } catch (error) {
-    res.json('Ops!')
+  } catch (error:any) {
     console.log(error)
+    res.json('Ops!')
+    throw new Error(error)
   }
 }
