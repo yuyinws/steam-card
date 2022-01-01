@@ -4,10 +4,12 @@ import {
   getRecentlyPlayedGames,
   getOwnedGames,
   getBadges,
+  getSteamProfile
 } from '../src/request/steamApi'
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
 import { imageUrl2Base64 } from '../src/utils/tools'
+import cheerio from 'cheerio'
 
 const key: any = process.env.STEAM_KEY
 export default async (req: VercelRequest, res: VercelResponse) => {
@@ -22,11 +24,15 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         key: key,
         count: 0,
       }),
-      getOwnedGames({ format: 'json', key: key, steamid: steamid }),
+      // getOwnedGames({ format: 'json', key: key, steamid: steamid }),
+      getSteamProfile(steamid),
       getBadges({ key: key, steamid: steamid }),
     ])
 
     const [player, playedGames, ownedGames, badges] = AllData
+    console.log("🚀 ~ file: card.ts ~ line 32 ~ ownedGames", ownedGames)
+    let $ = cheerio.load(ownedGames);
+    console.log("🚀 ~ file: card.ts ~ line 35 ~ $", $)
     const userInfo = player?.response?.players[0]
     const {
       avatarfull: avatarUrl,
