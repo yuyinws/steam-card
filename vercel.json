@@ -6,7 +6,7 @@
     },
     {
       "source":"/",
-      "destination":"/src/index.html"
+      "destination":"https://github.com/yuyinws/steam-card/blob/master/README.md"
     }
   ]
 }
