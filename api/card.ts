@@ -11,7 +11,8 @@ import { imageUrl2Base64 } from '../src/utils/tools'
 
 const key: any = process.env.STEAM_KEY
 export default async (req: VercelRequest, res: VercelResponse) => {
-  const { steamid } = req.query as any
+  let { steamid, theme } = req.query as any
+  theme = theme || 'dark'
   try {
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key: key, steamids: steamid }),
@@ -19,7 +20,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         format: 'json',
         steamid: steamid,
         key: key,
-        count: 10,
+        count: 0,
       }),
       getOwnedGames({ format: 'json', key: key, steamid: steamid }),
       getBadges({ key: key, steamid: steamid }),
@@ -32,11 +33,19 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       personaname: name,
       personastate: isOnline,
     } = userInfo
+
+    let games = playedGames.response.games
+    let playTime = 0
+    games.forEach((game) => {
+      playTime += game.playtime_2weeks
+    })
+    playTime = parseInt((String(playTime/60)))
+    games.splice(10, games.length - 10)
+
     const gameCount = ownedGames.response.game_count
     const badgeCount = badges.response.badges.length
     const playerLevel = badges.response.player_level
-    const games: any = playedGames.response.games
-
+    // const games: any = playedGames.response.games
     let gameImgList: string[] = []
     for (let i: number = 0; i < games.length; i++) {
       const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${games[i].appid}/${games[i].img_logo_url}.jpg`
@@ -44,11 +53,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       gameImgList.push(`data:image/jpeg;base64,${imgBase64}`)
     }
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
-    avatarUrlBase64 =  'data:image/jpeg;base64,' + avatarUrlBase64
-    // const name = "YuYin"
-    // const avatarUrl = "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/8d/8dfe278c7493b6984540e57ecd57b791df13841e_full.jpg"
-    // const playerLevel = 1233
+    avatarUrlBase64 = 'data:image/jpeg;base64,' + avatarUrlBase64
     res.setHeader('Content-Type', 'image/svg+xml')
+    res.setHeader('Cache-Control', `public, max-age=${7200}`);
     res.send(
       steamCard(
         name,
@@ -57,7 +64,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         gameCount,
         badgeCount,
         isOnline,
-        gameImgList
+        gameImgList,
+        theme,
+        playTime
       )
     )
   } catch (error) {

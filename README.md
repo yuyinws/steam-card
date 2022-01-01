@@ -2,7 +2,7 @@
 
 > 快速生成自己的steam资料卡
 
-[![](https://steamcard.vercel.app/card?steamid=76561198340841543)](https://github.com/yuyinws/steam-card)
+![](https://steamcard.vercel.app/card?steamid=76561198340841543)
 
 ## 使用
 
@@ -31,7 +31,7 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 HTML
 
 ```html
-<img width="400" height="120" src="https://steamcard.vercel.app/card?steamid=<yoursteamid>"></img>  
+<img width="400" height="140" src="https://steamcard.vercel.app/card?steamid=<yoursteamid>"></img>  
 ```
 
 Markdown
@@ -42,8 +42,28 @@ Markdown
 
 论坛/BBS
 ```
-[img=400,120]hhttps://steamcard.vercel.app/card?steamid=<yoursteamid>[/img]
+[img=400,140]hhttps://steamcard.vercel.app/card?steamid=<yoursteamid>[/img]
 ```
+
+### 主题
+
+目前支持亮色与暗色两种主题，通过URL参数theme指定（默认为暗色主题）
+
+- 亮色
+
+```
+https://steamcard.vercel.appcard?steamid=<yoursteamid>&theme=light
+```
+
+![](https://steamcard.vercel.app/card?steamid=76561198340841543&theme=light)
+
+- 暗色
+
+```
+https://steamcard.vercel.appcard?steamid=<yoursteamid>&theme=dark
+```
+
+![](https://steamcard.vercel.app/card?steamid=76561198340841543&theme=dark)
 
 ## 开发
 
@@ -64,7 +84,7 @@ git clone https://github.com/yuyinws/steam-card.git
 配置ENV文件
 
 ``` shell
-mv .env.example .env
+cp .env.example .env
 
 #在STEAM_KEY中输入申请的KEY
 ```
