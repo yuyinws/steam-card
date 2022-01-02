@@ -2,10 +2,12 @@
 
 > 快速生成自己的steam资料卡
 
-![](https://steamcard.vercel.app/card?steamid=76561198340841543)
+![img](https://steamcard.vercel.app/card?steamid=76561198340841543)
 
 ## 使用
-> 请先确保自己的Steam库处于公开状态
+
+> 请先确保自己的Steam个人资料处于公开状态
+
 ### 找到自己的steamid
 
 1.登录网页steam，进入个人主页。
@@ -24,46 +26,44 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/
 https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 ```
 
-4.<steamID64>节点里的就是你的steamid
+4.`steamID64`节点里的就是你的steamid
 
-### 生成链接
-
-HTML
-
-```html
-<img width="400" height="140" src="https://steamcard.vercel.app/card?steamid=<yoursteamid>"></img>  
-```
-
-Markdown
-
-``` markdown
-![](https://steamcard.vercel.appcard?steamid=<yoursteamid>)
-```
-
-论坛/BBS
-```
-[img=400,140]hhttps://steamcard.vercel.app/card?steamid=<yoursteamid>[/img]
-```
-
-### 主题
+### 设置主题
 
 目前支持亮色与暗色两种主题，通过URL参数theme指定（默认为暗色主题）
 
 - 亮色
 
-```
-https://steamcard.vercel.appcard?steamid=<yoursteamid>&theme=light
-```
+  `https://steamcard.vercel.app/<yoursteamid>/light`
 
-![](https://steamcard.vercel.app/card?steamid=76561198340841543&theme=light)
+  ![img](https://steamcard.vercel.app/76561198340841543/light)
 
 - 暗色
 
-```
-https://steamcard.vercel.appcard?steamid=<yoursteamid>&theme=dark
+  `https://steamcard.vercel.app/<yoursteamid>/dark`
+
+  ![img](https://steamcard.vercel.app/76561198340841543/dark)
+
+### 使用示例
+
+- HTML
+
+```html
+<img width="400" height="140" src="https://steamcard.vercel.app/<yoursteamid>"></img>  
 ```
 
-![](https://steamcard.vercel.app/card?steamid=76561198340841543&theme=dark)
+- Markdown
+
+```markdown
+![](https://steamcard.vercel.app/<yoursteamid>)
+```
+
+- 论坛/BBCode
+
+```bbcode
+[img=400,140]https://steamcard.vercel.app/<yoursteamid>[/img]
+```
+
 
 ## 开发
 
