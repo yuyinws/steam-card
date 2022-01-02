@@ -3,7 +3,7 @@ import {
   getPlayerSummaries,
   getRecentlyPlayedGames,
   getBadges,
-  getSteamProfile
+  getSteamProfile,
 } from '../src/request/steamApi'
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
@@ -28,13 +28,12 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     ])
     const [player, playedGames, ownedGames, badges] = AllData
     let gameCount = '0'
-    let $ = cheerio.load(ownedGames as any);
-    $('.profile_count_link_total').each((i, el) => {
-      if (i === 1) {
-        gameCount = $(el).text()
-        return false
-      }
-    })
+    let $ = cheerio.load(ownedGames as any)
+    gameCount = $('.profile_item_links')
+      .children()
+      .children()
+      .find('.profile_count_link_total')
+      .html() as string
     const userInfo = player?.response?.players[0]
     const {
       avatarfull: avatarUrl,
@@ -47,7 +46,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     games.forEach((game) => {
       playTime += game.playtime_2weeks
     })
-    playTime = parseInt((String(playTime/60)))
+    playTime = parseInt(String(playTime / 60))
     games.splice(10, games.length - 10)
 
     const badgeCount = badges.response.badges.length
@@ -75,7 +74,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         playTime
       )
     )
-  } catch (error:any) {
+  } catch (error: any) {
     console.log(error)
     res.json('Ops!')
     throw new Error(error)
