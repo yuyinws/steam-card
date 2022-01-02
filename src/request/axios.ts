@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { MyResponseType } from '@/types/'
+import { MyResponseType } from '@/types/index'
 import * as tunnel from 'tunnel'
 
 const agent = tunnel.httpsOverHttp({

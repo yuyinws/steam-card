@@ -7,12 +7,16 @@ class Card {
   badgeCount = 0
   gamesSvg = ''
   gameImgList = []
+  groupIconList = []
+  groupCount = '0'
+  groupSvg = ''
+  badgeIcon = ''
   theme = 'dark'
   playTime = 0
   style = {
     bgColor: '',
     borderColor: '',
-    fontColor: ''
+    fontColor: '',
   }
   isOnline = {
     flag: 0,
@@ -29,7 +33,10 @@ class Card {
     isOnline,
     gameImgList,
     theme,
-    playTime
+    playTime,
+    groupIconList,
+    groupCount,
+    badgeIcon
   }) {
     this.borderRadius = borderRadius
     this.name = name
@@ -40,14 +47,17 @@ class Card {
     this.isOnline.flag = isOnline
     this.gameImgList = gameImgList
     this.theme = theme
-    this.playTime = playTime 
+    this.playTime = playTime
+    this.groupIconList = groupIconList
+    this.groupCount = groupCount
+    this.badgeIcon = badgeIcon
   }
 
   setStyle() {
     if (this.theme === 'dark') {
       this.style.bgColor = '#1B2838'
       this.style.fontColor = 'white'
-    } else if (this.theme === 'light'){
+    } else if (this.theme === 'light') {
       this.style.bgColor = '#F3F4F6'
       this.style.fontColor = '#333'
     }
@@ -66,21 +76,24 @@ class Card {
   renderGames() {
     let gamesSvg = ''
     this.gameImgList.forEach((game: any, index: number) => {
-      if (index < 5) {
-        gamesSvg =
-          gamesSvg +
-          `<image width="70" xlink:href="${game}" height="25" x="${
-            10 + index * 76
-          }" y="70"></image>`
-      } else {
-        gamesSvg =
-          gamesSvg +
-          `<image width="70" xlink:href="${game}" height="25" x="${
-            10 + (index - 5) * 76
-          }" y="105"></image>`
-      }
+      gamesSvg =
+        gamesSvg +
+        `<image width="70" xlink:href="${game}" height="25" x="${
+          10 + index * 76
+        }" y="105"></image>`
     })
     this.gamesSvg = gamesSvg
+  }
+
+  renderGroup() {
+    let groupSvg = ''
+    this.groupIconList.forEach((group: string, index: number) => {
+      groupSvg =
+        `<image height="35" width="35"  y="50" x="${
+          340 - (index + 1) * 42
+        }" xlink:href="${group}"></image>` + groupSvg
+    })
+    this.groupSvg = groupSvg
   }
 
   render() {
@@ -99,18 +112,23 @@ class Card {
           </style>
         <rect rx="4.5" fill="${this.style.bgColor}" stroke="#e4e2e2" stroke-opacity="1" width="100%" height="100%" />
         <g fill="${this.style.fontColor}" font-size="12">
-          <image height="28" width="28" x="10" y="10" xlink:href="${this.avatarUrlBase64}"></image>
-          <text x="45" y="22" font-size="14">${this.name}</text>
-          <text x="45" y="38" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
-          <text x="260" y="38" text-anchor="middle">游戏数</text>
+          <image height="50" width="50" x="10" y="10" xlink:href="${this.avatarUrlBase64}"></image>
+          <text x="67" y="22" font-size="14">${this.name}</text>
+          <text x="67" y="42" font-size="10">LV. ${this.playerLevel}</text>
+          <text x="67" y="58" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
+          <text x="260" y="38" text-anchor="middle">游戏</text>
           <text x="260" y="18" text-anchor="middle">${this.gameCount}</text>
-          <text x="320" y="38" text-anchor="middle">徽章数</text>
+          <text x="320" y="38" text-anchor="middle">徽章</text>
           <text x="320" y="18" text-anchor="middle">${this.badgeCount}</text>
-          <text x="370" y="38" text-anchor="middle">等级</text>
-          <text x="370" y="18" text-anchor="middle">${this.playerLevel}</text>
+          <text x="370" y="38" text-anchor="middle">群组</text>
+          <text x="370" y="18" text-anchor="middle">${this.groupCount}</text>
         </g>
         <g>
-          <text x="10" y="60" font-size="10" class="text">${this.playTime}小时（过去 2 周）</text>
+          ${this.groupSvg}
+          <image height="35" width="35" x="347" y="50" xlink:href="${this.badgeIcon}"></image>
+        </g>
+        <g>
+          <text x="10" y="95" font-size="10" class="text">${this.playTime}小时（过去 2 周）</text>
         </g>
         <g>
           ${this.gamesSvg}
