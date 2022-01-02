@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,6 +14,7 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@types/tunnel": "^0.0.3",
     "@vercel/node": "^1.12.1",
     "tunnel": "^0.0.6"
   },

@@ -2,15 +2,10 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { MyResponseType } from '@/types/'
 import * as tunnel from 'tunnel'
 
-// const proxy: any = {
-//   host: process.env.PROXY_HOST,
-//   port: process.env.PROXY_PORT,
-// }
-
 const agent = tunnel.httpsOverHttp({
   proxy: {
-    host: process.env.PROXY_HOST,
-    port: process.env.PROXY_PORT,
+    host: process.env.PROXY_HOST as string,
+    port: Number(process.env.PROXY_PORT),
   },
 })
 

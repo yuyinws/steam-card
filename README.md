@@ -82,8 +82,14 @@ npm install -g vercel
 ``` shell
 # 进入项目根目录
 cd steam-card
-# 安装依赖
+
+# 安装依赖,推荐使用pnpm作为包管理器
+pnpm install
+# or
+yarn install
+# or 
 npm install
+
 # 启动服务
 vercel dev
 ```

@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/tunnel': ^0.0.3
   '@vercel/node': ^1.12.1
   axios: ^0.24.0
   cheerio: ^1.0.0-rc.10
@@ -15,6 +16,7 @@ dependencies:
   typescript: 4.5.4
 
 devDependencies:
+  '@types/tunnel': 0.0.3
   '@vercel/node': 1.12.1
   tunnel: 0.0.6
 
@@ -22,6 +24,12 @@ packages:
 
   /@types/node/17.0.5:
     resolution: {integrity: sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==}
+    dev: true
+
+  /@types/tunnel/0.0.3:
+    resolution: {integrity: sha512-sOUTGn6h1SfQ+gbgqC364jLFBw2lnFqkgF3q0WovEHRLMrVD1sd5aufqi/aJObLekJO+Aq5z646U4Oxy6shXMA==}
+    dependencies:
+      '@types/node': 17.0.5
     dev: true
 
   /@vercel/node/1.12.1:
