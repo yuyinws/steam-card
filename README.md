@@ -36,13 +36,13 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 
   `https://steamcard.vercel.app/card/<yoursteamid>/light`
 
-  ![img](https://steamcard.vercel.app/76561198340841543/light)
+  ![img](https://steamcard.vercel.app/card/76561198340841543/light)
 
 - 暗色
 
   `https://steamcard.vercel.app/card/<yoursteamid>/dark`
 
-  ![img](https://steamcard.vercel.app/76561198340841543/dark)
+  ![img](https://steamcard.vercel.app/card/76561198340841543/dark)
 
 ### 使用示例
 
