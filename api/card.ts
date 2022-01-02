@@ -15,6 +15,8 @@ const key: any = process.env.STEAM_KEY
 const JPEG_PREFIX: string = 'data:image/jpeg;base64,'
 const PNG_PREFIX: string = 'data:image/png;base64,'
 export default async (req: VercelRequest, res: VercelResponse) => {
+  res.setHeader('Content-Type', 'image/svg+xml')
+  res.setHeader('Cache-Control', `public, max-age=${300}`)
   try {
     let { steamid, theme } = req.query as any
     const numberReg = /[A-Za-z]/
@@ -22,7 +24,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       res.send(errorCard('SteamID不合法'))
     }
     theme = theme || 'dark'
-    // showGroup = Boolean(showGroup || true)
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key: key, steamids: steamid }),
       getRecentlyPlayedGames({
@@ -105,8 +106,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
     avatarUrlBase64 = JPEG_PREFIX + avatarUrlBase64
-    res.setHeader('Content-Type', 'image/svg+xml')
-    res.setHeader('Cache-Control', `public, max-age=${300}`)
     res.send(
       steamCard(
         name,
