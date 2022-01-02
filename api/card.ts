@@ -12,8 +12,8 @@ import errorCard from '../src/render/errorCard'
 import cheerio from 'cheerio'
 
 const key: any = process.env.STEAM_KEY
-const JPEG_PREFIX:string = 'data:image/jpeg;base64,'
-const PNG_PREFIX:string = 'data:image/png;base64,'
+const JPEG_PREFIX: string = 'data:image/jpeg;base64,'
+const PNG_PREFIX: string = 'data:image/png;base64,'
 export default async (req: VercelRequest, res: VercelResponse) => {
   try {
     let { steamid, theme } = req.query as any
@@ -22,6 +22,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       res.send(errorCard('SteamID不合法'))
     }
     theme = theme || 'dark'
+    // showGroup = Boolean(showGroup || true)
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key: key, steamids: steamid }),
       getRecentlyPlayedGames({
@@ -52,17 +53,29 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       .text()
 
     // 徽章icon
-    const badgeIconUrl = $('.favorite_badge_icon').children().children().attr('src') as string
+    const badgeIconUrl = $('.favorite_badge_icon')
+      .children()
+      .children()
+      .attr('src') as string
     let badgeIcon = await imageUrl2Base64(badgeIconUrl)
     badgeIcon = PNG_PREFIX + badgeIcon
     // 组icon
-    let groupIconList:string[] = []
-    $('.profile_group_links').children().last().children().each((i, el) => {
-      const groupIconUrl = $(el).children().first().children().children().attr('src') as string
-      groupIconList.unshift(groupIconUrl)
-    })
+    let groupIconList: string[] = []
+    $('.profile_group_links')
+      .children()
+      .last()
+      .children()
+      .each((i, el) => {
+        const groupIconUrl = $(el)
+          .children()
+          .first()
+          .children()
+          .children()
+          .attr('src') as string
+        groupIconList.unshift(groupIconUrl)
+      })
 
-    for (let i = 0; i < groupIconList.length; i++){
+    for (let i = 0; i < groupIconList.length; i++) {
       groupIconList[i] = await imageUrl2Base64(groupIconList[i])
       groupIconList[i] = JPEG_PREFIX + groupIconList[i]
     }
@@ -76,7 +89,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     let games = playedGames.response.games
     let playTime = 0
-    games.forEach((game:any) => {
+    games.forEach((game: any) => {
       playTime += game.playtime_2weeks
     })
     playTime = parseInt(String(playTime / 60))
@@ -93,7 +106,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
     avatarUrlBase64 = JPEG_PREFIX + avatarUrlBase64
     res.setHeader('Content-Type', 'image/svg+xml')
-    res.setHeader('Cache-Control', `public, max-age=${300}`);
+    res.setHeader('Cache-Control', `public, max-age=${300}`)
     res.send(
       steamCard(
         name,
