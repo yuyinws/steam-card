@@ -24,7 +24,7 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/
 https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 ```
 
-4.<steamID64>\</steamID64>标签里的就是你的steamid
+4.<steamID64>节点里的就是你的steamid
 
 ### 生成链接
 
@@ -67,31 +67,49 @@ https://steamcard.vercel.appcard?steamid=<yoursteamid>&theme=dark
 
 ## 开发
 
-全局安装[vercel Cli](https://vercel.com/cli)
+### 全局安装vercel Cli
+
+更多Vercel Cli的命令见[官方文档](https://vercel.com/cli)
 
 ``` shell
 npm install -g vercel
 ```
 
-克隆项目至本地
+### Fork项目
+
+### 本地调试
 
 ``` shell
-git clone https://github.com/yuyinws/steam-card.git
+# 进入项目根目录
+cd steam-card
+# 安装依赖
+npm install
+# 启动服务
+vercel dev
 ```
 
-申请一个[Steam Api Key](https://steamcommunity.com/dev/apikey)
-
-配置ENV文件
+### ENV文件配置
 
 ``` shell
 cp .env.example .env
-
-#在STEAM_KEY中输入申请的KEY
 ```
 
-本地调试
+#### STEAM_KEY
+
+申请一个[Steam Api Key](https://steamcommunity.com/dev/apikey)
+
+将.env中的STEAM_KEY替换为你自己的KEY
+
+#### 配置代理
+
+> 由于不可抗力，在中国大陆无法访问Steam相关域名。需要配置代理。
+
+将.env文件中的代理配置指向你本地的代理程序，以Clash为例
 
 ``` shell
-vercel dev
+PROXY_HOST=localhost
+PROXY_PORT=7890
+# 为了与生产环境区分开，MODE必须要设置为development
+MODE=development
 ```
 
