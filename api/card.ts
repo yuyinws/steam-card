@@ -8,6 +8,7 @@ import {
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
 import { imageUrl2Base64 } from '../src/utils/tools'
+import errorCard from '../src/render/errorCard'
 import cheerio from 'cheerio'
 
 const key: any = process.env.STEAM_KEY
@@ -18,7 +19,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     let { steamid, theme } = req.query as any
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null) {
-      throw new Error('SteamID不合法')
+      res.send(errorCard('SteamID不合法'))
     }
     theme = theme || 'dark'
     const AllData: Array<MyResponseType> = await Promise.all([
@@ -110,8 +111,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       )
     )
   } catch (error: any) {
-    console.log(error)
-    res.json('Ops!')
-    throw new Error(error)
+    res.send(errorCard(error))
   }
 }

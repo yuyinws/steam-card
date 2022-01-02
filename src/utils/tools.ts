@@ -1,4 +1,4 @@
-import { getImage } from '@/request/steamApi'
+import { getImage } from '../request/steamApi'
 
 export const imageUrl2Base64 = async (url: string): Promise<string> => {
   return new Promise(async (resolve, reject) => {
