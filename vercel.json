@@ -5,6 +5,10 @@
       "destination":"/api/card.ts"
     },
     {
+      "source":"/:steamid/:theme?",
+      "destination":"/api/card.ts"
+    },
+    {
       "source":"/",
       "destination":"https://github.com/yuyinws/steam-card/blob/master/README.md"
     }
