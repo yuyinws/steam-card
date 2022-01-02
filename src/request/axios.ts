@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { MyResponseType } from '@/types/'
+import { MyResponseType } from '@/types/index'
 import * as tunnel from 'tunnel'
 
 const agent = tunnel.httpsOverHttp({
@@ -19,8 +19,8 @@ const request = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
     const { data } = await instance.request<MyResponseType>(config)
     return data
   } catch (error) {
-    console.log(error)
-    throw new Error(error as any)
+    // console.log(error)
+    throw new Error('Steam接口请求错误')
   }
 }
 

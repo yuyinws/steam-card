@@ -9,7 +9,10 @@ const steamCard = (
   isOnline: number,
   gameImgList: string[],
   theme: string,
-  playTime: number
+  playTime: number,
+  groupIconList: string[],
+  groupCount: string,
+  badgeIcon: string
 ) => {
   const card = new Card({
     name: name,
@@ -21,12 +24,16 @@ const steamCard = (
     isOnline: isOnline,
     gameImgList: gameImgList,
     theme: theme,
-    playTime: playTime
+    playTime: playTime,
+    groupIconList: groupIconList,
+    groupCount: groupCount,
+    badgeIcon: badgeIcon
   })
 
   card.updateIsOnline()
   card.setStyle()
   card.renderGames()
+  card.renderGroup()
   return card.render()
 }
 

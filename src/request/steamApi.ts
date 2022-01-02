@@ -1,4 +1,4 @@
-import { PlayerSummaries, RecentlyPlayedGames, OwnedGames,BaseParams } from '../types'
+import { PlayerSummaries, RecentlyPlayedGames, OwnedGames,BaseParams } from '@/types/index'
 import request from './axios'
 
 export const getPlayerSummaries = (params: PlayerSummaries) => {
