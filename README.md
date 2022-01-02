@@ -2,7 +2,7 @@
 
 > 快速生成自己的steam资料卡
 
-![img](https://steamcard.vercel.app/card?steamid=76561198340841543)
+![img](https://steamcard.vercel.app/card/76561198340841543)
 
 ## 使用
 
@@ -34,13 +34,13 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 
 - 亮色
 
-  `https://steamcard.vercel.app/<yoursteamid>/light`
+  `https://steamcard.vercel.app/card/<yoursteamid>/light`
 
   ![img](https://steamcard.vercel.app/76561198340841543/light)
 
 - 暗色
 
-  `https://steamcard.vercel.app/<yoursteamid>/dark`
+  `https://steamcard.vercel.app/card/<yoursteamid>/dark`
 
   ![img](https://steamcard.vercel.app/76561198340841543/dark)
 
@@ -49,19 +49,19 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 - HTML
 
 ```html
-<img width="400" height="140" src="https://steamcard.vercel.app/<yoursteamid>"></img>  
+<img width="400" height="140" src="https://steamcard.vercel.app/card/<yoursteamid>"></img>  
 ```
 
 - Markdown
 
 ```markdown
-![](https://steamcard.vercel.app/<yoursteamid>)
+![](https://steamcard.vercel.app/card/<yoursteamid>)
 ```
 
 - 论坛/BBCode
 
 ```bbcode
-[img=400,140]https://steamcard.vercel.app/<yoursteamid>[/img]
+[img=400,140]https://steamcard.vercel.app/card/<yoursteamid>[/img]
 ```
 
 

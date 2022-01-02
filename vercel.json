@@ -5,7 +5,7 @@
       "destination":"/api/card.ts"
     },
     {
-      "source":"/:steamid/:theme?",
+      "source":"card/:steamid/:theme?",
       "destination":"/api/card.ts"
     },
     {
