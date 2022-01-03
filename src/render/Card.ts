@@ -118,10 +118,10 @@ class Card {
           <text x="67" y="58" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
           <text x="260" y="38" text-anchor="middle">游戏</text>
           <text x="260" y="18" text-anchor="middle">${this.gameCount}</text>
-          <text x="320" y="38" text-anchor="middle">徽章</text>
-          <text x="320" y="18" text-anchor="middle">${this.badgeCount}</text>
-          <text x="370" y="38" text-anchor="middle">群组</text>
-          <text x="370" y="18" text-anchor="middle">${this.groupCount}</text>
+          <text x="320" y="38" text-anchor="middle">群组</text>
+          <text x="320" y="18" text-anchor="middle">${this.groupCount}</text>
+          <text x="370" y="38" text-anchor="middle">徽章</text>
+          <text x="370" y="18" text-anchor="middle">${this.badgeCount}</text>
         </g>
         <g>
           ${this.groupSvg}
