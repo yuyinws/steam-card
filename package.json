@@ -1,11 +1,10 @@
 {
   "name": "steam-card",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.1.0",
+  "description": "快速生成你的Steam资料卡片",
   "scripts": {},
   "keywords": [],
-  "author": "",
+  "author": "yuyinws",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
