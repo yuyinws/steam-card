@@ -28,21 +28,42 @@ https://steamcommunity.com/profiles/XXXXXXXXXX/?xml=1
 
 4.`steamID64`节点里的就是你的steamid
 
-### 设置主题
+### 设置样式
 
-目前支持亮色与暗色两种主题，通过URL参数theme指定（默认为暗色主题）
+URL格式：`https://steamcard.vercel.app/card/:steamid/:theme/:group/:badge`
+
+| 参数名  | 含义             | 合法参数值                                  | 是否必传 | 默认值 |
+| ------- | ---------------- | ------------------------------------------- | -------- | ------ |
+| steamid | 用户的Steamid    | /                                           | 是       | /      |
+| theme   | 卡片主题         | `dark`：暗色；`light`：亮色                 | 否       | dark   |
+| group   | 是否显示群组图标 | `true`：显示群组图标；`false`：隐藏群组图标 | 否       | false  |
+| badge   | 是否显示徽章图标 | `true`：显示徽章图标；`false`：隐藏徽章图标 | 否       | false  |
+
+
 
 - 亮色
 
-  `https://steamcard.vercel.app/card/<yoursteamid>/light`
+  `https://steamcard.vercel.app/card/76561198340841543/light`
 
   ![img](https://steamcard.vercel.app/card/76561198340841543/light)
 
 - 暗色
 
-  `https://steamcard.vercel.app/card/<yoursteamid>/dark`
+  `https://steamcard.vercel.app/card/76561198340841543/dark`
 
   ![img](https://steamcard.vercel.app/card/76561198340841543/dark)
+
+- 显示群组图标
+
+  `https://steamcard.vercel.app/card/76561198340841543/dark/true`
+
+  ![](https://steamcard.vercel.app/card/76561198340841543/dark/true)
+
+- 显示徽章图标
+
+  `https://steamcard.vercel.app/card/76561198340841543/dark/true/true`
+
+  ![](https://steamcard.vercel.app/card/76561198340841543/dark/true/true)
 
 ### 使用示例
 

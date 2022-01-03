@@ -7,7 +7,7 @@ import {
 } from '../src/request/steamApi'
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
-import { imageUrl2Base64 } from '../src/utils/tools'
+import { imageUrl2Base64, string2Boolean } from '../src/utils/tools'
 import errorCard from '../src/render/errorCard'
 import cheerio from 'cheerio'
 
@@ -18,12 +18,18 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Content-Type', 'image/svg+xml')
   res.setHeader('Cache-Control', `public, max-age=${300}`)
   try {
-    let { steamid, theme } = req.query as any
+    let { steamid, theme, group, badge } = req.query as any
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null) {
       res.send(errorCard('SteamID不合法'))
     }
+    // 主题
     theme = theme || 'dark'
+    // 徽章参数
+    const isBadge: boolean = string2Boolean(badge)
+    // 群组参数
+    const isGroup: boolean = string2Boolean(group)
+
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key: key, steamids: steamid }),
       getRecentlyPlayedGames({
@@ -116,6 +122,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         isOnline,
         gameImgList,
         theme,
+        isBadge,
+        isGroup,
         playTime,
         groupIconList,
         groupCount,
