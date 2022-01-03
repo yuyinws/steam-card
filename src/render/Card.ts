@@ -11,6 +11,7 @@ class Card {
   groupCount = '0'
   groupSvg = ''
   badgeIcon = ''
+  badgeSvg = ''
   theme = 'dark'
   playTime = 0
   style = {
@@ -23,6 +24,8 @@ class Card {
     text: '离线',
     fill: 'white',
   }
+  isBadge = false
+  isGroup = false
   constructor({
     borderRadius,
     name,
@@ -36,7 +39,7 @@ class Card {
     playTime,
     groupIconList,
     groupCount,
-    badgeIcon
+    badgeIcon,
   }) {
     this.borderRadius = borderRadius
     this.name = name
@@ -96,6 +99,12 @@ class Card {
     this.groupSvg = groupSvg
   }
 
+  renderBadge() {
+    this.badgeSvg = `
+      <image height="35" width="35" x="347" y="50" xlink:href="${this.badgeIcon}"></image>
+    `
+  }
+
   render() {
     return `
       <svg 
@@ -125,10 +134,10 @@ class Card {
         </g>
         <g>
           ${this.groupSvg}
-          <image height="35" width="35" x="347" y="50" xlink:href="${this.badgeIcon}"></image>
+          ${this.badgeSvg}
         </g>
         <g>
-          <text x="10" y="95" font-size="10" class="text">${this.playTime}小时（过去 2 周）</text>
+          <text x="10" y="95" font-size="12" class="text">${this.playTime}小时（过去 2 周）</text>
         </g>
         <g>
           ${this.gamesSvg}
