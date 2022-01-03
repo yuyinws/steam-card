@@ -7,7 +7,7 @@ import {
 } from '../src/request/steamApi'
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
-import { imageUrl2Base64, string2Boolean } from '../src/utils/tools'
+import { imageUrl2Base64, string2Boolean, themeFormat } from '../src/utils/tools'
 import errorCard from '../src/render/errorCard'
 import cheerio from 'cheerio'
 
@@ -24,7 +24,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       res.send(errorCard('SteamID不合法'))
     }
     // 主题
-    theme = theme || 'dark'
+    theme = themeFormat(theme)
     // 徽章参数
     const isBadge: boolean = string2Boolean(badge)
     // 群组参数

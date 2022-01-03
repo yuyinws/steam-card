@@ -11,3 +11,7 @@ export const imageUrl2Base64 = async (url: string): Promise<string> => {
 export const string2Boolean = (value: string) => {
   return value === 'true'
 }
+
+export const themeFormat = (value: string) => {
+  return value === 'light' ? 'light' : 'dark'
+}
