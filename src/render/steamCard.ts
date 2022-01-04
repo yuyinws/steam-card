@@ -15,7 +15,7 @@ const steamCard = (
   groupIconList: string[],
   groupCount: string,
   badgeIcon: string
-// eslint-disable-next-line max-params
+  // eslint-disable-next-line max-params
 ) => {
   const card = new Card({
     name: name,

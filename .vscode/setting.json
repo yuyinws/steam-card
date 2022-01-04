@@ -1,4 +1,18 @@
 {
-  "eslint.validate": ["javascript", "javascriptreact", "typescript"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ]
 }
