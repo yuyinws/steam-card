@@ -8,6 +8,7 @@ specifiers:
   axios: ^0.24.0
   cheerio: ^1.0.0-rc.10
   eslint: ^8.6.0
+  eslint-config-alloy: ^4.4.0
   prettier: ^2.5.1
   tslib: ^2.3.1
   tunnel: ^0.0.6
@@ -25,6 +26,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.9.0_eslint@8.6.0+typescript@4.5.4
   '@vercel/node': 1.12.1
   eslint: 8.6.0
+  eslint-config-alloy: 4.4.0
   prettier: 2.5.1
   tunnel: 0.0.6
 
@@ -469,6 +471,10 @@ packages:
   /escape-string-regexp/4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+    dev: true
+
+  /eslint-config-alloy/4.4.0:
+    resolution: {integrity: sha512-yWG9T+ufc7V5EDg+7z1VEBi9wX259uWR73pGhTGx+FkPqlO3gdvH0kxtzuirEweJ9nXhTtMiArPcfS24VvJe2A==}
     dev: true
 
   /eslint-scope/5.1.1:

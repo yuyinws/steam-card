@@ -20,6 +20,7 @@
     "@typescript-eslint/parser": "^5.9.0",
     "@vercel/node": "^1.12.1",
     "eslint": "^8.6.0",
+    "eslint-config-alloy": "^4.4.0",
     "prettier": "^2.5.1",
     "tunnel": "^0.0.6"
   },
