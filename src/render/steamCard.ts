@@ -15,10 +15,10 @@ const steamCard = (
   groupIconList: string[],
   groupCount: string,
   badgeIcon: string
+  // eslint-disable-next-line max-params
 ) => {
   const card = new Card({
     name: name,
-    borderRadius: 4.5,
     avatarUrlBase64: avatarUrlBase64,
     playerLevel: playerLevel,
     gameCount: gameCount,
