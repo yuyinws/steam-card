@@ -12,8 +12,8 @@ import errorCard from '../src/render/errorCard'
 import cheerio from 'cheerio'
 
 const key: any = process.env.STEAM_KEY
-const JPEG_PREFIX: string = 'data:image/jpeg;base64,'
-const PNG_PREFIX: string = 'data:image/png;base64,'
+const JPEG_PREFIX = 'data:image/jpeg;base64,'
+const PNG_PREFIX = 'data:image/png;base64,'
 export default async (req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Content-Type', 'image/svg+xml')
   res.setHeader('Cache-Control', `public, max-age=${300}`)
@@ -99,14 +99,14 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     games.forEach((game: any) => {
       playTime += game.playtime_2weeks
     })
-    playTime = parseInt(String(playTime / 60))
+    playTime = parseInt(String(playTime / 60), 10)
     games.splice(5, games.length - 5)
 
     const badgeCount = badges.response.badges.length
     const playerLevel = badges.response.player_level
     let gameImgList: string[] = []
-    for (let i: number = 0; i < games.length; i++) {
-      const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${games[i].appid}/${games[i].img_logo_url}.jpg`
+    for (let game of games) {
+      const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`
       const imgBase64 = await imageUrl2Base64(url)
       gameImgList.push(JPEG_PREFIX + imgBase64)
     }

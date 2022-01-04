@@ -1,33 +1,32 @@
 class Card {
-  name = ''
-  borderRadius = 4.5
-  avatarUrlBase64 = ''
-  playerLevel = 0
-  gameCount = '0'
-  badgeCount = 0
-  gamesSvg = ''
-  gameImgList = []
-  groupIconList = []
-  groupCount = '0'
-  groupSvg = ''
-  badgeIcon = ''
-  badgeSvg = ''
-  theme = 'dark'
-  playTime = 0
-  style = {
+  private name = ''
+  private avatarUrlBase64 = ''
+  private playerLevel = 0
+  private gameCount = '0'
+  private badgeCount = 0
+  private gamesSvg = ''
+  private gameImgList = []
+  private groupIconList = []
+  private groupCount = '0'
+  private groupSvg = ''
+  private badgeIcon = ''
+  private badgeSvg = ''
+  private theme = 'dark'
+  private playTime = 0
+  private style = {
     bgColor: '',
     borderColor: '',
     fontColor: '',
   }
-  isOnline = {
+  private isOnline = {
     flag: 0,
     text: '离线',
     fill: 'white',
   }
-  isBadge = false
-  isGroup = false
-  constructor({
-    borderRadius,
+  
+  
+
+  public constructor({
     name,
     avatarUrlBase64,
     playerLevel,
@@ -41,7 +40,6 @@ class Card {
     groupCount,
     badgeIcon,
   }) {
-    this.borderRadius = borderRadius
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
@@ -56,7 +54,7 @@ class Card {
     this.badgeIcon = badgeIcon
   }
 
-  setStyle() {
+  public setStyle() {
     if (this.theme === 'dark') {
       this.style.bgColor = '#1B2838'
       this.style.fontColor = 'white'
@@ -66,7 +64,7 @@ class Card {
     }
   }
 
-  updateIsOnline() {
+  public updateIsOnline() {
     let { flag } = this.isOnline
     if (flag > 0) {
       this.isOnline.text = '在线'
@@ -76,7 +74,7 @@ class Card {
     }
   }
 
-  renderGames() {
+  public renderGames() {
     let gamesSvg = ''
     this.gameImgList.forEach((game: any, index: number) => {
       gamesSvg =
@@ -88,7 +86,7 @@ class Card {
     this.gamesSvg = gamesSvg
   }
 
-  renderGroup() {
+  public renderGroup() {
     let groupSvg = ''
     this.groupIconList.forEach((group: string, index: number) => {
       groupSvg =
@@ -99,13 +97,13 @@ class Card {
     this.groupSvg = groupSvg
   }
 
-  renderBadge() {
+  public renderBadge() {
     this.badgeSvg = `
       <image height="35" width="35" x="347" y="50" xlink:href="${this.badgeIcon}"></image>
     `
   }
 
-  render() {
+  public render() {
     return `
       <svg 
         width="400" height="140"

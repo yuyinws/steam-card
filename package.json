@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "快速生成你的Steam资料卡片",
   "scripts": {
-    "eslint": "eslint src --ext .ts"
+    "eslint": "eslint src --ext .ts && eslint api --ext .ts"
   },
   "keywords": [],
   "author": "yuyinws",
