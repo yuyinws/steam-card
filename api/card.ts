@@ -100,6 +100,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       playTime += game.playtime_2weeks
     })
     playTime = parseInt(String(playTime / 60), 10)
+    games = games.filter((game:any) => game.img_logo_url)
     games.splice(5, games.length - 5)
 
     const badgeCount = badges.response.badges.length
