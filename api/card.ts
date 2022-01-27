@@ -62,7 +62,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     // 徽章icon
     const badgeIconUrl = $('.favorite_badge_icon')
       .children()
-      .children()
       .attr('src') as string
     let badgeIcon = await imageUrl2Base64(badgeIconUrl)
     badgeIcon = PNG_PREFIX + badgeIcon

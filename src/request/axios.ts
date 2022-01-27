@@ -20,7 +20,7 @@ const request = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
     return data
   } catch (error) {
     // console.log(error)
-    throw new Error('Steam接口请求错误')
+    throw new Error(error as string)
   }
 }
 
