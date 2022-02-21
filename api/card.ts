@@ -3,7 +3,7 @@ import {
   getPlayerSummaries,
   getRecentlyPlayedGames,
   getBadges,
-  getSteamProfile,
+  getSteamProfile
 } from '../src/request/steamApi'
 import { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
@@ -36,10 +36,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         format: 'json',
         steamid: steamid,
         key: key,
-        count: 0,
+        count: 0
       }),
       getSteamProfile(steamid),
-      getBadges({ key: key, steamid: steamid }),
+      getBadges({ key: key, steamid: steamid })
     ])
     const [player, playedGames, profile, badges] = AllData
     let $ = cheerio.load(profile as any)
@@ -60,9 +60,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       .text()
 
     // 徽章icon
-    const badgeIconUrl = $('.favorite_badge_icon')
-      .children()
-      .attr('src') as string
+    const badgeIconUrl = $('.favorite_badge_icon').children().attr('src') as string
     let badgeIcon = await imageUrl2Base64(badgeIconUrl)
     badgeIcon = PNG_PREFIX + badgeIcon
     // 组icon
@@ -72,12 +70,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       .last()
       .children()
       .each((i, el) => {
-        const groupIconUrl = $(el)
-          .children()
-          .first()
-          .children()
-          .children()
-          .attr('src') as string
+        const groupIconUrl = $(el).children().first().children().children().attr('src') as string
         groupIconList.unshift(groupIconUrl)
       })
 
@@ -87,29 +80,32 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
 
     const userInfo = player?.response?.players[0]
-    const {
-      avatarfull: avatarUrl,
-      personaname: name,
-      personastate: isOnline,
-    } = userInfo
+    const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
 
+    // 最近游戏
     let games = playedGames.response.games
+    let gameImgList: string[] = []
+    if (games) {
+      games.forEach((game: any) => {
+        playTime += game.playtime_2weeks
+      })
+      games = games.filter((game: any) => game.img_logo_url)
+      games.splice(5, games.length - 5)
+
+      for (let game of games) {
+        const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`
+        const imgBase64 = await imageUrl2Base64(url)
+        gameImgList.push(JPEG_PREFIX + imgBase64)
+      }
+    }
+
+    // 游戏时间
     let playTime = 0
-    games.forEach((game: any) => {
-      playTime += game.playtime_2weeks
-    })
     playTime = parseInt(String(playTime / 60), 10)
-    games = games.filter((game:any) => game.img_logo_url)
-    games.splice(5, games.length - 5)
 
     const badgeCount = badges.response.badges.length
     const playerLevel = badges.response.player_level
-    let gameImgList: string[] = []
-    for (let game of games) {
-      const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`
-      const imgBase64 = await imageUrl2Base64(url)
-      gameImgList.push(JPEG_PREFIX + imgBase64)
-    }
+
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
     avatarUrlBase64 = JPEG_PREFIX + avatarUrlBase64
     res.send(
@@ -131,6 +127,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       )
     )
   } catch (error: any) {
+    console.log(error)
     res.send(errorCard(error))
   }
 }
