@@ -84,6 +84,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     // 最近游戏
     let games = playedGames.response.games
+    // 最近游戏时间
+    let playTime = 0
     let gameImgList: string[] = []
     if (games) {
       games.forEach((game: any) => {
@@ -100,7 +102,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
 
     // 游戏时间
-    let playTime = 0
+    
     playTime = parseInt(String(playTime / 60), 10)
 
     const badgeCount = badges.response.badges.length
