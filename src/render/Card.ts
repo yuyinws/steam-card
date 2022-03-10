@@ -79,7 +79,7 @@ class Card {
     this.gameImgList.forEach((game: any, index: number) => {
       gamesSvg =
         gamesSvg +
-        `<image width="70" xlink:href="${game}" height="25" x="${
+        `<image width="70" xlink:href="${game}" height="33" x="${
           10 + index * 76
         }" y="105"></image>`
     })
@@ -106,7 +106,7 @@ class Card {
   public render() {
     return `
       <svg 
-        width="400" height="140"
+        width="400" height="150"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg">
           <style>
