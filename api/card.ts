@@ -91,11 +91,11 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       games.forEach((game: any) => {
         playTime += game.playtime_2weeks
       })
-      games = games.filter((game: any) => game.img_logo_url)
+      games = games.filter((game: any) => game.appid)
       games.splice(5, games.length - 5)
 
       for (let game of games) {
-        const url = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`
+        const url = `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`
         const imgBase64 = await imageUrl2Base64(url)
         gameImgList.push(JPEG_PREFIX + imgBase64)
       }
