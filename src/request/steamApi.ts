@@ -1,49 +1,49 @@
-import { PlayerSummaries, RecentlyPlayedGames, OwnedGames,BaseParams } from '@/types/index'
 import request from './axios'
+import type { BaseParams, OwnedGames, PlayerSummaries, RecentlyPlayedGames } from '@/types/index'
 
 export const getPlayerSummaries = (params: PlayerSummaries) => {
   return request({
     url: '/ISteamUser/GetPlayerSummaries/v0002/',
-    params: params,
+    params,
   })
 }
 
 export const getRecentlyPlayedGames = (params: RecentlyPlayedGames) => {
   return request({
     url: '/IPlayerService/GetRecentlyPlayedGames/v0001/',
-    params: params,
+    params,
   })
 }
 
 export const getOwnedGames = (params: OwnedGames) => {
   return request({
     url: '/IPlayerService/GetOwnedGames/v0001/',
-    params: params,
+    params,
   })
 }
 
 export const getSteamLevel = (params: BaseParams) => {
   return request({
     url: '/IPlayerService/GetSteamLevel/v1/',
-    params: params,
+    params,
   })
 }
 
 export const getBadges = (params: BaseParams) => {
   return request({
     url: '/IPlayerService/GetBadges/v1/',
-    params: params,
+    params,
   })
 }
 
-export const getImage = (url:string) => {
+export const getImage = (url: string) => {
   return request({
-    url:url,
-    responseType:'arraybuffer'
+    url,
+    responseType: 'arraybuffer',
   })
 }
 
-export const getSteamProfile = (id:any) => {
+export const getSteamProfile = (id: any) => {
   return request({
     url: `https://steamcommunity.com/profiles/${id}/`,
     headers: {
