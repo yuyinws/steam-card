@@ -1,6 +1,7 @@
-import axios, { AxiosRequestConfig } from 'axios'
-import { MyResponseType } from '@/types/index'
+import type { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 import * as tunnel from 'tunnel'
+import type { MyResponseType } from '@/types/index'
 
 const agent = tunnel.httpsOverHttp({
   proxy: {
@@ -14,11 +15,12 @@ const instance = axios.create({
   httpsAgent: process.env.MODE === 'development' ? agent : false,
 })
 
-const request = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
+const request = async(config: AxiosRequestConfig): Promise<MyResponseType> => {
   try {
     const { data } = await instance.request<MyResponseType>(config)
     return data
-  } catch (error) {
+  }
+  catch (error) {
     // console.log(error)
     throw new Error(error as string)
   }

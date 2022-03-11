@@ -18,13 +18,12 @@ class Card {
     borderColor: '',
     fontColor: '',
   }
+
   private isOnline = {
     flag: 0,
     text: '离线',
     fill: 'white',
   }
-  
-  
 
   public constructor({
     name,
@@ -58,18 +57,20 @@ class Card {
     if (this.theme === 'dark') {
       this.style.bgColor = '#1B2838'
       this.style.fontColor = 'white'
-    } else if (this.theme === 'light') {
+    }
+    else if (this.theme === 'light') {
       this.style.bgColor = '#F3F4F6'
       this.style.fontColor = '#333'
     }
   }
 
   public updateIsOnline() {
-    let { flag } = this.isOnline
+    const { flag } = this.isOnline
     if (flag > 0) {
       this.isOnline.text = '在线'
       this.isOnline.fill = '#10B981'
-    } else {
+    }
+    else {
       this.isOnline.fill = this.theme === 'dark' ? 'white' : '#333'
     }
   }
@@ -77,9 +78,9 @@ class Card {
   public renderGames() {
     let gamesSvg = ''
     this.gameImgList.forEach((game: any, index: number) => {
-      gamesSvg =
-        gamesSvg +
-        `<image width="70" xlink:href="${game}" height="33" x="${
+      gamesSvg
+        = `${gamesSvg
+        }<image width="70" xlink:href="${game}" height="33" x="${
           10 + index * 76
         }" y="105"></image>`
     })
@@ -89,10 +90,10 @@ class Card {
   public renderGroup() {
     let groupSvg = ''
     this.groupIconList.forEach((group: string, index: number) => {
-      groupSvg =
-        `<image height="35" width="35"  y="50" x="${
+      groupSvg
+        = `<image height="35" width="35"  y="50" x="${
           340 - (index + 1) * 42
-        }" xlink:href="${group}"></image>` + groupSvg
+        }" xlink:href="${group}"></image>${groupSvg}`
     })
     this.groupSvg = groupSvg
   }

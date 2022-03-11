@@ -1,13 +1,14 @@
 {
   "name": "steam-card",
+  "type": "module",
   "version": "1.1.0",
   "description": "快速生成你的Steam资料卡片",
-  "scripts": {
-    "eslint": "eslint src --ext .ts && eslint api --ext .ts"
-  },
   "keywords": [],
+  "license": "MIT",
   "author": "yuyinws",
-  "license": "ISC",
+  "scripts": {
+    "eslint": "eslint ."
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
@@ -15,14 +16,13 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.18.8",
     "@types/tunnel": "^0.0.3",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "@vercel/node": "^1.12.1",
     "eslint": "^8.6.0",
-    "eslint-config-alloy": "^4.4.0",
     "prettier": "^2.5.1",
     "tunnel": "^0.0.6"
-  },
-  "type": "module"
+  }
 }

@@ -5,10 +5,10 @@ export interface MyResponseType {
 
 export interface BaseParams {
   key: string
-  steamid?:string
+  steamid?: string
 }
 export interface PlayerSummaries extends BaseParams {
-  steamids:string
+  steamids: string
 }
 
 export interface RecentlyPlayedGames extends BaseParams {
