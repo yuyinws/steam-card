@@ -25,6 +25,8 @@ class Card {
     fill: 'white',
   }
 
+  private i18n: any
+
   public constructor({
     name,
     avatarUrlBase64,
@@ -38,6 +40,7 @@ class Card {
     groupIconList,
     groupCount,
     badgeIcon,
+    i18n,
   }) {
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
@@ -51,6 +54,7 @@ class Card {
     this.groupIconList = groupIconList
     this.groupCount = groupCount
     this.badgeIcon = badgeIcon
+    this.i18n = i18n
   }
 
   public setStyle() {
@@ -67,10 +71,11 @@ class Card {
   public updateIsOnline() {
     const { flag } = this.isOnline
     if (flag > 0) {
-      this.isOnline.text = '在线'
+      this.isOnline.text = this.i18n.__('online')
       this.isOnline.fill = '#10B981'
     }
     else {
+      this.isOnline.text = this.i18n.__('offline')
       this.isOnline.fill = this.theme === 'dark' ? 'white' : '#333'
     }
   }
@@ -80,8 +85,7 @@ class Card {
     this.gameImgList.forEach((game: any, index: number) => {
       gamesSvg
         = `${gamesSvg
-        }<image width="70" xlink:href="${game}" height="33" x="${
-          10 + index * 76
+        }<image width="70" xlink:href="${game}" height="33" x="${10 + index * 76
         }" y="105"></image>`
     })
     this.gamesSvg = gamesSvg
@@ -91,8 +95,7 @@ class Card {
     let groupSvg = ''
     this.groupIconList.forEach((group: string, index: number) => {
       groupSvg
-        = `<image height="35" width="35"  y="50" x="${
-          340 - (index + 1) * 42
+        = `<image height="35" width="35"  y="50" x="${340 - (index + 1) * 42
         }" xlink:href="${group}"></image>${groupSvg}`
     })
     this.groupSvg = groupSvg
@@ -124,11 +127,11 @@ class Card {
           <text x="67" y="22" font-size="14">${this.name}</text>
           <text x="67" y="42" font-size="10">LV. ${this.playerLevel}</text>
           <text x="67" y="58" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
-          <text x="260" y="38" text-anchor="middle">游戏</text>
+          <text x="260" y="38" text-anchor="middle">${this.i18n.__('games')}</text>
           <text x="260" y="18" text-anchor="middle">${this.gameCount}</text>
-          <text x="320" y="38" text-anchor="middle">群组</text>
+          <text x="320" y="38" text-anchor="middle">${this.i18n.__('groups')}</text>
           <text x="320" y="18" text-anchor="middle">${this.groupCount}</text>
-          <text x="370" y="38" text-anchor="middle">徽章</text>
+          <text x="370" y="38" text-anchor="middle">${this.i18n.__('badges')}</text>
           <text x="370" y="18" text-anchor="middle">${this.badgeCount}</text>
         </g>
         <g>
@@ -136,7 +139,7 @@ class Card {
           ${this.badgeSvg}
         </g>
         <g>
-          <text x="10" y="95" font-size="12" class="text">${this.playTime}小时（过去 2 周）</text>
+          <text x="10" y="95" font-size="12" class="text">${this.playTime} ${this.i18n.__('hours')} (${this.i18n.__('past_2_weeks')})</text>
         </g>
         <g>
           ${this.gamesSvg}

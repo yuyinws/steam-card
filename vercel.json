@@ -5,12 +5,17 @@
       "destination":"/api/card.ts"
     },
     {
-      "source":"/card/:steamid/:theme?/:group?/:badge?",
+      "source":"/card/:steamid/:theme?/:group?/:badge?/:lang?",
       "destination":"/api/card.ts"
     },
     {
       "source":"/",
       "destination":"https://github.com/yuyinws/steam-card/blob/master/README.md"
     }
-  ]
+  ],
+  "functions":{
+    "api/card.ts":{
+      "includeFiles": "locales/**"
+    }
+  }
 }
