@@ -28,7 +28,7 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 4.`steamID64`节点里的就是你的 steamid
 
-### 设置样式
+### 自定义样式
 
 > 我们提供了 2 种 URL 引用方式
 >
@@ -36,50 +36,33 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 >
 > 2.查询参数方式 `https://steamcard.vercel.app/card?steamid=:steamid&theme=:theme&group=:group&badge=:badge&lang=:lang`
 
-| 参数名  | 含义             | 合法参数值                                  | 是否必传 | 默认值 |
+| 参数名  | 含义             | 合法值                                      | 是否必传 | 默认值 |
 | ------- | ---------------- | ------------------------------------------- | -------- | ------ |
 | steamid | 用户的 Steamid   | /                                           | 是       | /      |
 | theme   | 卡片主题         | `dark`：暗色；`light`：亮色                 | 否       | dark   |
 | group   | 是否显示群组图标 | `true`：显示群组图标；`false`：隐藏群组图标 | 否       | false  |
 | badge   | 是否显示徽章图标 | `true`：显示徽章图标；`false`：隐藏徽章图标 | 否       | false  |
-| lange   | 卡片展示的语言   | `en`:'英文';`zh-CN`:'简体中文'              | 否       | zh-CN  |
-
-- 亮色
-
-  > `https://steamcard.vercel.app/card/76561198028121353/light`
-  >
-  > 或
-  > 
-  > `https://steamcard.vercel.app/card?steamid=76561198028121353&theme=light`
-
-
-   														      ![img](https://steamcard.vercel.app/card/76561198028121353/light)	
-
-- 暗色
-
-  `https://steamcard.vercel.app/card/76561198028121353/dark`
-
-  ![img](https://steamcard.vercel.app/card/76561198028121353/dark)
-
-- 显示群组图标
-
-  > `https://steamcard.vercel.app/card/76561198028121353/dark/true`
-  >
-  > 或
-  >
-  > `https://steamcard.vercel.app/card?steamid=76561198028121353&group=true`
-
-  ![](https://steamcard.vercel.app/card/76561198028121353/dark/true)
-
-- 显示徽章图标
-
-  `https://steamcard.vercel.app/card/76561198028121353/dark/true/true`
-
-  ![](https://steamcard.vercel.app/card/76561198028121353/dark/true/true)
-
-​		
+| lang    | 卡片展示的语言   | `en`:'英文';`zh-CN`:'简体中文'              | 否       | zh-CN  |
 
 ### 使用示例
+
+#### 显示群组/徽章图标
+
+![](https://steamcard.vercel.app/card/76561198028121353/dark/true)
+
+`https://steamcard.vercel.app/card/76561198028121353/dark/true/true`
+
+#### 使用亮色主题
+
+![](https://steamcard.vercel.app/card/76561198028121353/light/true)
+
+`https://steamcard.vercel.app/card/76561198028121353/light/true/true`
+
+#### 指定语言
+
+![](`https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en`)
+
+### URL引用
 
 - HTML
 
