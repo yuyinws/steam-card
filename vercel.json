@@ -12,10 +12,5 @@
       "source":"/",
       "destination":"https://github.com/yuyinws/steam-card/blob/master/README.md"
     }
-  ],
-  "functions":{
-    "api/card.ts":{
-      "includeFiles": "locales/**"
-    }
-  }
+  ]
 }

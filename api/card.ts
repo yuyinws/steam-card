@@ -25,7 +25,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     lang = lang || 'zh-CN'
     i18n.configure({
       locales: ['en', 'zh-CN'],
-      directory: path.join(__dirname, 'locales'),
+      directory: path.join(__dirname, '../locales'),
     })
     i18n.setLocale(lang)
     const numberReg = /[A-Za-z]/
