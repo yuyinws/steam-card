@@ -1,5 +1,7 @@
+import path from 'path'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import cheerio from 'cheerio'
+import i18n from 'i18n'
 import {
   getBadges,
   getPlayerSummaries,
@@ -19,11 +21,16 @@ export default async(req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Cache-Control', `public, max-age=${300}`)
   try {
     // eslint-disable-next-line prefer-const
-    let { steamid, theme, group, badge } = req.query as any
+    let { steamid, theme, group, badge, lang } = req.query as any
+    lang = lang || 'zh-CN'
+    i18n.configure({
+      locales: ['en', 'zh-CN'],
+      directory: path.join(__dirname, 'locales'),
+    })
+    i18n.setLocale(lang)
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
       res.send(errorCard('SteamID不合法'))
-
     // 主题
     theme = themeFormat(theme)
     // 徽章参数
@@ -127,6 +134,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
         groupIconList,
         groupCount,
         badgeIcon,
+        i18n,
       ),
     )
   }

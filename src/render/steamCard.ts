@@ -15,6 +15,7 @@ const steamCard = (
   groupIconList: string[],
   groupCount: string,
   badgeIcon: string,
+  i18n: any,
   // eslint-disable-next-line max-params
 ) => {
   const card = new Card({
@@ -30,6 +31,7 @@ const steamCard = (
     groupIconList,
     groupCount,
     badgeIcon,
+    i18n,
   })
 
   card.updateIsOnline()
