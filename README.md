@@ -62,6 +62,8 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 ![](`https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en`)
 
+`https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en`
+
 ### URL引用
 
 - HTML
