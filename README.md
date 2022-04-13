@@ -32,41 +32,48 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 4.`steamID64`节点里的就是你的 steamid
 
-### 自定义样式
+### 关键字配置
 
-> 我们提供了 2 种 URL 引用方式
->
-> 1.路径参数方式：`https://steamcard.vercel.app/card/:steamid/:theme?/:group?/:badge?/:lang?`
->
-> 2.查询参数方式 `https://steamcard.vercel.app/card?steamid=:steamid&theme=:theme&group=:group&badge=:badge&lang=:lang`
+通过在URL中传递关键字，可以对卡片进行个性化配置
 
-| 参数名  | 含义             | 合法值                                      | 是否必传 | 默认值 |
-| ------- | ---------------- | ------------------------------------------- | -------- | ------ |
-| steamid | 用户的 Steamid   | /                                           | 是       | /      |
-| theme   | 卡片主题         | `dark`：暗色；`light`：亮色                 | 否       | dark   |
-| group   | 是否显示群组图标 | `true`：显示群组图标；`false`：隐藏群组图标 | 否       | false  |
-| badge   | 是否显示徽章图标 | `true`：显示徽章图标；`false`：隐藏徽章图标 | 否       | false  |
-| lang    | 卡片展示的语言   | `en`:'英文';`zh-CN`:'简体中文'              | 否       | zh-CN  |
+| 关键字              | 分类 | 作用         |
+| ------------------- | ---- | ------------ |
+| **dark**(默认值)    | 主题 | 使用深色主题 |
+| **light**           | 主题 | 使用亮色主题 |
+| **badge**           | 图标 | 显示徽章图标 |
+| **group**           | 图标 | 显示群组图标 |
+| **zh-CN**（默认值） | 语言 | 显示简体中文 |
+| **en**              | 语言 | 显示英文     |
+
+> 深色主题和简体中文是默认开启的配置
 
 ### 使用示例
 
-#### 显示群组/徽章图标
+#### 不传递任何关键字
 
-![](https://steamcard.vercel.app/card/76561198028121353/dark/true)
+`https://steamcard.vercel.app/card/76561198028121353`
 
-`https://steamcard.vercel.app/card/76561198028121353/dark/true/true`
+![](https://steamcard.vercel.app/card/76561198028121353)
+
+
+
+#### 显示徽章和群组图标
+
+`https://steamcard.vercel.app/card/76561198028121353/badge,group`
+
+![](https://steamcard.vercel.app/card/76561198028121353/badge,group)
 
 #### 使用亮色主题
 
-![](https://steamcard.vercel.app/card/76561198028121353/light/true)
+`https://steamcard.vercel.app/card/76561198028121353/badge,group,light`
 
-`https://steamcard.vercel.app/card/76561198028121353/light/true/true`
+![](https://steamcard.vercel.app/card/76561198028121353/badge,group,light)
 
 #### 指定语言
 
-![](https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en)
+`https://steamcard.vercel.app/card/76561198028121353/badge,group,light,en`
 
-``https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en``
+![](https://steamcard.vercel.app/card/76561198028121353/badge,group,light,en)
 
 ### URL引用
 
