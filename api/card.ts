@@ -28,29 +28,31 @@ export default async(req: VercelRequest, res: VercelResponse) => {
       badge: false,
       lang: 'zh-CN',
     }
-    settings = settings.split(',')
-    settings.forEach((item: string) => {
-      switch (item) {
-        case 'dark':
-          settingMap.theme = 'dark'
-          break
-        case 'light':
-          settingMap.theme = 'light'
-          break
-        case 'group':
-          settingMap.group = true
-          break
-        case 'badge':
-          settingMap.badge = true
-          break
-        case 'zh-CN':
-          settingMap.lang = 'zh-CN'
-          break
-        case 'en':
-          settingMap.lang = 'en'
-          break
-      }
-    })
+    if (settings) {
+      settings = settings.split(',')
+      settings.forEach((item: string) => {
+        switch (item) {
+          case 'dark':
+            settingMap.theme = 'dark'
+            break
+          case 'light':
+            settingMap.theme = 'light'
+            break
+          case 'group':
+            settingMap.group = true
+            break
+          case 'badge':
+            settingMap.badge = true
+            break
+          case 'zh-CN':
+            settingMap.lang = 'zh-CN'
+            break
+          case 'en':
+            settingMap.lang = 'en'
+            break
+        }
+      })
+    }
 
     if (group)
       settingMap.group = string2Boolean(group)
