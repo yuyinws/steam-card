@@ -6,5 +6,6 @@
   "groups": "Groups",
   "hours": "hours",
   "past_2_weeks":"Past 2 Weeks",
-  "invalid_steamid": "Invalid SteamID"
+  "invalid_steamid": "Invalid SteamID",
+  "error-info": "Error Info"
 }

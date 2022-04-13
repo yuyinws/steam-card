@@ -10,7 +10,7 @@ import {
 } from '../src/request/steamApi'
 import type { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
-import { imageUrl2Base64, string2Boolean, themeFormat } from '../src/utils/tools'
+import { imageUrl2Base64, string2Boolean } from '../src/utils/tools'
 import errorCard from '../src/render/errorCard'
 
 const key: any = process.env.STEAM_KEY
@@ -21,22 +21,55 @@ export default async(req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Cache-Control', `public, max-age=${300}`)
   try {
     // eslint-disable-next-line prefer-const
-    let { steamid, theme, group, badge, lang } = req.query as any
-    lang = lang || 'zh-CN'
+    let { steamid, settings, group, badge } = req.query as any
+    const settingMap = {
+      theme: 'dark',
+      group: false,
+      badge: false,
+      lang: 'zh-CN',
+    }
+    settings = settings.split(',')
+    settings.forEach((item: string) => {
+      switch (item) {
+        case 'dark':
+          settingMap.theme = 'dark'
+          break
+        case 'light':
+          settingMap.theme = 'light'
+          break
+        case 'group':
+          settingMap.group = true
+          break
+        case 'badge':
+          settingMap.badge = true
+          break
+        case 'zh-CN':
+          settingMap.lang = 'zh-CN'
+          break
+        case 'en':
+          settingMap.lang = 'en'
+          break
+      }
+    })
+
+    if (group)
+      settingMap.group = string2Boolean(group)
+
+    if (badge)
+      settingMap.badge = string2Boolean(badge)
+
     i18n.configure({
       locales: ['en', 'zh-CN'],
       directory: path.join(__dirname, '../locales'),
     })
-    i18n.setLocale(lang)
+    i18n.setLocale(settingMap.lang)
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
-      res.send(errorCard('SteamID不合法'))
-    // 主题
-    theme = themeFormat(theme)
+      res.send(errorCard(i18n.__('invalid_steamid'), i18n))
     // 徽章参数
-    const isBadge: boolean = string2Boolean(badge)
+    const isBadge: boolean = settingMap.badge
     // 群组参数
-    const isGroup: boolean = string2Boolean(group)
+    const isGroup: boolean = settingMap.group
 
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
@@ -127,7 +160,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
         badgeCount,
         isOnline,
         gameImgList,
-        theme,
+        settingMap.theme,
         isBadge,
         isGroup,
         playTime,
@@ -140,6 +173,6 @@ export default async(req: VercelRequest, res: VercelResponse) => {
   }
   catch (error: any) {
     // console.log(error)
-    res.send(errorCard(error))
+    res.send(errorCard(error, i18n))
   }
 }

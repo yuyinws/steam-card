@@ -5,7 +5,7 @@
       "destination":"/api/card.ts"
     },
     {
-      "source":"/card/:steamid/:theme?/:group?/:badge?/:lang?",
+      "source":"/card/:steamid/:settings?/:group?/:badge?",
       "destination":"/api/card.ts"
     },
     {
