@@ -14,7 +14,7 @@
 
 ### 找到自己的 steamid
 
-1.登录网页 steam，进入个人主页。
+1.[登录](https://steamcommunity.com/login/home/) steam，进入个人主页。
 
 2.这时你会看到类似一个这样的链接：
 
@@ -97,44 +97,46 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 ## 开发
 
-### 全局安装 vercel Cli
+>前置条件:
+>
+>**Node >=14**
+>
+>一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
-更多 Vercel Cli 的命令见[官方文档](https://vercel.com/cli)
+### 全局安装 vercel Cli
 
 ```shell
 npm install -g vercel
 ```
+
+> 更多 Vercel Cli 的命令见[官方文档](https://vercel.com/cli)
 
 ### Fork 项目
 
 ### 本地调试
 
 ```shell
-# 进入项目根目录
-cd steam-card
+复制配置文件
+cp .env.example .env
+```
 
-# 安装依赖,推荐使用pnpm作为包管理器
+将你的Steam API KEY添加到配置文件中
+
+```shell
+STEAM_KEY=YOUR_STEAM_KEY
+```
+
+```shell
+# 安装依赖
 pnpm install
-# or
+# 或
 yarn install
-# or
+# 或
 npm install
 
 # 启动服务
 vercel dev
 ```
-
-### ENV 文件配置
-
-```shell
-cp .env.example .env
-```
-
-#### STEAM_KEY
-
-申请一个[Steam Api Key](https://steamcommunity.com/dev/apikey)
-
-将.env 中的 STEAM_KEY 替换为你自己的 KEY
 
 #### 配置代理
 

@@ -1,12 +1,11 @@
 # SteamCard
 
 <p align='center'>
-<b></b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English简体中文</a>
+<b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README.md">简体中文</a>
 </p>
-
 **Generate Your Steam Proflle Quickly**
 
-![img](https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en)
+![img](https://steamcard.vercel.app/card/76561198028121353/en)
 
 ## Usage
 
@@ -16,7 +15,7 @@
 
 1.[Login](https://steamcommunity.com/login/home/) steam and go to your profile page
 
-2.now your will see a URL like this：
+2.Now your will see a URL like this：
 
 ```
 https://steamcommunity.com/profiles/76561198028121353/
@@ -24,66 +23,52 @@ https://steamcommunity.com/profiles/76561198028121353/
 
 If your not use custom url，the number is your steamid
 
-3.iI your use custom url，add  `?xml=1` in your custom url , like this:
+3.If your use custom url，add  `?xml=1` in your custom url , like this:
 
 ```
 https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 ```
 
-4.node`steamID64`is your steamid
+4.Node`steamID64`is your steamid
 
-### 设置样式
+### Keyword Setting
 
-> 我们提供了 2 种 URL 引用方式
->
-> 1.路径参数方式：`https://steamcard.vercel.app/card/:steamid/:theme?/:group?/:badge?/:lang?`
->
-> 2.查询参数方式 `https://steamcard.vercel.app/card?steamid=:steamid&theme=:theme&group=:group&badge=:badge&lang=:lang`
+Cards can be personalized by passing keywords in the URL
 
-| 参数名  | 含义             | 合法参数值                                  | 是否必传 | 默认值 |
-| ------- | ---------------- | ------------------------------------------- | -------- | ------ |
-| steamid | 用户的 Steamid   | /                                           | 是       | /      |
-| theme   | 卡片主题         | `dark`：暗色；`light`：亮色                 | 否       | dark   |
-| group   | 是否显示群组图标 | `true`：显示群组图标；`false`：隐藏群组图标 | 否       | false  |
-| badge   | 是否显示徽章图标 | `true`：显示徽章图标；`false`：隐藏徽章图标 | 否       | false  |
-| lange   | 卡片展示的语言   | `en`:'英文';`zh-CN`:'简体中文'              | 否       | zh-CN  |
+| Keyword              | Category | Feature                |
+| -------------------- | -------- | ---------------------- |
+| **dark**(default)    | theme    | Use dark theme         |
+| **light**            | theme    | Use light theme        |
+| **badge**            | icon     | Show badge icon        |
+| **group**            | icon     | Show group icon        |
+| **zh-CN**（default） | language | Use Simplified Chinese |
+| **en**               | language | Use English            |
 
-- 亮色
+> Dark theme and Simplified Chinese is default setting
 
-  > `https://steamcard.vercel.app/card/76561198028121353/light`
-  >
-  > 或
-  >
-  > `https://steamcard.vercel.app/card?steamid=76561198028121353&theme=light`
+### Example case
+
+#### Use English
+
+`https://steamcard.vercel.app/card/76561198028121353/en`
+
+![](https://steamcard.vercel.app/card/76561198028121353/en)
 
 
-   														      ![img](https://steamcard.vercel.app/card/76561198028121353/light)	
 
-- 暗色
+#### Show badge and group icon
 
-  `https://steamcard.vercel.app/card/76561198028121353/dark`
+`https://steamcard.vercel.app/card/76561198028121353/en,badge,group`
 
-  ![img](https://steamcard.vercel.app/card/76561198028121353/dark)
+![](https://steamcard.vercel.app/card/76561198028121353/en,badge,group)
 
-- 显示群组图标
+#### Use light theme
 
-  > `https://steamcard.vercel.app/card/76561198028121353/dark/true`
-  >
-  > 或
-  >
-  > `https://steamcard.vercel.app/card?steamid=76561198028121353&group=true`
+`https://steamcard.vercel.app/card/76561198028121353/en,badge,group,light`
 
-  ![](https://steamcard.vercel.app/card/76561198028121353/dark/true)
+![](https://steamcard.vercel.app/card/76561198028121353/en,badge,group,light)
 
-- 显示徽章图标
-
-  `https://steamcard.vercel.app/card/76561198028121353/dark/true/true`
-
-  ![](https://steamcard.vercel.app/card/76561198028121353/dark/true/true)
-
-	​	
-
-### 使用示例
+### Use URL
 
 - HTML
 
@@ -97,62 +82,57 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 ![](https://steamcard.vercel.app/card/76561198028121353)
 ```
 
-- 论坛/BBCode
+- BBCode
 
 ```bbcode
 [img=400,140]https://steamcard.vercel.app/card/76561198028121353[/img]
 ```
 
-## 开发
+## Develop
 
-### 全局安装 vercel Cli
+> Requirement:
+>
+> **Node >=14**
+>
+> **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
-更多 Vercel Cli 的命令见[官方文档](https://vercel.com/cli)
+### Install Vercel Cli
 
 ```shell
 npm install -g vercel
 ```
 
-### Fork 项目
+> Please checkout [offical docs](https://vercel.com/cli) about Vercel Cli
 
-### 本地调试
+### Fork this project
+
+### Local development
 
 ```shell
-# 进入项目根目录
-cd steam-card
+# copy a .env file
+cp .env.example .env
+```
 
-# 安装依赖,推荐使用pnpm作为包管理器
-pnpm install
+Add your Steam API KEY on .env file
+
+```shell
+# install dependencies
+pnpm install 
 # or
 yarn install
 # or
 npm install
 
-# 启动服务
+# start the service
 vercel dev
 ```
 
-### ENV 文件配置
+#### Set Proxy
 
-```shell
-cp .env.example .env
-```
-
-#### STEAM_KEY
-
-申请一个[Steam Api Key](https://steamcommunity.com/dev/apikey)
-
-将.env 中的 STEAM_KEY 替换为你自己的 KEY
-
-#### 配置代理
-
-> 由于不可抗力，在中国大陆无法访问 Steam 相关域名。需要配置代理。
-
-将.env 文件中的代理配置指向你本地的代理程序，以 Clash 为例
+> If you can only access Steam websites via VPN,you may need set Proxy in .env file like this
 
 ```shell
 PROXY_HOST=localhost
 PROXY_PORT=7890
-# 为了与生产环境区分开，MODE必须要设置为development
 MODE=development
 ```
