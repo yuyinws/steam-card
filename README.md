@@ -1,5 +1,9 @@
 # SteamCard
 
+<p align='center'>
+<b>简体中文</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English</a>
+</p>
+
 **快速生成自己的 steam 资料卡**
 
 ![img](https://steamcard.vercel.app/card/76561198028121353)
@@ -60,7 +64,9 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 #### 指定语言
 
-![](`https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en`)
+![](https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en)
+
+``https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en``
 
 ### URL引用
 

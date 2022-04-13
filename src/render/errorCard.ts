@@ -1,9 +1,9 @@
-const errorCard = (errMsg: string) => {
+const errorCard = (errMsg: string, i18n: any) => {
   return `
     <svg width="400" height="140" xmlns="http://www.w3.org/2000/svg">
       <rect fill="#F3F4F6" rx="4.5" stroke="#e4e2e2" stroke-opacity="1" width="100%" height="100%"></rect>
       <text x="10" y="50" text-anchor="start" fill="red">
-        错误信息:
+        ${i18n.__('error-info')}
       </text>
       <text x="10" y="80" fill="red" font-size="10">
         ${errMsg}

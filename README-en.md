@@ -1,5 +1,9 @@
 # SteamCard
 
+<p align='center'>
+<b></b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English简体中文</a>
+</p>
+
 **Generate Your Steam Proflle Quickly**
 
 ![img](https://steamcard.vercel.app/card?steamid=76561198028121353&lang=en)

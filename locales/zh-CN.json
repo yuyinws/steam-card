@@ -6,5 +6,6 @@
   "groups": "群组",
   "hours": "小时",
   "past_2_weeks":"过去2周",
-  "invalid_steamid": "SteamID不合法"
+  "invalid_steamid": "SteamID不合法",
+  "error-info": "错误信息"
 }
