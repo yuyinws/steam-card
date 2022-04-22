@@ -152,7 +152,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     const playerLevel = badges.response.player_level
 
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
-    avatarUrlBase64 = JPEG_PREFIX + avatarUrlBase64
+    avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : ''
     res.send(
       steamCard(
         name,
@@ -174,7 +174,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     )
   }
   catch (error: any) {
-    // console.log(error)
+    // console.log("🚀 ~ file: card.ts ~ line 177 ~ async ~ error", error)
     res.send(errorCard(error, i18n))
   }
 }
