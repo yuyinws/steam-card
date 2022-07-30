@@ -1,6 +1,6 @@
 import path from 'path'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import i18n from 'i18n'
 import {
   getBadges,
@@ -85,7 +85,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
       getBadges({ key, steamid }),
     ])
     const [player, playedGames, profile, badges] = AllData
-    const $ = cheerio.load(profile as any)
+    const $ = load(profile as any)
     // 游戏数
     const gameCount = $('.profile_item_links')
       .children()
