@@ -1,6 +1,5 @@
 import path from 'path'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { load } from 'cheerio'
 import i18n from 'i18n'
 import {
   getBadges,
@@ -10,8 +9,9 @@ import {
 } from '../src/request/steamApi'
 import type { MyResponseType } from '../src/types/index'
 import { steamCard } from '../src/render/steamCard'
-import { imageUrl2Base64, string2Boolean } from '../src/utils/tools'
+import { imageUrl2Base64 } from '../src/utils/tools'
 import errorCard from '../src/render/errorCard'
+import { crawler, data, setting } from '../src/logic'
 
 const key: any = process.env.STEAM_KEY
 const JPEG_PREFIX = 'data:image/jpeg;base64,'
@@ -22,43 +22,8 @@ export default async(req: VercelRequest, res: VercelResponse) => {
   try {
     // eslint-disable-next-line prefer-const
     let { steamid, settings, group, badge } = req.query as any
-    const settingMap = {
-      theme: 'dark',
-      group: false,
-      badge: false,
-      lang: 'zh-CN',
-    }
-    if (settings) {
-      settings = settings.split(',')
-      settings.forEach((item: string) => {
-        switch (item) {
-          case 'dark':
-            settingMap.theme = 'dark'
-            break
-          case 'light':
-            settingMap.theme = 'light'
-            break
-          case 'group':
-            settingMap.group = true
-            break
-          case 'badge':
-            settingMap.badge = true
-            break
-          case 'zh-CN':
-            settingMap.lang = 'zh-CN'
-            break
-          case 'en':
-            settingMap.lang = 'en'
-            break
-        }
-      })
-    }
 
-    if (group)
-      settingMap.group = string2Boolean(group)
-
-    if (badge)
-      settingMap.badge = string2Boolean(badge)
+    const { settingMap } = setting(settings, group, badge)
 
     i18n.configure({
       locales: ['en', 'zh-CN'],
@@ -68,10 +33,6 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
       res.send(errorCard(i18n.__('invalid_steamid'), i18n))
-    // 徽章参数
-    const isBadge: boolean = settingMap.badge
-    // 群组参数
-    const isGroup: boolean = settingMap.group
 
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
@@ -85,74 +46,26 @@ export default async(req: VercelRequest, res: VercelResponse) => {
       getBadges({ key, steamid }),
     ])
     const [player, playedGames, profile, badges] = AllData
-    const $ = load(profile as any)
-    // 游戏数
-    const gameCount = $('.profile_item_links')
-      .children()
-      .first()
-      .children()
-      .find('.profile_count_link_total')
-      .text()
 
-    // 群组数
-    const groupCount = $('.profile_group_links')
-      .children()
-      .first()
-      .children()
-      .find('.profile_count_link_total')
-      .text()
+    const { gameCount, groupCount, badgeIconUrl, groupIconList } = crawler(profile) as any
+    const { games, playTime, badgeCount, playerLevel, avatarUrl, name, isOnline } = data(player?.response?.players[0], playedGames, badges)
 
-    // 徽章icon
-    const badgeIconUrl = $('.favorite_badge_icon').children().attr('src') as string
     let badgeIcon = await imageUrl2Base64(badgeIconUrl)
+    let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
     badgeIcon = PNG_PREFIX + badgeIcon
-    // 组icon
-    const groupIconList: string[] = []
-    $('.profile_group_links')
-      .children()
-      .last()
-      .children()
-      .each((i, el) => {
-        const groupIconUrl = $(el).children().first().children().children().attr('src') as string
-        groupIconList.unshift(groupIconUrl)
-      })
+    avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : ''
 
     for (let i = 0; i < groupIconList.length; i++) {
       groupIconList[i] = await imageUrl2Base64(groupIconList[i])
       groupIconList[i] = JPEG_PREFIX + groupIconList[i]
     }
 
-    const userInfo = player?.response?.players[0]
-    const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
-
-    // 最近游戏
-    let games = playedGames.response.games
-    // 最近游戏时间
-    let playTime = 0
-    const gameImgList: string[] = []
-    if (games) {
-      games.forEach((game: any) => {
-        playTime += game.playtime_2weeks
-      })
-      games = games.filter((game: any) => game.appid)
-      games.splice(5, games.length - 5)
-
-      for (const game of games) {
-        const url = `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`
-        const imgBase64 = await imageUrl2Base64(url)
-        gameImgList.push(JPEG_PREFIX + imgBase64)
-      }
+    for (let i = 0; i < games.length; i++) {
+      const url = `https://steamcdn-a.akamaihd.net/steam/apps/${games[i].appid}/header.jpg`
+      games[i] = await imageUrl2Base64(url)
+      games[i] = JPEG_PREFIX + games[i]
     }
 
-    // 游戏时间
-
-    playTime = parseInt(String(playTime / 60), 10)
-
-    const badgeCount = badges.response.badges.length
-    const playerLevel = badges.response.player_level
-
-    let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
-    avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : ''
     res.send(
       steamCard(
         name,
@@ -161,10 +74,10 @@ export default async(req: VercelRequest, res: VercelResponse) => {
         gameCount,
         badgeCount,
         isOnline,
-        gameImgList,
+        games,
         settingMap.theme,
-        isBadge,
-        isGroup,
+        settingMap.badge,
+        settingMap.group,
         playTime,
         groupIconList,
         groupCount,
@@ -174,7 +87,8 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     )
   }
   catch (error: any) {
-    // console.log("🚀 ~ file: card.ts ~ line 177 ~ async ~ error", error)
+    // eslint-disable-next-line no-console
+    console.log('🚀 ~ file: card.ts ~ line 177 ~ async ~ error', error)
     res.send(errorCard(error, i18n))
   }
 }
