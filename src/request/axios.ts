@@ -30,7 +30,7 @@ const request = async(config: AxiosRequestConfig): Promise<MyResponseType> => {
     return data
   }
   catch (error) {
-    console.log(error)
+    // console.log(error)
     throw new Error(error as string)
   }
 }

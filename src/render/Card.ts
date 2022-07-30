@@ -1,13 +1,12 @@
+import type { Count } from '@/types'
+
 class Card {
   private name = ''
   private avatarUrlBase64 = ''
   private playerLevel = 0
-  private gameCount = '0'
-  private badgeCount = 0
   private gamesSvg = ''
   private gameImgList = []
   private groupIconList = []
-  private groupCount = '0'
   private groupSvg = ''
   private badgeIcon = ''
   private badgeSvg = ''
@@ -26,35 +25,39 @@ class Card {
   }
 
   private i18n: any
+  private countSvg = ''
+  private counts: Count[]
 
   public constructor({
     name,
     avatarUrlBase64,
     playerLevel,
-    gameCount,
-    badgeCount,
+    // gameCount,
+    // badgeCount,
     isOnline,
     gameImgList,
     theme,
     playTime,
     groupIconList,
-    groupCount,
+    // groupCount,
     badgeIcon,
     i18n,
+    counts,
   }) {
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
-    this.gameCount = gameCount
-    this.badgeCount = badgeCount
+    // this.gameCount = gameCount
+    // this.badgeCount = badgeCount
     this.isOnline.flag = isOnline
     this.gameImgList = gameImgList
     this.theme = theme
     this.playTime = playTime
     this.groupIconList = groupIconList
-    this.groupCount = groupCount
+    // this.groupCount = groupCount
     this.badgeIcon = badgeIcon
     this.i18n = i18n
+    this.counts = counts
   }
 
   public setStyle() {
@@ -107,6 +110,15 @@ class Card {
     `
   }
 
+  public renderCounts() {
+    this.counts.forEach((count: Count, index) => {
+      this.countSvg += `
+        <text x="${260 + index * 40}" y="38" text-anchor="middle">${count.name}</text>
+        <text x="${260 + index * 40}" y="18" text-anchor="middle">${count.count}</text>
+      `
+    })
+  }
+
   public render() {
     return `
       <svg 
@@ -127,12 +139,7 @@ class Card {
           <text x="67" y="22" font-size="14">${this.name}</text>
           <text x="67" y="42" font-size="10">LV. ${this.playerLevel}</text>
           <text x="67" y="58" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
-          <text x="260" y="38" text-anchor="middle">${this.i18n.__('games')}</text>
-          <text x="260" y="18" text-anchor="middle">${this.gameCount}</text>
-          <text x="320" y="38" text-anchor="middle">${this.i18n.__('groups')}</text>
-          <text x="320" y="18" text-anchor="middle">${this.groupCount}</text>
-          <text x="370" y="38" text-anchor="middle">${this.i18n.__('badges')}</text>
-          <text x="370" y="18" text-anchor="middle">${this.badgeCount}</text>
+          ${this.countSvg}
         </g>
         <g>
           ${this.groupSvg}

@@ -4,8 +4,6 @@ const steamCard = (
   name: string,
   avatarUrlBase64: string,
   playerLevel: number,
-  gameCount: string,
-  badgeCount: number,
   isOnline: number,
   gameImgList: string[],
   theme: string,
@@ -13,30 +11,29 @@ const steamCard = (
   isGroup: boolean,
   playTime: number,
   groupIconList: string[],
-  groupCount: string,
   badgeIcon: string,
   i18n: any,
+  counts,
   // eslint-disable-next-line max-params
 ) => {
   const card = new Card({
     name,
     avatarUrlBase64,
     playerLevel,
-    gameCount,
-    badgeCount,
     isOnline,
     gameImgList,
     theme,
     playTime,
     groupIconList,
-    groupCount,
     badgeIcon,
     i18n,
+    counts,
   })
 
   card.updateIsOnline()
   card.setStyle()
   card.renderGames()
+  card.renderCounts()
   if (isGroup)
     card.renderGroup()
 
