@@ -203,13 +203,13 @@ class Card {
           <div class="user-info">
             <img class="avatar" src="${this.avatarUrlBase64}" width="60" height="60" />
             <div class="status">
-              <div style="font-size:12px">
+              <div style="font-size:12px;font-weight:bold">
                   ${this.name}
               </div>
-              <div style="font-size:12px">
+              <div style="font-size:12px;font-weight:bold">
                   LV. ${this.playerLevel}
               </div>
-              <div style="font-size:12px">
+              <div style="font-size:12px;font-weight:bold">
                   ${this.onlineSvg}
               </div>
             </div>

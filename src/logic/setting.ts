@@ -29,6 +29,18 @@ export function setting(_setting: string, group: string, badge: string) {
         case 'light':
           setting.theme = 'light'
           break
+        case 'tokyonight':
+          setting.theme = 'tokyonight'
+          break
+        case 'radical':
+          setting.theme = 'radical'
+          break
+        case 'solarized-light':
+          setting.theme = 'solarized-light'
+          break
+        case 'ocean-dark':
+          setting.theme = 'ocean-dark'
+          break
         case 'group':
           setting.group = true
           break
