@@ -7,7 +7,9 @@
     {
       "source":"/card/:steamid/:settings?/:group?/:badge?",
       "destination":"/api/card.ts"
-    },
+    }
+  ],
+  "redirects":[
     {
       "source":"/",
       "destination":"https://steam-card-guide.vercel.app/"
