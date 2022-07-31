@@ -3,6 +3,7 @@
 <p align='center'>
 <b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README.md">简体中文</a>
 </p>
+
 **Generate Your Steam Proflle Quickly**
 
 ![img](https://steamcard.vercel.app/card/76561198028121353/en)
@@ -114,6 +115,9 @@ cp .env.example .env
 ```
 
 Add your Steam API KEY on .env file
+```shell
+STEAM_KEY=YOUR_STEAM_KEY
+```
 
 ```shell
 # install dependencies
