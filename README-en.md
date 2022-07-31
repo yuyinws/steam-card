@@ -99,7 +99,7 @@ Cards can be personalized by passing keywords in the URL
 
 > Requirement:
 >
-> **Node >=14**
+> **Node >=16**
 >
 > **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
@@ -146,3 +146,8 @@ PROXY_HOST=localhost
 PROXY_PORT=7890
 MODE=development
 ```
+
+## Thanks
+[github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+
+[Vercel](https://vercel.com/)
