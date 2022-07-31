@@ -26,14 +26,14 @@ export function crawler(html: any) {
     .find('.profile_count_link_total')
     .text()
 
-  groupCount = groupCount.replaceAll('\n', '').replaceAll('\t', '')
+  groupCount = groupCount.toString().replaceAll('\n', '').replaceAll('\t', '')
 
   const badgeIconUrl = $('.favorite_badge_icon').children().attr('src') as string
 
   $('.profile_item_links').children().each((i, el) => {
     const itemName = $(el).children().find('.count_link_label').text()
     let itemCount = $(el).children().find('.profile_count_link_total').text()
-    itemCount = itemCount.replaceAll('\n', '').replaceAll('\t', '')
+    itemCount = itemCount.toString().replaceAll('\n', '').replaceAll('\t', '')
 
     if (itemName === 'Games')
       gameCount = itemCount
