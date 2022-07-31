@@ -1,5 +1,7 @@
 # SteamCard
 
+- [User Guide Page](https://steam-card-guide.vercel.app/)
+
 <p align='center'>
 <b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README.md">简体中文</a>
 </p>
@@ -36,14 +38,18 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 Cards can be personalized by passing keywords in the URL
 
-| Keyword              | Category | Feature                |
-| -------------------- | -------- | ---------------------- |
-| **dark**(default)    | theme    | Use dark theme         |
-| **light**            | theme    | Use light theme        |
-| **badge**            | icon     | Show badge icon        |
-| **group**            | icon     | Show group icon        |
-| **zh-CN**（default） | language | Use Simplified Chinese |
-| **en**               | language | Use English            |
+| Keyword              | Category   | Feature                |
+| -------------------- | ---------- | ---------------------- |
+| **dark**(default)    | theme      | Use dark theme         |
+| **light**            | theme      | Use light theme        |
+| **badge**            | icon       | Show badge icon        |
+| **group**            | icon       | Show group icon        |
+| **artworks**         | statistics | show artwork count     |
+| **screenshots**      | statistics | show screenshot count  |
+| **reviews**          | statistics | show review count      |
+| **guides**           | statistics | show guide count       |
+| **zh-CN**（default） | language   | Use Simplified Chinese |
+| **en**               | language   | Use English            |
 
 > Dark theme and Simplified Chinese is default setting
 

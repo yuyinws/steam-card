@@ -10,7 +10,7 @@
     },
     {
       "source":"/",
-      "destination":"https://github.com/yuyinws/steam-card/blob/master/README.md"
+      "destination":"https://steam-card-guide.vercel.app/"
     }
   ],
   "functions":{

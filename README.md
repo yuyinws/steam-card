@@ -1,5 +1,7 @@
 # SteamCard
 
+- [用户指南](https://steam-card-guide.vercel.app/)
+
 <p align='center'>
 <b>简体中文</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English</a>
 </p>
@@ -36,14 +38,18 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 通过在URL中传递关键字，可以对卡片进行个性化配置
 
-| 关键字              | 分类 | 作用         |
-| ------------------- | ---- | ------------ |
-| **dark**(默认值)    | 主题 | 使用深色主题 |
-| **light**           | 主题 | 使用亮色主题 |
-| **badge**           | 图标 | 显示徽章图标 |
-| **group**           | 图标 | 显示群组图标 |
-| **zh-CN**（默认值） | 语言 | 显示简体中文 |
-| **en**              | 语言 | 显示英文     |
+| 关键字              | 分类 | 作用           |
+| ------------------- | ---- | -------------- |
+| **dark**(默认值)    | 主题 | 使用深色主题   |
+| **light**           | 主题 | 使用亮色主题   |
+| **badge**           | 图标 | 显示徽章图标   |
+| **group**           | 图标 | 显示群组图标   |
+| **artworks**        | 统计 | 显示艺术作品数 |
+| **screenshots**     | 统计 | 显示截图数     |
+| **guides**          | 统计 | 显示指南数     |
+| **reviews**         | 统计 | 显示评测数     |
+| **zh-CN**（默认值） | 语言 | 显示简体中文   |
+| **en**              | 语言 | 显示英文       |
 
 > 深色主题和简体中文是默认开启的配置
 
