@@ -1,13 +1,13 @@
+import { themes } from './theme'
+import type { Count } from '@/types'
+
 class Card {
   private name = ''
   private avatarUrlBase64 = ''
   private playerLevel = 0
-  private gameCount = '0'
-  private badgeCount = 0
   private gamesSvg = ''
   private gameImgList = []
   private groupIconList = []
-  private groupCount = '0'
   private groupSvg = ''
   private badgeIcon = ''
   private badgeSvg = ''
@@ -17,135 +17,225 @@ class Card {
     bgColor: '',
     borderColor: '',
     fontColor: '',
+    onlineColor: '',
+    offlineColor: '',
   }
 
-  private isOnline = {
-    flag: 0,
-    text: '离线',
-    fill: 'white',
-  }
+  private isOnline = 0
+
+  private onlineSvg = ''
 
   private i18n: any
+  private countSvg = ''
+  private counts: Count[]
 
   public constructor({
     name,
     avatarUrlBase64,
     playerLevel,
-    gameCount,
-    badgeCount,
+    // gameCount,
+    // badgeCount,
     isOnline,
     gameImgList,
     theme,
     playTime,
     groupIconList,
-    groupCount,
+    // groupCount,
     badgeIcon,
     i18n,
+    counts,
   }) {
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
-    this.gameCount = gameCount
-    this.badgeCount = badgeCount
-    this.isOnline.flag = isOnline
+    // this.gameCount = gameCount
+    // this.badgeCount = badgeCount
+    this.isOnline = isOnline
     this.gameImgList = gameImgList
     this.theme = theme
     this.playTime = playTime
     this.groupIconList = groupIconList
-    this.groupCount = groupCount
+    // this.groupCount = groupCount
     this.badgeIcon = badgeIcon
     this.i18n = i18n
+    this.counts = counts
   }
 
   public setStyle() {
-    if (this.theme === 'dark') {
-      this.style.bgColor = '#1B2838'
-      this.style.fontColor = 'white'
-    }
-    else if (this.theme === 'light') {
-      this.style.bgColor = '#F3F4F6'
-      this.style.fontColor = '#333'
-    }
+    const { bg_color, text_color, online_color, offline_color } = themes[this.theme]
+    this.style.bgColor = bg_color
+    this.style.fontColor = text_color
+    this.style.onlineColor = online_color
+    this.style.offlineColor = offline_color
   }
 
   public updateIsOnline() {
-    const { flag } = this.isOnline
-    if (flag > 0) {
-      this.isOnline.text = this.i18n.__('online')
-      this.isOnline.fill = '#10B981'
+    let onlineText = ''
+    let onlineClassName = ''
+    if (this.isOnline > 0) {
+      onlineText = this.i18n.__('online')
+      onlineClassName = 'online'
     }
     else {
-      this.isOnline.text = this.i18n.__('offline')
-      this.isOnline.fill = this.theme === 'dark' ? 'white' : '#333'
+      onlineText = this.i18n.__('offline')
+      onlineClassName = 'offline'
     }
+    this.onlineSvg = `<span class="${onlineClassName}">${onlineText}</span>`
   }
 
   public renderGames() {
     let gamesSvg = ''
-    this.gameImgList.forEach((game: any, index: number) => {
-      gamesSvg
-        = `${gamesSvg
-        }<image width="70" xlink:href="${game}" height="33" x="${10 + index * 76
-        }" y="105"></image>`
+    this.gameImgList.forEach((game: string) => {
+      gamesSvg += `
+      <img width="70" height="33" src="${game}"></img>
+      `
     })
     this.gamesSvg = gamesSvg
   }
 
   public renderGroup() {
     let groupSvg = ''
-    this.groupIconList.forEach((group: string, index: number) => {
-      groupSvg
-        = `<image height="35" width="35"  y="50" x="${340 - (index + 1) * 42
-        }" xlink:href="${group}"></image>${groupSvg}`
+    this.groupIconList.forEach((group: string) => {
+      groupSvg += `
+        <img width="35" height="35" src="${group}"></img>
+      `
     })
     this.groupSvg = groupSvg
   }
 
   public renderBadge() {
     this.badgeSvg = `
-      <image height="35" width="35" x="347" y="50" xlink:href="${this.badgeIcon}"></image>
+      <img height="35" width="35" src="${this.badgeIcon}" />
     `
+  }
+
+  public renderCounts() {
+    this.counts.forEach((count: Count) => {
+      this.countSvg += `
+        <div class="count-item">
+          <div class="count">${count.count}</div>
+          <div class="name">${count.name}</div>
+        </div>
+      `
+    })
   }
 
   public render() {
     return `
-      <svg 
-        width="400" height="150"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns="http://www.w3.org/2000/svg">
-          <style>
-            .bg {
-              fill:#1B2838
-            }
-            .text {
-              fill: ${this.style.fontColor}
-            }
-          </style>
-        <rect rx="4.5" fill="${this.style.bgColor}" stroke="#e4e2e2" stroke-opacity="1" width="100%" height="100%" />
-        <g fill="${this.style.fontColor}" font-size="12">
-          <image height="50" width="50" x="10" y="10" xlink:href="${this.avatarUrlBase64}"></image>
-          <text x="67" y="22" font-size="14">${this.name}</text>
-          <text x="67" y="42" font-size="10">LV. ${this.playerLevel}</text>
-          <text x="67" y="58" font-size="10" fill="${this.isOnline.fill}">${this.isOnline.text}</text>
-          <text x="260" y="38" text-anchor="middle">${this.i18n.__('games')}</text>
-          <text x="260" y="18" text-anchor="middle">${this.gameCount}</text>
-          <text x="320" y="38" text-anchor="middle">${this.i18n.__('groups')}</text>
-          <text x="320" y="18" text-anchor="middle">${this.groupCount}</text>
-          <text x="370" y="38" text-anchor="middle">${this.i18n.__('badges')}</text>
-          <text x="370" y="18" text-anchor="middle">${this.badgeCount}</text>
-        </g>
-        <g>
-          ${this.groupSvg}
-          ${this.badgeSvg}
-        </g>
-        <g>
-          <text x="10" y="95" font-size="12" class="text">${this.playTime} ${this.i18n.__('hours')} (${this.i18n.__('past_2_weeks')})</text>
-        </g>
-        <g>
-          ${this.gamesSvg}
-        </g>
-      </svg>
-    `
+    <svg xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .foregin{
+        background-color: ${this.style.bgColor};
+        padding:10px;
+        width:400px;
+        height:150px;
+        border-radius:5px;
+        }
+        
+        .card {
+        color: ${this.style.fontColor};
+        font-size:14px;
+        height:130px;
+        width:380px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        }
+
+        .online {
+        color: ${this.style.onlineColor};
+        }
+
+        .offline {
+        color: ${this.style.offlineColor};
+        }
+        
+        .top {
+        display: flex;
+        justify-content: space-between;
+        }
+        
+        .avatar {
+        border-radius: 5px;
+        }
+        
+        .user-info {
+        display: flex;
+        gap:10px;
+        }
+        
+        .status {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+        
+        .counts {
+        font-size:12px;
+        display:flex;
+        gap:20px;
+        }
+  
+        .count-item {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        }
+  
+        .game-list {
+        display:flex;
+        gap:8px;
+        }
+  
+        .icon-list {
+          position: absolute;
+          right: 7px;
+          top: 50px;
+          display: flex;
+          gap: 10px;
+        }
+    </style>
+    <foreignObject class="foregin">
+      <div class="card"
+        xmlns="http://www.w3.org/1999/xhtml">
+        <div class="top">
+          <div class="user-info">
+            <img class="avatar" src="${this.avatarUrlBase64}" width="60" height="60" />
+            <div class="status">
+              <div style="font-size:12px;font-weight:bold">
+                  ${this.name}
+              </div>
+              <div style="font-size:12px;font-weight:bold">
+                  LV. ${this.playerLevel}
+              </div>
+              <div style="font-size:12px;font-weight:bold">
+                  ${this.onlineSvg}
+              </div>
+            </div>
+          </div>
+          <div class="counts">
+              ${this.countSvg}
+          </div>
+        </div>
+  
+        <div class="bottom">
+          <div style="font-size:12px;margin-bottom:5px">
+              ${this.playTime} ${this.i18n.__('hours')} (${this.i18n.__('past_2_weeks')})
+          </div>
+          <div class="game-list">
+              ${this.gamesSvg}
+          </div>
+        </div>
+  
+        <div class="icon-list">
+            ${this.groupSvg}
+            ${this.badgeSvg}
+        </div>
+      </div>
+    </foreignObject>
+  </svg>  
+`
   }
 }
 

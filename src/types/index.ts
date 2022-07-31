@@ -19,3 +19,8 @@ export interface RecentlyPlayedGames extends BaseParams {
 export interface OwnedGames extends BaseParams {
   format: string
 }
+
+export interface Count {
+  name: string
+  count: string
+}

@@ -18,7 +18,7 @@ const instance = axios.create({
 instance.interceptors.response.use((response) => {
   return response
 }, (err) => {
-  if (err.response.status === 404 && err.response.request.host === 'steamcdn-a.akamaihd.net')
+  if (err.response?.status === 404 && err.response.request.host === 'steamcdn-a.akamaihd.net')
     return err
   else
     return Promise.reject(err)

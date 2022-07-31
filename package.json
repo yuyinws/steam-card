@@ -10,21 +10,21 @@
     "eslint": "eslint ."
   },
   "dependencies": {
-    "@types/i18n": "^0.13.2",
+    "@types/i18n": "^0.13.4",
     "axios": "^0.24.0",
-    "cheerio": "^1.0.0-rc.10",
+    "cheerio": "1.0.0-rc.10",
     "i18n": "^0.14.2",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.18.8",
+    "@antfu/eslint-config": "^0.18.9",
     "@types/tunnel": "^0.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^5.9.0",
-    "@vercel/node": "^1.12.1",
-    "eslint": "^8.6.0",
-    "prettier": "^2.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "@vercel/node": "^1.15.4",
+    "eslint": "^8.20.0",
+    "prettier": "^2.7.1",
     "tunnel": "^0.0.6"
   }
 }
