@@ -122,7 +122,7 @@ class Card {
 
   public render() {
     return `
-    <svg xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg width="400" height="150" xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg">
     <style>
         .foregin{
