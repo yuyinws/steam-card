@@ -105,7 +105,7 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 >前置条件:
 >
->**Node >=14**
+>**Node >=16**
 >
 >一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
@@ -156,3 +156,8 @@ PROXY_PORT=7890
 # 为了与生产环境区分开，MODE必须要设置为development
 MODE=development
 ```
+
+## Thanks
+[github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+
+[Vercel](https://vercel.com/)
