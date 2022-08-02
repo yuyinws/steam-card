@@ -1,3 +1,5 @@
+import { blockApps } from './blockApps'
+
 export function data(userInfo, playedGames, badges) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
 
@@ -12,9 +14,8 @@ export function data(userInfo, playedGames, badges) {
   })
 
   playTime = parseInt(String(playTime / 60), 10)
-  games = games.filter((game: any) => game.appid)
+  games = games.filter((game: any) => !blockApps.includes(game.appid))
   games.splice(5, games.length - 5)
 
-  // const playTime = parseInt(String(_playTime / 60), 10)
   return { games, playTime, badgeCount, playerLevel, avatarUrl, name, isOnline }
 }
