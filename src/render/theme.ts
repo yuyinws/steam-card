@@ -13,7 +13,7 @@ export const themes: Record<string, Theme> = {
     offline_color: 'white',
   },
   'light': {
-    bg_color: '#F3F4F6',
+    bg_color: '#f7f7f7',
     text_color: '#363636',
     online_color: '#10B981',
     offline_color: '#363636',
