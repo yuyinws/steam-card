@@ -18,7 +18,7 @@ const JPEG_PREFIX = 'data:image/jpeg;base64,'
 const PNG_PREFIX = 'data:image/png;base64,'
 export default async(req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Content-Type', 'image/svg+xml')
-  res.setHeader('Cache-Control', `public, max-age=${300}`)
+  res.setHeader('Cache-Control', `public, max-age=${3600}`)
   try {
     // eslint-disable-next-line prefer-const
     let { steamid, settings, group, badge } = req.query as any
