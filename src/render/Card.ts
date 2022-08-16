@@ -138,6 +138,7 @@ class Card {
         font-size:14px;
         height:130px;
         width:380px;
+        gap:10px;
         display:flex;
         flex-direction:column;
         justify-content:space-between;
