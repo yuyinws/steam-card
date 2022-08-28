@@ -8,7 +8,7 @@
 
 **Generate Your Steam Proflle Quickly**
 
-![img](https://steamcard.vercel.app/card/76561198028121353/en)
+![img](https://card.yuy1n.io/card/76561198028121353/en)
 
 ## Usage
 
@@ -57,42 +57,42 @@ Cards can be personalized by passing keywords in the URL
 
 #### Use English
 
-`https://steamcard.vercel.app/card/76561198028121353/en`
+`https://card.yuy1n.io/card/76561198028121353/en`
 
-![](https://steamcard.vercel.app/card/76561198028121353/en)
+![](https://card.yuy1n.io/card/76561198028121353/en)
 
 
 
 #### Show badge and group icon
 
-`https://steamcard.vercel.app/card/76561198028121353/en,badge,group`
+`https://card.yuy1n.io/card/76561198028121353/en,badge,group`
 
-![](https://steamcard.vercel.app/card/76561198028121353/en,badge,group)
+![](https://card.yuy1n.io/card/76561198028121353/en,badge,group)
 
 #### Use light theme
 
-`https://steamcard.vercel.app/card/76561198028121353/en,badge,group,light`
+`https://card.yuy1n.io/card/76561198028121353/en,badge,group,light`
 
-![](https://steamcard.vercel.app/card/76561198028121353/en,badge,group,light)
+![](https://card.yuy1n.io/card/76561198028121353/en,badge,group,light)
 
 ### Use URL
 
 - HTML
 
 ```html
-<img width="400" height="140" src="https://steamcard.vercel.app/card/76561198028121353"></img>
+<img width="400" height="140" src="https://card.yuy1n.io/card/76561198028121353"></img>
 ```
 
 - Markdown
 
 ```markdown
-![](https://steamcard.vercel.app/card/76561198028121353)
+![](https://card.yuy1n.io/card/76561198028121353)
 ```
 
 - BBCode
 
 ```bbcode
-[img=400,140]https://steamcard.vercel.app/card/76561198028121353[/img]
+[img=400,140]https://card.yuy1n.io/card/76561198028121353[/img]
 ```
 
 ## Develop

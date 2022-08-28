@@ -8,7 +8,7 @@
 
 **快速生成自己的 steam 资料卡**
 
-![img](https://steamcard.vercel.app/card/76561198028121353)
+![img](https://card.yuy1n.io/card/76561198028121353)
 
 ## 使用
 
@@ -57,48 +57,48 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 #### 不传递任何关键字
 
-`https://steamcard.vercel.app/card/76561198028121353`
+`https://card.yuy1n.io/card/76561198028121353`
 
-![](https://steamcard.vercel.app/card/76561198028121353)
+![](https://card.yuy1n.io/card/76561198028121353)
 
 
 
 #### 显示徽章和群组图标
 
-`https://steamcard.vercel.app/card/76561198028121353/badge,group`
+`https://card.yuy1n.io/card/76561198028121353/badge,group`
 
-![](https://steamcard.vercel.app/card/76561198028121353/badge,group)
+![](https://card.yuy1n.io/card/76561198028121353/badge,group)
 
 #### 使用亮色主题
 
-`https://steamcard.vercel.app/card/76561198028121353/badge,group,light`
+`https://card.yuy1n.io/card/76561198028121353/badge,group,light`
 
-![](https://steamcard.vercel.app/card/76561198028121353/badge,group,light)
+![](https://card.yuy1n.io/card/76561198028121353/badge,group,light)
 
 #### 指定语言
 
-`https://steamcard.vercel.app/card/76561198028121353/badge,group,light,en`
+`https://card.yuy1n.io/card/76561198028121353/badge,group,light,en`
 
-![](https://steamcard.vercel.app/card/76561198028121353/badge,group,light,en)
+![](https://card.yuy1n.io/card/76561198028121353/badge,group,light,en)
 
 ### URL引用
 
 - HTML
 
 ```html
-<img width="400" height="140" src="https://steamcard.vercel.app/card/76561198028121353"></img>
+<img width="400" height="140" src="https://card.yuy1n.io/card/76561198028121353"></img>
 ```
 
 - Markdown
 
 ```markdown
-![](https://steamcard.vercel.app/card/76561198028121353)
+![](https://card.yuy1n.io/card/76561198028121353)
 ```
 
 - 论坛/BBCode
 
 ```bbcode
-[img=400,140]https://steamcard.vercel.app/card/76561198028121353[/img]
+[img=400,140]https://card.yuy1n.io/card/76561198028121353[/img]
 ```
 
 ## 开发
