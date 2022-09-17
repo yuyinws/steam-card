@@ -4,7 +4,7 @@ export function data(userInfo, playedGames, badges) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
 
   // '<' cause svg render error
-  const _name = name.replaceAll('<', '')
+  const _name = name.replaceAll('<', '&lt;')
 
   let playTime = 0
   let games = playedGames.response.games || []
