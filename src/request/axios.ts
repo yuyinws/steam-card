@@ -3,7 +3,7 @@ import axios from 'axios'
 import * as tunnel from 'tunnel'
 import type { MyResponseType } from '@/types/index'
 
-const agent = tunnel.httpsOverHttp({
+const agent = tunnel.httpOverHttp({
   proxy: {
     host: process.env.PROXY_HOST as string,
     port: Number(process.env.PROXY_PORT),

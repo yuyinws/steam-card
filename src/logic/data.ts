@@ -3,6 +3,9 @@ import { blockApps } from './blockApps'
 export function data(userInfo, playedGames, badges) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
 
+  // '<' cause svg render error
+  const _name = name.replaceAll('<', '')
+
   let playTime = 0
   let games = playedGames.response.games || []
 
@@ -17,5 +20,5 @@ export function data(userInfo, playedGames, badges) {
   games = games.filter((game: any) => !blockApps.includes(game.appid))
   games.splice(5, games.length - 5)
 
-  return { games, playTime, badgeCount, playerLevel, avatarUrl, name, isOnline }
+  return { games, playTime, badgeCount, playerLevel, avatarUrl, name: _name, isOnline }
 }
