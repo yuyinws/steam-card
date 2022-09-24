@@ -16,7 +16,7 @@ import { crawler, data, setting } from '../src/logic'
 const key: any = process.env.STEAM_KEY
 const JPEG_PREFIX = 'data:image/jpeg;base64,'
 const PNG_PREFIX = 'data:image/png;base64,'
-export default async(req: VercelRequest, res: VercelResponse) => {
+export default async (req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Content-Type', 'image/svg+xml')
   res.setHeader('Cache-Control', `public, max-age=${3600 * 24}`)
   try {
@@ -24,6 +24,7 @@ export default async(req: VercelRequest, res: VercelResponse) => {
     let { steamid, settings } = req.query as any
 
     const { setting: _setting } = setting(settings)
+    console.log('🚀 ~ file: card.ts ~ line 27 ~ _setting', _setting)
 
     i18n.configure({
       locales: ['en', 'zh-CN'],
@@ -134,6 +135,8 @@ export default async(req: VercelRequest, res: VercelResponse) => {
         _setting.theme,
         _setting.badge,
         _setting.group,
+        _setting.bgColor,
+        _setting.textColor,
         playTime,
         groupIconList,
         badgeIcon,

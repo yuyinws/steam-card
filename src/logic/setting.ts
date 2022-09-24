@@ -4,6 +4,8 @@ interface Setting {
   group: boolean
   badge: boolean
   counts: string[]
+  textColor: string
+  bgColor: string
 }
 
 export function setting(_setting: string) {
@@ -13,7 +15,12 @@ export function setting(_setting: string) {
     badge: false,
     lang: 'zh-CN',
     counts: [],
+    textColor: '',
+    bgColor: '',
   }
+
+  const textReg = /text-([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/
+  const bgReg = /bg-([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/
 
   const countsSet: Set<string> = new Set()
 
@@ -38,6 +45,12 @@ export function setting(_setting: string) {
           break
         case 'ocean-dark':
           setting.theme = 'ocean-dark'
+          break
+        case (item.match(textReg) || {}).input:
+          setting.textColor = `#${item.split('-')[1]}`
+          break
+        case (item.match(bgReg) || {}).input:
+          setting.bgColor = `#${item.split('-')[1]}`
           break
         case 'group':
           setting.group = true
