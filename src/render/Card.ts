@@ -12,6 +12,8 @@ class Card {
   private badgeIcon = ''
   private badgeSvg = ''
   private theme = 'dark'
+  private bgColor = ''
+  private textColor = ''
   private playTime = 0
   private style = {
     bgColor: '',
@@ -33,14 +35,13 @@ class Card {
     name,
     avatarUrlBase64,
     playerLevel,
-    // gameCount,
-    // badgeCount,
     isOnline,
     gameImgList,
     theme,
+    bgColor,
+    textColor,
     playTime,
     groupIconList,
-    // groupCount,
     badgeIcon,
     i18n,
     counts,
@@ -48,23 +49,22 @@ class Card {
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
-    // this.gameCount = gameCount
-    // this.badgeCount = badgeCount
     this.isOnline = isOnline
     this.gameImgList = gameImgList
     this.theme = theme
     this.playTime = playTime
     this.groupIconList = groupIconList
-    // this.groupCount = groupCount
     this.badgeIcon = badgeIcon
     this.i18n = i18n
     this.counts = counts
+    this.bgColor = bgColor
+    this.textColor = textColor
   }
 
   public setStyle() {
     const { bg_color, text_color, online_color, offline_color } = themes[this.theme]
-    this.style.bgColor = bg_color
-    this.style.fontColor = text_color
+    this.style.bgColor = this.bgColor || bg_color
+    this.style.fontColor = this.textColor || text_color
     this.style.onlineColor = online_color
     this.style.offlineColor = offline_color
   }

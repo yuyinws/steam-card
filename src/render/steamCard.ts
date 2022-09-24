@@ -9,12 +9,14 @@ const steamCard = (
   theme: string,
   isBadge: boolean,
   isGroup: boolean,
+  bgColor: string,
+  textColor: string,
   playTime: number,
   groupIconList: string[],
   badgeIcon: string,
   i18n: any,
   counts,
-  // eslint-disable-next-line max-params
+
 ) => {
   const card = new Card({
     name,
@@ -23,6 +25,8 @@ const steamCard = (
     isOnline,
     gameImgList,
     theme,
+    bgColor,
+    textColor,
     playTime,
     groupIconList,
     badgeIcon,

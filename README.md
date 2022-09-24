@@ -1,87 +1,81 @@
 # SteamCard
 
-- [用户指南](https://steam-card-guide.vercel.app/)
+- [User Guide Page](https://guide.yuy1n.io/)
 
 <p align='center'>
-<b>简体中文</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English</a>
+<b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-CN.md">简体中文</a>
 </p>
 
-**快速生成自己的 steam 资料卡**
+**Generate Your Steam Proflle Quickly**
 
-![img](https://card.yuy1n.io/card/76561198028121353)
+![img](https://card.yuy1n.io/card/76561198028121353/en)
 
-## 使用
+## Usage
 
-> 请先确保自己的 Steam 个人资料处于公开状态
+> Please make sure your steam profile in public state
 
-### 找到自己的 steamid
+### Find your own Steamid
 
-1.[登录](https://steamcommunity.com/login/home/) steam，进入个人主页。
+1.[Login](https://steamcommunity.com/login/home/) steam and go to your profile page
 
-2.这时你会看到类似一个这样的链接：
+2.Now your will see a URL like this：
 
 ```
 https://steamcommunity.com/profiles/76561198028121353/
 ```
 
-如果你没有使用自定义 URL，后面的一串数字就是你的 steamid
+If your not use custom url，the number is your steamid
 
-3.如果你使用了自定义 URL，在你的自定义 URL 后面加上'?xml=1',类似这样
+3.If your use custom url，add  `?xml=1` in your custom url , like this:
 
 ```
 https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 ```
 
-4.`steamID64`节点里的就是你的 steamid
+4.Node`steamID64`is your steamid
 
-### 关键字配置
+### Keyword Setting
 
-通过在URL中传递关键字，可以对卡片进行个性化配置
+Cards can be personalized by passing keywords in the URL
 
-| 关键字              | 分类 | 作用           |
-| ------------------- | ---- | -------------- |
-| **dark**(默认值)    | 主题 | 使用深色主题   |
-| **light**           | 主题 | 使用亮色主题   |
-| **badge**           | 图标 | 显示徽章图标   |
-| **group**           | 图标 | 显示群组图标   |
-| **artworks**        | 统计 | 显示艺术作品数 |
-| **screenshots**     | 统计 | 显示截图数     |
-| **guides**          | 统计 | 显示指南数     |
-| **reviews**         | 统计 | 显示评测数     |
-| **zh-CN**（默认值） | 语言 | 显示简体中文   |
-| **en**              | 语言 | 显示英文       |
+| Keyword              | Category   | Feature                |
+| -------------------- | ---------- | ---------------------- |
+| **dark**(default)    | theme      | Use dark theme         |
+| **light**            | theme      | Use light theme        |
+| **badge**            | icon       | Show badge icon        |
+| **group**            | icon       | Show group icon        |
+| **artworks**         | statistics | show artwork count     |
+| **screenshots**      | statistics | show screenshot count  |
+| **reviews**          | statistics | show review count      |
+| **guides**           | statistics | show guide count       |
+| **zh-CN**（default） | language   | Use Simplified Chinese |
+| **en**               | language   | Use English            |
 
-> 深色主题和简体中文是默认开启的配置
+> Dark theme and Simplified Chinese is default setting
 
-### 使用示例
+### Example case
 
-#### 不传递任何关键字
+#### Use English
 
-`https://card.yuy1n.io/card/76561198028121353`
+`https://card.yuy1n.io/card/76561198028121353/en`
 
-![](https://card.yuy1n.io/card/76561198028121353)
+![](https://card.yuy1n.io/card/76561198028121353/en)
 
 
 
-#### 显示徽章和群组图标
+#### Show badge and group icon
 
-`https://card.yuy1n.io/card/76561198028121353/badge,group`
+`https://card.yuy1n.io/card/76561198028121353/en,badge,group`
 
-![](https://card.yuy1n.io/card/76561198028121353/badge,group)
+![](https://card.yuy1n.io/card/76561198028121353/en,badge,group)
 
-#### 使用亮色主题
+#### Use light theme
 
-`https://card.yuy1n.io/card/76561198028121353/badge,group,light`
+`https://card.yuy1n.io/card/76561198028121353/en,badge,group,light`
 
-![](https://card.yuy1n.io/card/76561198028121353/badge,group,light)
+![](https://card.yuy1n.io/card/76561198028121353/en,badge,group,light)
 
-#### 指定语言
-
-`https://card.yuy1n.io/card/76561198028121353/badge,group,light,en`
-
-![](https://card.yuy1n.io/card/76561198028121353/badge,group,light,en)
-
-### URL引用
+### Use URL
 
 - HTML
 
@@ -95,65 +89,61 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 ![](https://card.yuy1n.io/card/76561198028121353)
 ```
 
-- 论坛/BBCode
+- BBCode
 
 ```bbcode
 [img=400,140]https://card.yuy1n.io/card/76561198028121353[/img]
 ```
 
-## 开发
+## Develop
 
->前置条件:
+> Requirement:
 >
->**Node >=16**
+> **Node >=16**
 >
->一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
+> **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
-### 全局安装 vercel Cli
+### Install Vercel Cli
 
 ```shell
 npm install -g vercel
 ```
 
-> 更多 Vercel Cli 的命令见[官方文档](https://vercel.com/cli)
+> Please checkout [offical docs](https://vercel.com/cli) about Vercel Cli
 
-### Fork 项目
+### Fork this project
 
-### 本地调试
+### Local development
 
 ```shell
-复制配置文件
+# copy a .env file
 cp .env.example .env
 ```
 
-将你的Steam API KEY添加到配置文件中
-
+Add your Steam API KEY on .env file
 ```shell
 STEAM_KEY=YOUR_STEAM_KEY
 ```
 
 ```shell
-# 安装依赖
-pnpm install
-# 或
+# install dependencies
+pnpm install 
+# or
 yarn install
-# 或
+# or
 npm install
 
-# 启动服务
+# start the service
 vercel dev
 ```
 
-#### 配置代理
+#### Set Proxy
 
-> 由于不可抗力，在中国大陆无法访问 Steam 相关域名。需要配置代理。
-
-将.env 文件中的代理配置指向你本地的代理程序，以 Clash 为例
+> If you can only access Steam websites via VPN,you may need set Proxy in .env file like this
 
 ```shell
 PROXY_HOST=localhost
 PROXY_PORT=7890
-# 为了与生产环境区分开，MODE必须要设置为development
 MODE=development
 ```
 

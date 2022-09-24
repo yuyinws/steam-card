@@ -1,21 +1,26 @@
-import { string2Boolean } from '../utils/tools'
-
 interface Setting {
   theme: string
   lang: string
   group: boolean
   badge: boolean
   counts: string[]
+  textColor: string
+  bgColor: string
 }
 
-export function setting(_setting: string, group: string, badge: string) {
+export function setting(_setting: string) {
   const setting: Setting = {
     theme: 'dark',
     group: false,
     badge: false,
     lang: 'zh-CN',
     counts: [],
+    textColor: '',
+    bgColor: '',
   }
+
+  const textReg = /text-([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/
+  const bgReg = /bg-([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/
 
   const countsSet: Set<string> = new Set()
 
@@ -40,6 +45,12 @@ export function setting(_setting: string, group: string, badge: string) {
           break
         case 'ocean-dark':
           setting.theme = 'ocean-dark'
+          break
+        case (item.match(textReg) || {}).input:
+          setting.textColor = `#${item.split('-')[1]}`
+          break
+        case (item.match(bgReg) || {}).input:
+          setting.bgColor = `#${item.split('-')[1]}`
           break
         case 'group':
           setting.group = true
@@ -76,14 +87,6 @@ export function setting(_setting: string, group: string, badge: string) {
           break
       }
     })
-  }
-
-  if (group)
-    setting.group = string2Boolean(group)
-
-  // eslint-disable-next-line curly
-  if (badge) {
-    setting.badge = string2Boolean(badge)
   }
 
   ['games', 'groups', 'badges'].forEach((item: string) => {
