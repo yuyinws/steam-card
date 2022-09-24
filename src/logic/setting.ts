@@ -1,5 +1,3 @@
-import { string2Boolean } from '../utils/tools'
-
 interface Setting {
   theme: string
   lang: string
@@ -8,7 +6,7 @@ interface Setting {
   counts: string[]
 }
 
-export function setting(_setting: string, group: string, badge: string) {
+export function setting(_setting: string) {
   const setting: Setting = {
     theme: 'dark',
     group: false,
@@ -76,14 +74,6 @@ export function setting(_setting: string, group: string, badge: string) {
           break
       }
     })
-  }
-
-  if (group)
-    setting.group = string2Boolean(group)
-
-  // eslint-disable-next-line curly
-  if (badge) {
-    setting.badge = string2Boolean(badge)
   }
 
   ['games', 'groups', 'badges'].forEach((item: string) => {

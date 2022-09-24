@@ -21,9 +21,9 @@ export default async(req: VercelRequest, res: VercelResponse) => {
   res.setHeader('Cache-Control', `public, max-age=${3600 * 24}`)
   try {
     // eslint-disable-next-line prefer-const
-    let { steamid, settings, group, badge } = req.query as any
+    let { steamid, settings } = req.query as any
 
-    const { setting: _setting } = setting(settings, group, badge)
+    const { setting: _setting } = setting(settings)
 
     i18n.configure({
       locales: ['en', 'zh-CN'],
