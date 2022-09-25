@@ -24,7 +24,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     let { steamid, settings } = req.query as any
 
     const { setting: _setting } = setting(settings)
-    console.log('🚀 ~ file: card.ts ~ line 27 ~ _setting', _setting)
 
     i18n.configure({
       locales: ['en', 'zh-CN'],
