@@ -131,6 +131,7 @@ class Card {
         width:400px;
         height:150px;
         border-radius:5px;
+        font-family: "SimHei";
         }
         
         .card {
