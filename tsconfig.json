@@ -22,8 +22,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    },
+      "~/*": ["src/*"]
+    }
   },
-  "include": ["src/**/*", "api/**/*"]
+  "include": ["src/**/*", "routes/**/*"],
+  "extends": "./.nitro/types/tsconfig.json"
 }

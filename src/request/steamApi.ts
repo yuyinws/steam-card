@@ -1,5 +1,5 @@
 import request from './axios'
-import type { BaseParams, OwnedGames, PlayerSummaries, RecentlyPlayedGames } from '@/types/index'
+import type { BaseParams, OwnedGames, PlayerSummaries, RecentlyPlayedGames } from '~/types/index'
 
 export const getPlayerSummaries = (params: PlayerSummaries) => {
   return request({

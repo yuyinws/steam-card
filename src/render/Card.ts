@@ -1,5 +1,5 @@
 import { themes } from './theme'
-import type { Count } from '@/types'
+import type { Count } from '~/types'
 
 class Card {
   private name = ''
