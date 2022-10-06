@@ -28,7 +28,7 @@ export default eventHandler(async (event) => {
     const { setting: _setting } = setting(settings)
     i18n.configure({
       locales: ['en', 'zh-CN'],
-      directory: path.join(__dirname, '../../../../locales'),
+      directory: path.join(__dirname, '../../public/locales'),
     })
     i18n.setLocale(_setting.lang)
     const numberReg = /[A-Za-z]/
@@ -147,7 +147,7 @@ export default eventHandler(async (event) => {
     // eslint-disable-next-line no-console
     console.log('🚀 ~ file: card.ts ~ line 177 ~ async ~ error', error)
     // return errorCard(error, i18n)
-    return 'error'
+    return error
   }
 })
 
