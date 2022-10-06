@@ -1,35 +1,35 @@
 {
   "name": "steam-card",
-  "type": "module",
-  "version": "1.1.0",
+  "private": true,
+  "packageManager": "pnpm@7.9.0",
   "description": "快速生成你的Steam资料卡片",
   "author": "yuyinws",
   "license": "MIT",
-  "keywords": [],
   "scripts": {
-    "eslint": "eslint .",
-    "dev": "nitropack dev",
-    "build": "nitropack build"
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "postinstall": "nuxi prepare",
+    "generate": "nuxi generate"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "1.0.0-rc.10",
-    "h3": "^0.7.21",
-    "i18n": "^0.15.1",
-    "nitropack": "^0.5.4",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.3"
+    "cheerio": "1.0.0-rc.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
-    "@types/i18n": "^0.13.4",
-    "@types/node": "^18.7.19",
+    "@iconify-json/carbon": "^1.1.8",
+    "@iconify-json/twemoji": "^1.1.5",
+    "@nuxtjs/color-mode": "^3.1.6",
+    "@pinia/nuxt": "^0.4.2",
     "@types/tunnel": "^0.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "@vercel/node": "^2.5.18",
+    "@unocss/nuxt": "^0.45.25",
+    "@vueuse/nuxt": "^9.3.0",
     "eslint": "^8.24.0",
-    "prettier": "^2.7.1",
-    "tunnel": "^0.0.6"
+    "nuxt": "^3.0.0-rc.11",
+    "pinia": "^2.0.22",
+    "tunnel": "^0.0.6",
+    "typescript": "^4.8.3"
   }
 }

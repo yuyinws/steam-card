@@ -13,7 +13,7 @@ export function setting(_setting: string) {
     theme: 'dark',
     group: false,
     badge: false,
-    lang: 'zh-CN',
+    lang: 'zhCN',
     counts: [],
     textColor: '',
     bgColor: '',
@@ -58,8 +58,8 @@ export function setting(_setting: string) {
         case 'badge':
           setting.badge = true
           break
-        case 'zh-CN':
-          setting.lang = 'zh-CN'
+        case 'zhCN':
+          setting.lang = 'zhCN'
           break
         case 'en':
           setting.lang = 'en'
