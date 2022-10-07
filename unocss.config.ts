@@ -8,6 +8,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { presetCore, presetThemeDefault } from 'anu-vue'
 
 export default defineConfig({
   shortcuts: [
@@ -28,9 +29,12 @@ export default defineConfig({
         mono: 'DM Mono',
       },
     }),
+    presetCore(),
+    presetThemeDefault(),
   ],
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  include: [/.*\/anu-vue\.js(.*)?$/, './**/*.vue', './**/*.md'],
 })

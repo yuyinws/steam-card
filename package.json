@@ -14,11 +14,13 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
+    "anu-vue": "^0.9.0",
     "axios": "^0.27.2",
     "cheerio": "1.0.0-rc.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
+    "@iconify-json/bx": "^1.1.4",
     "@iconify-json/carbon": "^1.1.8",
     "@iconify-json/twemoji": "^1.1.5",
     "@nuxtjs/color-mode": "^3.1.6",

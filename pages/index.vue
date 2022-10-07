@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import { ABtn } from 'anu-vue'
+</script>
+
 <template>
   <div>
-    WIP
+    <ABtn>
+      Primary
+    </ABtn>
   </div>
 </template>
