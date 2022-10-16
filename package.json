@@ -23,6 +23,7 @@
     "@iconify-json/bx": "^1.1.4",
     "@iconify-json/carbon": "^1.1.8",
     "@iconify-json/twemoji": "^1.1.5",
+    "@intlify/nuxt3": "^0.2.4",
     "@nuxtjs/color-mode": "^3.1.6",
     "@pinia/nuxt": "^0.4.2",
     "@types/tunnel": "^0.0.3",

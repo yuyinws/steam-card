@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  title: 'Vitesse Nuxt 3',
+  title: 'Steam Card',
   link: [
     {
       rel: 'icon', type: 'image/png', href: '/nuxt.png',
@@ -24,6 +24,5 @@ html, body , #__nuxt{
 
 html.dark {
   background: #222;
-  color: white;
 }
 </style>

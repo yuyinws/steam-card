@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
+    '@intlify/nuxt3',
   ],
   experimental: {
     reactivityTransform: true,
@@ -23,4 +24,10 @@ export default defineNuxtConfig({
   css: [
     'anu-vue/dist/style.css',
   ],
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      locale: 'zh-CN',
+    },
+  },
 })
