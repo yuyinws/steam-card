@@ -1,6 +1,7 @@
 {
   "theme": "Theme",
-  "icons": "图标",
+  "icons": "Icons",
+  "language": "语言",
   "badge-icon": "Badge Icon",
   "group-icon": "Group Icon",
   "statistics": "Statistics",
@@ -11,7 +12,8 @@
   "guides": "Guides",
   "artworks": "Artworks",
   "reviews": "Reviews",
-  "preview": "预览",
+  "preview": "Preview",
   "copy-success": "Copy Success!",
-  "copy-failed": "Copy Failed"
+  "copy-failed": "Copy Failed",
+  "loading": "Loading..."
 }

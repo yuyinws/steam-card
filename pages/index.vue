@@ -3,8 +3,6 @@ import { ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { POSITION, useToast } from 'vue-toastification'
 
-const toast = useToast()
-
 interface Config {
   steamId: string
   theme: string
@@ -14,7 +12,20 @@ interface Config {
   lang: string
 }
 
+const toast = useToast()
+const { locale, t } = useI18n()
+
 const themeList = ['dark', 'light', 'radical', 'tokyonight', 'solarized-light', 'ocean-dark']
+const languages = [
+  {
+    label: '简体中文',
+    value: 'zh-CN',
+  },
+  {
+    label: 'English',
+    value: 'en',
+  },
+]
 const statisticsList = [
   'groups',
   'badges',
@@ -24,10 +35,9 @@ const statisticsList = [
   'artworks',
   'reviews',
 ]
-const { locale, t } = useI18n()
 
 const config: Config = reactive({
-  steamId: '76561198340841543',
+  steamId: '76561198028121353',
   theme: 'dark',
   badgeIcon: true,
   groupIcon: true,
@@ -41,7 +51,10 @@ const isDisabled = computed(() => {
 
 const steamcardUrl = ref('')
 
+const isImgLoading = ref(true)
+
 watch(config, (val) => {
+  isImgLoading.value = true
   const settings = []
   settings.push(config.theme)
   if (config.lang !== 'zh-CN')
@@ -101,6 +114,14 @@ async function copyUrl(url: string) {
       })
   }
 }
+
+function onLanguageChange(val: string) {
+  locale.value = val
+}
+
+function onImgload() {
+  isImgLoading.value = false
+}
 </script>
 
 <template>
@@ -128,9 +149,21 @@ async function copyUrl(url: string) {
       >
         <template #label>
           <label for="a-input-theme">
-            <label for="a-input-steamid">
-              <div mb-10px text="center 16px" font-bold>{{ $t('theme') }}</div>
-            </label>
+            <div mb-10px text="center 16px" font-bold>{{ $t('theme') }}</div>
+          </label>
+        </template>
+      </ASelect>
+      <ASelect
+        id="language"
+        v-model="config.lang"
+        class="text-xs"
+        :options="languages"
+        dark:bg="#222"
+        @update:modelValue="onLanguageChange"
+      >
+        <template #label>
+          <label for="a-input-language">
+            <div mb-10px text="center 16px" font-bold>{{ $t('language') }}</div>
           </label>
         </template>
       </ASelect>
@@ -177,7 +210,10 @@ async function copyUrl(url: string) {
         <div text="center 16px" font-bold>
           {{ $t('preview') }}
         </div>
-        <img w-400px :src="steamcardUrl" alt="steamCard" srcset="">
+        <img v-show="!isImgLoading" w-400px :src="steamcardUrl" alt="steamCard" srcset="" @load="onImgload">
+        <div v-show="isImgLoading" w-400px h-150px b-1 text-center leading-150px>
+          {{ $t('loading') }}
+        </div>
         <div v-for="(item, index) in referenceList" :key="index" cursor-pointer relative pt-20px pb-10px px-10px rounded shadow-sm b-1 w-full>
           <div text-gray-300 text-sm absolute top-3px right-5px>
             {{ item.name }}

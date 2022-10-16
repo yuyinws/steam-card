@@ -1,6 +1,7 @@
 {
   "theme": "主题",
   "icons": "图标",
+  "language": "Language",
   "badge-icon": "徽章图标",
   "group-icon": "群组图标",
   "statistics": "统计信息",
@@ -13,5 +14,6 @@
   "reviews": "评测",
   "preview": "预览",
   "copy-success": "复制成功！",
-  "copy-failed": "复制失败"
+  "copy-failed": "复制失败",
+  "loading": "加载中..."
 }
