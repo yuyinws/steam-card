@@ -142,7 +142,6 @@ class Card {
         gap:10px;
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
         }
 
         .online {
