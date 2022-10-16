@@ -13,9 +13,6 @@ export default defineNuxtConfig({
     transpile: ['vue-toastification'],
   },
   ssr: false,
-  experimental: {
-    reactivityTransform: true,
-  },
   unocss: {
     preflight: true,
   },
@@ -32,7 +29,7 @@ export default defineNuxtConfig({
   intlify: {
     localeDir: 'locales',
     vueI18n: {
-      locale: 'zh-CN',
+      locale: 'en',
     },
   },
 })

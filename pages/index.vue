@@ -122,6 +122,10 @@ function onLanguageChange(val: string) {
 function onImgload() {
   isImgLoading.value = false
 }
+
+function openImgPage() {
+  window.open(steamcardUrl.value, '_blank')
+}
 </script>
 
 <template>
@@ -133,42 +137,45 @@ function onImgload() {
         class="text-xs"
         type="number"
         dark:bg="#222"
+        prepend-icon="i-mdi:steam"
       >
         <template #label>
           <label for="a-input-steamid">
-            <div mb-10px text="center 16px" font-bold>SteamID</div>
+            <div mb-10px text="center sm" font-bold>SteamID</div>
           </label>
         </template>
       </AInput>
-      <ASelect
-        id="theme"
-        v-model="config.theme"
-        class="text-xs"
-        :options="themeList"
-        dark:bg="#222"
-      >
-        <template #label>
-          <label for="a-input-theme">
-            <div mb-10px text="center 16px" font-bold>{{ $t('theme') }}</div>
-          </label>
-        </template>
-      </ASelect>
       <ASelect
         id="language"
         v-model="config.lang"
         class="text-xs"
         :options="languages"
         dark:bg="#222"
+        prepend-icon="i-mdi:language"
         @update:modelValue="onLanguageChange"
       >
         <template #label>
           <label for="a-input-language">
-            <div mb-10px text="center 16px" font-bold>{{ $t('language') }}</div>
+            <div mb-10px text="center sm" font-bold>{{ $t('language') }}</div>
+          </label>
+        </template>
+      </ASelect>
+      <ASelect
+        id="theme"
+        v-model="config.theme"
+        class="text-xs"
+        :options="themeList"
+        dark:bg="#222"
+        prepend-icon="i-gridicons:themes"
+      >
+        <template #label>
+          <label for="a-input-theme">
+            <div mb-10px text="center sm" font-bold>{{ $t('theme') }}</div>
           </label>
         </template>
       </ASelect>
       <div>
-        <div text="center 16px" font-bold>
+        <div text="center sm" font-bold>
           {{ $t('icons') }}
         </div>
         <div flex justify-between>
@@ -185,7 +192,7 @@ function onImgload() {
         </div>
       </div>
       <div>
-        <div text="center 16px" font-bold mb-10px>
+        <div text="center sm" font-bold mb-10px>
           {{ $t('statistics') }}
         </div>
         <div flex="~ wrap" gap-10px>
@@ -207,10 +214,10 @@ function onImgload() {
     </div>
     <div w="500px" p-10px>
       <div flex="~ col" gap-10px items-center>
-        <div text="center 16px" font-bold>
+        <div text="center sm" font-bold>
           {{ $t('preview') }}
         </div>
-        <img v-show="!isImgLoading" w-400px :src="steamcardUrl" alt="steamCard" srcset="" @load="onImgload">
+        <img v-show="!isImgLoading" w-400px :src="steamcardUrl" alt="steamCard" srcset="" @click="openImgPage" @load="onImgload">
         <div v-show="isImgLoading" w-400px h-150px b-1 text-center leading-150px>
           {{ $t('loading') }}
         </div>
