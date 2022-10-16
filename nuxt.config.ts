@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@intlify/nuxt3',
   ],
+  build: {
+    transpile: ['vue-toastification'],
+  },
+  ssr: false,
   experimental: {
     reactivityTransform: true,
   },
