@@ -1,29 +1,6 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["DOM", "ESNext"],
-    "allowJs": true,
-    "module": "esnext",
-    "strict": true,
-    "strictNullChecks": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": false,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-  },
-  "include": ["src/**/*", "api/**/*"]
+    "strict": true
+  }
 }

@@ -1,15 +1,19 @@
 {
-  "online": "ONLINE",
-  "offline": "OFFLINE",
-  "games": "Games",
-  "badges": "Badges",
+  "theme": "Theme",
+  "icons": "Icons",
+  "language": "Language",
+  "badge-icon": "Badge Icon",
+  "group-icon": "Group Icon",
+  "statistics": "Statistics",
   "groups": "Groups",
-  "hours": "hours",
-  "past_2_weeks":"Past 2 Weeks",
-  "invalid_steamid": "Invalid SteamID",
-  "error-info": "Error Info",
+  "badges": "Badges",
+  "games": "Games",
   "screenshots": "Screenshots",
+  "guides": "Guides",
   "artworks": "Artworks",
   "reviews": "Reviews",
-  "guides": "Guides"
+  "preview": "Preview",
+  "copy-success": "Copy Success!",
+  "copy-failed": "Copy Failed",
+  "loading": "Loading..."
 }

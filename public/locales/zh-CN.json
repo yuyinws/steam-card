@@ -1,0 +1,15 @@
+{
+  "online": "在线",
+  "offline": "离线",
+  "games": "游戏",
+  "badges": "徽章",
+  "groups": "群组",
+  "hours": "小时",
+  "past_2_weeks": "过去2周",
+  "invalid_steamid": "SteamID不合法",
+  "error-info": "错误信息",
+  "screenshots": "截图",
+  "artworks": "艺术作品",
+  "reviews": "评测",
+  "guides": "指南"
+}

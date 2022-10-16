@@ -1,5 +1,5 @@
+import type { Count } from 'server/core/types'
 import { themes } from './theme'
-import type { Count } from '@/types'
 
 class Card {
   private name = ''
@@ -45,7 +45,7 @@ class Card {
     badgeIcon,
     i18n,
     counts,
-  }) {
+  }: any) {
     this.name = name
     this.avatarUrlBase64 = avatarUrlBase64
     this.playerLevel = playerLevel
@@ -73,11 +73,11 @@ class Card {
     let onlineText = ''
     let onlineClassName = ''
     if (this.isOnline > 0) {
-      onlineText = this.i18n.__('online')
+      onlineText = this.i18n.get('online')
       onlineClassName = 'online'
     }
     else {
-      onlineText = this.i18n.__('offline')
+      onlineText = this.i18n.get('offline')
       onlineClassName = 'offline'
     }
     this.onlineSvg = `<span class="${onlineClassName}">${onlineText}</span>`
@@ -131,7 +131,7 @@ class Card {
         width:400px;
         height:150px;
         border-radius:5px;
-        font-family: "SimHei";
+        font-family: "Microsoft YaHei";
         }
         
         .card {
@@ -142,7 +142,6 @@ class Card {
         gap:10px;
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
         }
 
         .online {
@@ -223,7 +222,7 @@ class Card {
   
         <div class="bottom">
           <div style="font-size:12px;margin-bottom:5px">
-              ${this.playTime} ${this.i18n.__('hours')} (${this.i18n.__('past_2_weeks')})
+              ${this.playTime} ${this.i18n.get('hours')} (${this.i18n.get('past_2_weeks')})
           </div>
           <div class="game-list">
               ${this.gamesSvg}

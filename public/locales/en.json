@@ -1,0 +1,15 @@
+{
+  "online": "ONLINE",
+  "offline": "OFFLINE",
+  "games": "Games",
+  "badges": "Badges",
+  "groups": "Groups",
+  "hours": "hours",
+  "past_2_weeks": "Past 2 Weeks",
+  "invalid_steamid": "Invalid SteamID",
+  "error-info": "Error Info",
+  "screenshots": "Screenshots",
+  "artworks": "Artworks",
+  "reviews": "Reviews",
+  "guides": "Guides"
+}
