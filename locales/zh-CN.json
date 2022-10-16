@@ -1,15 +1,19 @@
 {
-  "online": "在线",
-  "offline": "离线",
-  "games": "游戏",
-  "badges": "徽章",
+  "theme": "主题",
+  "icons": "图标",
+  "language": "语言",
+  "badge-icon": "徽章图标",
+  "group-icon": "群组图标",
+  "statistics": "统计信息",
   "groups": "群组",
-  "hours": "小时",
-  "past_2_weeks": "过去2周",
-  "invalid_steamid": "SteamID不合法",
-  "error-info": "错误信息",
+  "badges": "徽章",
+  "games": "游戏",
   "screenshots": "截图",
+  "guides": "指南",
   "artworks": "艺术作品",
   "reviews": "评测",
-  "guides": "指南"
+  "preview": "预览",
+  "copy-success": "复制成功！",
+  "copy-failed": "复制失败",
+  "loading": "加载中..."
 }

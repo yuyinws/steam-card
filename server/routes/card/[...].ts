@@ -1,38 +1,33 @@
-import path from 'path'
-import type { VercelRequest, VercelResponse } from '@vercel/node'
-import i18n from 'i18n'
 import {
   getBadges,
   getPlayerSummaries,
   getRecentlyPlayedGames,
   getSteamProfile,
-} from '../src/request/steamApi'
-import type { Count, MyResponseType } from '../src/types/index'
-import { steamCard } from '../src/render/steamCard'
-import { imageUrl2Base64 } from '../src/utils/tools'
-import errorCard from '../src/render/errorCard'
-import { crawler, data, setting } from '../src/logic'
+} from 'server/core/request/steamApi'
+import type { Count, MyResponseType } from 'server/core/types/index'
+import { steamCard } from 'server/core/render/steamCard'
+import { imageUrl2Base64 } from 'server/core/utils/tools'
+import errorCard from 'server/core/render/errorCard'
+import { crawler, data, setting } from 'server/core/logic'
+import initLocale from 'server/core/locales'
 
-const key: any = process.env.STEAM_KEY
-const JPEG_PREFIX = 'data:image/jpeg;base64,'
-const PNG_PREFIX = 'data:image/png;base64,'
-export default async (req: VercelRequest, res: VercelResponse) => {
-  res.setHeader('Content-Type', 'image/svg+xml')
-  res.setHeader('Cache-Control', `public, max-age=${3600 * 24}`)
+const i18n = initLocale('zhCN')
+export default defineEventHandler(async (event) => {
   try {
-    // eslint-disable-next-line prefer-const
-    let { steamid, settings } = req.query as any
-
+    setHeader(event, 'Content-Type', 'image/svg+xml')
+    setHeader(event, 'Cache-Control', `public, max-age=${3600 * 24}`)
+    const key: any = process.env.STEAM_KEY
+    const JPEG_PREFIX = 'data:image/jpeg;base64,'
+    const PNG_PREFIX = 'data:image/png;base64,'
+    const { _ } = event.context.params
+    const splitArr = _.split('/')
+    const steamid = splitArr[0]
+    const settings = splitArr[1]
     const { setting: _setting } = setting(settings)
-
-    i18n.configure({
-      locales: ['en', 'zh-CN'],
-      directory: path.join(__dirname, '../locales'),
-    })
-    i18n.setLocale(_setting.lang)
+    i18n.setLocale(_setting.lang as any)
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
-      res.send(errorCard(i18n.__('invalid_steamid'), i18n))
+      return errorCard(i18n.get('invalid_steamid'), i18n.get('error-info'))
 
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
@@ -81,72 +76,68 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       switch (item) {
         case 'games':
           counts.push({
-            name: i18n.__('games'),
+            name: i18n.get('games'),
             count: gameCount,
           })
           break
         case 'screenshots':
           counts.push({
-            name: i18n.__('screenshots'),
+            name: i18n.get('screenshots'),
             count: screenshotCount,
           })
           break
         case 'artworks':
           counts.push({
-            name: i18n.__('artworks'),
+            name: i18n.get('artworks'),
             count: artWorkCount,
           })
           break
         case 'reviews':
           counts.push({
-            name: i18n.__('reviews'),
+            name: i18n.get('reviews'),
             count: reviewCount,
           })
           break
         case 'guides':
           counts.push({
-            name: i18n.__('guides'),
+            name: i18n.get('guides'),
             count: guideCount,
           })
           break
         case 'groups':
           counts.push({
-            name: i18n.__('groups'),
+            name: i18n.get('groups'),
             count: groupCount,
           })
           break
         case 'badges':
           counts.push({
-            name: i18n.__('badges'),
+            name: i18n.get('badges'),
             count: badgeCount,
           })
           break
       }
     })
 
-    res.send(
-      steamCard(
-        name,
-        avatarUrlBase64,
-        playerLevel,
-        isOnline,
-        games,
-        _setting.theme,
-        _setting.badge,
-        _setting.group,
-        _setting.bgColor,
-        _setting.textColor,
-        playTime,
-        groupIconList,
-        badgeIcon,
-        i18n,
-        counts,
-      ),
+    return steamCard(
+      name,
+      avatarUrlBase64,
+      playerLevel,
+      isOnline,
+      games,
+      _setting.theme,
+      _setting.badge,
+      _setting.group,
+      _setting.bgColor,
+      _setting.textColor,
+      playTime,
+      groupIconList,
+      badgeIcon,
+      i18n,
+      counts,
     )
   }
-  catch (error: any) {
-    // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: card.ts ~ line 177 ~ async ~ error', error)
-    res.send(errorCard(error, i18n))
+  catch (error) {
+    return errorCard(error as string, 'error')
   }
-}
+})

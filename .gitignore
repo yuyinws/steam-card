@@ -1,4 +1,8 @@
-.vercel
-.env
 node_modules
+*.log
+dist
+.output
+.nuxt
+.env
+.vercel
 .DS_Store

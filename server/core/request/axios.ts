@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import * as tunnel from 'tunnel'
-import type { MyResponseType } from '@/types/index'
+import type { MyResponseType } from '~/types/index'
 
 const agent = tunnel.httpOverHttp({
   proxy: {
@@ -24,7 +24,7 @@ instance.interceptors.response.use((response) => {
     return Promise.reject(err)
 })
 
-const request = async(config: AxiosRequestConfig): Promise<MyResponseType> => {
+const request = async (config: AxiosRequestConfig): Promise<MyResponseType> => {
   try {
     const { data } = await instance.request<MyResponseType>(config)
     return data

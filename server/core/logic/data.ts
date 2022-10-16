@@ -1,6 +1,6 @@
 import { blockApps } from './blockApps'
 
-export function data(userInfo, playedGames, badges) {
+export function data(userInfo: any, playedGames: any, badges: any) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
 
   // '<' cause svg render error
