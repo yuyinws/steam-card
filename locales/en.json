@@ -1,3 +1,17 @@
 {
-  "theme": "Theme"
+  "theme": "Theme",
+  "icons": "图标",
+  "badge-icon": "Badge Icon",
+  "group-icon": "Group Icon",
+  "statistics": "Statistics",
+  "groups": "Groups",
+  "badges": "Badges",
+  "games": "Games",
+  "screenshots": "Screenshots",
+  "guides": "Guides",
+  "artworks": "Artworks",
+  "reviews": "Reviews",
+  "preview": "预览",
+  "copy-success": "Copy Success!",
+  "copy-failed": "Copy Failed"
 }

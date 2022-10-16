@@ -10,4 +10,7 @@ declare module '@vue/runtime-core' {
     [key: string]: any
   }
 }
+declare module 'vue-toastification/dist/index.mjs' {
+  
+}
 export {}

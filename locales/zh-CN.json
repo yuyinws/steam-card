@@ -1,0 +1,17 @@
+{
+  "theme": "主题",
+  "icons": "图标",
+  "badge-icon": "徽章图标",
+  "group-icon": "群组图标",
+  "statistics": "统计信息",
+  "groups": "群组",
+  "badges": "徽章",
+  "games": "游戏",
+  "screenshots": "截图",
+  "guides": "指南",
+  "artworks": "艺术作品",
+  "reviews": "评测",
+  "preview": "预览",
+  "copy-success": "复制成功！",
+  "copy-failed": "复制失败"
+}

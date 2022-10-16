@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   },
   css: [
     'anu-vue/dist/style.css',
+    'vue-toastification/dist/index.css',
   ],
   intlify: {
     localeDir: 'locales',

@@ -1,6 +1,8 @@
 <template>
-  <main class="py-20 px-10">
-    <slot />
-    <Footer />
-  </main>
+  <div>
+    <Header />
+    <main class="py-5 px-5">
+      <slot />
+    </main>
+  </div>
 </template>
