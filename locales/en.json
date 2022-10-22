@@ -1,6 +1,9 @@
 {
   "theme": "Theme",
   "icons": "Icons",
+  "custom-color": "Custom Color",
+  "text": "Text",
+  "bg": "Background",
   "language": "Language",
   "badge-icon": "Badge Icon",
   "group-icon": "Group Icon",
@@ -15,5 +18,7 @@
   "preview": "Preview",
   "copy-success": "Copy Success!",
   "copy-failed": "Copy Failed",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "generate": "Generate",
+  "eg": "Eg"
 }

@@ -2,6 +2,9 @@
   "theme": "主题",
   "icons": "图标",
   "language": "语言",
+  "custom-color": "自定义颜色",
+  "text": "文本",
+  "bg": "背景",
   "badge-icon": "徽章图标",
   "group-icon": "群组图标",
   "statistics": "统计信息",
@@ -15,5 +18,7 @@
   "preview": "预览",
   "copy-success": "复制成功！",
   "copy-failed": "复制失败",
-  "loading": "加载中..."
+  "loading": "加载中...",
+  "generate": "生成",
+  "eg": "示例"
 }

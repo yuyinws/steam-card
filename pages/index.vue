@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
+import { ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { POSITION, useToast } from 'vue-toastification'
+import { cloneDeep } from 'lodash'
 
 interface Config {
   steamId: string
   theme: string
   groupIcon: boolean
   badgeIcon: boolean
+  textColor: string | null
+  bgColor: string | null
   statistics: string[]
   lang: string
 }
@@ -41,6 +44,8 @@ const config: Config = reactive({
   theme: 'dark',
   badgeIcon: true,
   groupIcon: true,
+  textColor: null,
+  bgColor: null,
   statistics: ['games', 'groups', 'badges'],
   lang: locale.value,
 })
@@ -53,27 +58,35 @@ const steamcardUrl = ref('')
 
 const isImgLoading = ref(true)
 
-watch(config, (val) => {
+function generateCard() {
+  const _config = cloneDeep(config)
   isImgLoading.value = true
   const settings = []
-  settings.push(config.theme)
-  if (config.lang !== 'zh-CN')
-    settings.push(config.lang)
+  settings.push(_config.theme)
+  if (_config.lang !== 'zh-CN')
+    settings.push(_config.lang)
 
-  if (config.badgeIcon)
+  if (_config.badgeIcon)
     settings.push('badge')
 
-  if (config.groupIcon)
+  if (_config.groupIcon)
     settings.push('group')
 
-  if (!config.statistics.includes('games') || !config.statistics.includes('groups') || !config.statistics.includes('badges'))
-    settings.push(...config.statistics)
+  if (_config.textColor) {
+    const textColor = _config.textColor.replaceAll('#', '')
+    settings.push(`text-${textColor}`)
+  }
 
-  steamcardUrl.value = `/card/${val.steamId}/${settings.join(',')}`
-}, {
-  deep: true,
-  immediate: true,
-})
+  if (_config.bgColor) {
+    const bgColor = _config.bgColor.replaceAll('#', '')
+    settings.push(`bg-${bgColor}`)
+  }
+
+  if (!_config.statistics.includes('games') || !_config.statistics.includes('groups') || !_config.statistics.includes('badges'))
+    settings.push(..._config.statistics)
+
+  steamcardUrl.value = `/card/${_config.steamId}/${settings.join(',')}`
+}
 
 const referenceList = ref([
   {
@@ -133,6 +146,15 @@ function steamID64Page() {
   else
     window.open('https://steamid.pro/', '_blank')
 }
+
+onKeyStroke('Enter', (e) => {
+  e.preventDefault()
+  generateCard()
+})
+
+onMounted(() => {
+  generateCard()
+})
 </script>
 
 <template>
@@ -184,6 +206,24 @@ function steamID64Page() {
           </label>
         </template>
       </ASelect>
+
+      <div>
+        <div text="center sm" font-bold mb-20px>
+          {{ $t('custom-color') }}
+        </div>
+
+        <div flex gap-10px items-center>
+          <div text-12px>
+            {{ $t('text') }}
+          </div>
+          <AInput v-model="config.textColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#666666`" />
+          <div text-12px>
+            {{ $t('bg') }}
+          </div>
+          <AInput v-model="config.bgColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
+        </div>
+      </div>
+
       <div>
         <div text="center sm" font-bold>
           {{ $t('icons') }}
@@ -221,13 +261,22 @@ function steamID64Page() {
           </ACheckbox>
         </div>
       </div>
+
+      <ABtn
+        class="w-full"
+        color="success"
+        @click="generateCard"
+      >
+        {{ $t('generate') }}
+      </abtn>
     </div>
+
     <div w="500px" p-10px>
       <div flex="~ col" gap-10px items-center>
-        <div text="center sm" font-bold>
+        <div text="center xl" font-bold>
           {{ $t('preview') }}
         </div>
-        <img v-show="!isImgLoading" w-400px :src="steamcardUrl" alt="steamCard" srcset="" @click="openImgPage" @load="onImgload">
+        <img v-show="!isImgLoading" w-400px cursor-pointer :src="steamcardUrl" alt="steamCard" srcset="" @click="openImgPage" @load="onImgload">
         <div v-show="isImgLoading" w-400px h-150px b-1 text-center leading-150px>
           {{ $t('loading') }}
         </div>
