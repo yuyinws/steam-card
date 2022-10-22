@@ -126,25 +126,35 @@ function onImgload() {
 function openImgPage() {
   window.open(steamcardUrl.value, '_blank')
 }
+
+function steamID64Page() {
+  if (locale.value === 'zh-CN')
+    window.open('https://keylol.com/t38759-1-1', '_blank')
+  else
+    window.open('https://steamid.pro/', '_blank')
+}
 </script>
 
 <template>
   <div flex="~ wrap" items-start justify-around>
     <div w="500px" p-10px flex="~ col" gap-20px>
-      <AInput
-        id="steamid"
-        v-model="config.steamId"
-        class="text-xs"
-        type="number"
-        dark:bg="#222"
-        prepend-icon="i-mdi:steam"
-      >
-        <template #label>
-          <label for="a-input-steamid">
-            <div mb-10px text="center sm" font-bold>SteamID</div>
-          </label>
-        </template>
-      </AInput>
+      <div flex="~ col" w-full>
+        <div flex justify-center gap-5px>
+          <div text="center sm" font-bold mb-10px>
+            SteamID64
+          </div>
+          <div cursor-pointer i-bi:question-circle @click="steamID64Page" />
+        </div>
+        <AInput
+          id="steamid"
+          v-model="config.steamId"
+          class="text-xs"
+          type="number"
+          dark:bg="#222"
+          prepend-icon="i-mdi:steam"
+        />
+      </div>
+
       <ASelect
         id="language"
         v-model="config.lang"

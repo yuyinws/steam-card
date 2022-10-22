@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
+    "@iconify-json/bi": "^1.1.8",
     "@iconify-json/bx": "^1.1.4",
     "@iconify-json/carbon": "^1.1.8",
     "@iconify-json/gridicons": "^1.1.3",
