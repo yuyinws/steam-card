@@ -9,10 +9,12 @@
 <p align="center">
 <a href="https://card.yuy1n.io" style="font-size:20px">Online Config Page</a>
 </p>
-
 <p align="center">
-	<img src="https://card.yuy1n.io/card/76561198028121353/en" />
+  <a href="https://card.yuy1n.io">
+		<img src="https://card.yuy1n.io/card/76561198028121353/en"/>
+  </a>
 </p>
+
 
 ## Usage
 
@@ -42,7 +44,9 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. And Then click one of the buttons below.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
+
+[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 ## Develop
 

@@ -8,10 +8,12 @@
 <p align="center">
 <a href="https://card.yuy1n.io" style="font-size:20px">在线配置页面</a>
 </p>
-
 <p align="center">
-	<img src="https://card.yuy1n.io/card/76561198028121353" />
+  <a href="https://card.yuy1n.io">
+		<img src="https://card.yuy1n.io/card/76561198028121353" />
+   </a>
 </p>
+
 
 ## 使用
 
@@ -41,7 +43,9 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** ，然后点击下面的一个按钮。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
+
+[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 ## 开发
 
