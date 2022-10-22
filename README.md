@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/yuyinws/static@master/2022/10/upgit_20221022_1666410714.svg">
+  <img src="https://cdn.jsdelivr.net/gh/yuyinws/static@master/2022/10/upgit_20221022_1666452661.svg">
 </p>
+
 
 <p align='center'>
 <b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-CN.md">简体中文</a>
@@ -14,32 +15,6 @@
 		<img src="https://card.yuy1n.io/card/76561198028121353/en"/>
   </a>
 </p>
-
-
-## Usage
-
-> Please make sure your steam profile in public state
-
-### Find your own Steamid
-
-1.[Login](https://steamcommunity.com/login/home/) steam and go to your profile page
-
-2.Now your will see a URL like this：
-
-```
-https://steamcommunity.com/profiles/76561198028121353/
-```
-
-If your not use custom url，the number is your steamid
-
-3.If your use custom url，add  `?xml=1` in your custom url , like this:
-
-```
-https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
-```
-
-4.Node`steamID64`is your steamid
-
 ## Deployment
 
 If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. And Then click one of the buttons below.
