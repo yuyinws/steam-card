@@ -1,14 +1,18 @@
-# SteamCard
-
-- [User Guide Page](https://guide.yuy1n.io/)
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/yuyinws/static@master/2022/10/upgit_20221022_1666410714.svg">
+</p>
 
 <p align='center'>
 <b>English</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-CN.md">简体中文</a>
 </p>
 
-**Generate Your Steam Proflle Quickly**
+<p align="center">
+<a href="https://card.yuy1n.io" style="font-size:20px">Online Config Page</a>
+</p>
 
-![img](https://card.yuy1n.io/card/76561198028121353/en)
+<p align="center">
+	<img src="https://card.yuy1n.io/card/76561198028121353/en" />
+</p>
 
 ## Usage
 
@@ -34,66 +38,11 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 4.Node`steamID64`is your steamid
 
-### Keyword Setting
+## Deployment
 
-Cards can be personalized by passing keywords in the URL
+If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. And Then click one of the buttons below.
 
-| Keyword              | Category   | Feature                |
-| -------------------- | ---------- | ---------------------- |
-| **dark**(default)    | theme      | Use dark theme         |
-| **light**            | theme      | Use light theme        |
-| **badge**            | icon       | Show badge icon        |
-| **group**            | icon       | Show group icon        |
-| **artworks**         | statistics | show artwork count     |
-| **screenshots**      | statistics | show screenshot count  |
-| **reviews**          | statistics | show review count      |
-| **guides**           | statistics | show guide count       |
-| **zh-CN**（default） | language   | Use Simplified Chinese |
-| **en**               | language   | Use English            |
-
-> Dark theme and Simplified Chinese is default setting
-
-### Example case
-
-#### Use English
-
-`https://card.yuy1n.io/card/76561198028121353/en`
-
-![](https://card.yuy1n.io/card/76561198028121353/en)
-
-
-
-#### Show badge and group icon
-
-`https://card.yuy1n.io/card/76561198028121353/en,badge,group`
-
-![](https://card.yuy1n.io/card/76561198028121353/en,badge,group)
-
-#### Use light theme
-
-`https://card.yuy1n.io/card/76561198028121353/en,badge,group,light`
-
-![](https://card.yuy1n.io/card/76561198028121353/en,badge,group,light)
-
-### Use URL
-
-- HTML
-
-```html
-<img width="400" height="140" src="https://card.yuy1n.io/card/76561198028121353"></img>
-```
-
-- Markdown
-
-```markdown
-![](https://card.yuy1n.io/card/76561198028121353)
-```
-
-- BBCode
-
-```bbcode
-[img=400,140]https://card.yuy1n.io/card/76561198028121353[/img]
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 ## Develop
 
@@ -102,18 +51,6 @@ Cards can be personalized by passing keywords in the URL
 > **Node >=16**
 >
 > **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
-
-### Install Vercel Cli
-
-```shell
-npm install -g vercel
-```
-
-> Please checkout [offical docs](https://vercel.com/cli) about Vercel Cli
-
-### Fork this project
-
-### Local development
 
 ```shell
 # copy a .env file
@@ -134,20 +71,8 @@ yarn install
 npm install
 
 # start the service
-vercel dev
+npm run dev
 ```
 
-#### Set Proxy
-
-> If you can only access Steam websites via VPN,you may need set Proxy in .env file like this
-
-```shell
-PROXY_HOST=localhost
-PROXY_PORT=7890
-MODE=development
-```
-
-## Thanks
+## Credits
 [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-
-[Vercel](https://vercel.com/)

@@ -1,14 +1,17 @@
-# SteamCard
-
-- [用户指南](https://guide.yuy1n.io/)
-
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/yuyinws/static@master/2022/10/upgit_20221022_1666410714.svg">
+</p>
 <p align='center'>
-<b>简体中文</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README-en.md">English</a>
+<b>简体中文</b> | <a href="https://github.com/yuyinws/steam-card/blob/master/README.md">English</a>
 </p>
 
-**快速生成自己的 steam 资料卡**
+<p align="center">
+<a href="https://card.yuy1n.io" style="font-size:20px">在线配置页面</a>
+</p>
 
-![img](https://card.yuy1n.io/card/76561198028121353)
+<p align="center">
+	<img src="https://card.yuy1n.io/card/76561198028121353" />
+</p>
 
 ## 使用
 
@@ -34,92 +37,19 @@ https://steamcommunity.com/profiles/CUSTOM_URL/?xml=1
 
 4.`steamID64`节点里的就是你的 steamid
 
-### 关键字配置
+## 部署
 
-通过在URL中传递关键字，可以对卡片进行个性化配置
+如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** ，然后点击下面的一个按钮。
 
-| 关键字              | 分类 | 作用           |
-| ------------------- | ---- | -------------- |
-| **dark**(默认值)    | 主题 | 使用深色主题   |
-| **light**           | 主题 | 使用亮色主题   |
-| **badge**           | 图标 | 显示徽章图标   |
-| **group**           | 图标 | 显示群组图标   |
-| **artworks**        | 统计 | 显示艺术作品数 |
-| **screenshots**     | 统计 | 显示截图数     |
-| **guides**          | 统计 | 显示指南数     |
-| **reviews**         | 统计 | 显示评测数     |
-| **zh-CN**（默认值） | 语言 | 显示简体中文   |
-| **en**              | 语言 | 显示英文       |
-
-> 深色主题和简体中文是默认开启的配置
-
-### 使用示例
-
-#### 不传递任何关键字
-
-`https://card.yuy1n.io/card/76561198028121353`
-
-![](https://card.yuy1n.io/card/76561198028121353)
-
-
-
-#### 显示徽章和群组图标
-
-`https://card.yuy1n.io/card/76561198028121353/badge,group`
-
-![](https://card.yuy1n.io/card/76561198028121353/badge,group)
-
-#### 使用亮色主题
-
-`https://card.yuy1n.io/card/76561198028121353/badge,group,light`
-
-![](https://card.yuy1n.io/card/76561198028121353/badge,group,light)
-
-#### 指定语言
-
-`https://card.yuy1n.io/card/76561198028121353/badge,group,light,en`
-
-![](https://card.yuy1n.io/card/76561198028121353/badge,group,light,en)
-
-### URL引用
-
-- HTML
-
-```html
-<img width="400" height="140" src="https://card.yuy1n.io/card/76561198028121353"></img>
-```
-
-- Markdown
-
-```markdown
-![](https://card.yuy1n.io/card/76561198028121353)
-```
-
-- 论坛/BBCode
-
-```bbcode
-[img=400,140]https://card.yuy1n.io/card/76561198028121353[/img]
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 ## 开发
 
->前置条件:
+> 前置条件:
 >
->**Node >=16**
+> **Node >=16**
 >
->一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
-
-### 全局安装 vercel Cli
-
-```shell
-npm install -g vercel
-```
-
-> 更多 Vercel Cli 的命令见[官方文档](https://vercel.com/cli)
-
-### Fork 项目
-
-### 本地调试
+> **[Steam Api Key](https://steamcommunity.com/dev/apikey)**
 
 ```shell
 复制配置文件
@@ -141,23 +71,8 @@ yarn install
 npm install
 
 # 启动服务
-vercel dev
+npm run dev
 ```
 
-#### 配置代理
-
-> 由于不可抗力，在中国大陆无法访问 Steam 相关域名。需要配置代理。
-
-将.env 文件中的代理配置指向你本地的代理程序，以 Clash 为例
-
-```shell
-PROXY_HOST=localhost
-PROXY_PORT=7890
-# 为了与生产环境区分开，MODE必须要设置为development
-MODE=development
-```
-
-## Thanks
+## Credits
 [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-
-[Vercel](https://vercel.com/)
