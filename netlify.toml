@@ -5,8 +5,12 @@
 [build]
   publish = "dist"
   command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
+  ignore = "git log -1 --pretty=%B | grep skipci"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[template.environment]
+  STEAM_KEY = "your steam API key"
