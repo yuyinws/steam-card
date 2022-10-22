@@ -28,18 +28,18 @@ export const themes: Record<string, Theme> = {
     text_color: '#38bdae',
     bg_color: '#1a1b27',
     online_color: '#10B981',
-    offline_color: '#1a1b27',
+    offline_color: '#38bdae',
   },
   'solarized-light': {
     text_color: '#859900',
     bg_color: '#fdf6e3',
     online_color: '#10B981',
-    offline_color: '#fdf6e3',
+    offline_color: '#859900',
   },
   'ocean-dark': {
     text_color: '#92D534',
     bg_color: '#151A28',
     online_color: '#10B981',
-    offline_color: '#151A28',
+    offline_color: '#92D534',
   },
 }
