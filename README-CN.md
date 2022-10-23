@@ -14,13 +14,23 @@
 		<img src="https://card.yuy1n.io/card/76561198028121353" />
    </a>
 </p>
+
+## 特性
+
+- 动态生成: 卡片内容会根据你的Steam状态动态生成
+- 内容丰富: 图标，主题，在线状态，统计数据，游玩时长...
+- 可定制化: 10+定制项
+- 可部署: 可以在多个平台自主部署该项目
+
 ## 部署
 
-如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** ，然后点击下面的一个按钮。
+\> **_NOTE:_** 如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
+
+> 理论上你可以在所有[Nuxt3](https://v3.nuxtjs.org/getting-started/deployment/#supported-hosting-providers) 支持的平台部署此项目.
 
 ## 开发
 

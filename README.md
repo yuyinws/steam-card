@@ -15,13 +15,23 @@
 		<img src="https://card.yuy1n.io/card/76561198028121353/en"/>
   </a>
 </p>
+
+## 特性
+
+- **Dynamic Generation**: The card content will be dynamically generated according to your Steam status.
+- **Rich Content**: `Icon`, `Online Status`, `Statistics`, `Played Time` and more.
+- **Customizable**: **10+** Custom items.
+- **Deployable**: The project can be deployed autonomously on multiple platforms.
+
 ## Deployment
 
-If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. And Then click one of the buttons below.
+\> **_NOTE:_** If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
+
+> In theory, you can deploy this project on all [Nuxt3](https://v3.nuxtjs.org/getting-started/deployment/#supported-hosting-providers) supported platform
 
 ## Develop
 
