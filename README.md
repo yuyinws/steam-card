@@ -16,7 +16,9 @@
   </a>
 </p>
 
-## 特性
+[![Netlify Status](https://api.netlify.com/api/v1/badges/26879726-2f6e-49e2-8abe-550512e9095c/deploy-status)](https://netlifycard.yuy1n.io/) ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=steam-card)
+
+## Features
 
 - **Dynamic Generation**: The card content will be dynamically generated according to your Steam status.
 - **Rich Content**: `Icon`, `Online Status`, `Statistics`, `Played Time` and more.

@@ -15,6 +15,9 @@
    </a>
 </p>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/26879726-2f6e-49e2-8abe-550512e9095c/deploy-status)](https://netlifycard.yuy1n.io/) ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=steam-card)
+
+
 ## 特性
 
 - 动态生成: 卡片内容会根据你的Steam状态动态生成
