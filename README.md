@@ -25,7 +25,8 @@
 
 ## Deployment
 
-\> **_NOTE:_** If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. 
+> **Note** 
+> If you want to deploy this project by yourself. You need prepare a **[Steam Api Key](https://steamcommunity.com/dev/apikey)** first. 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
 

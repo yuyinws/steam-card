@@ -24,7 +24,8 @@
 
 ## 部署
 
-\> **_NOTE:_** 如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** 
+> **Note** 
+> 如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
 
