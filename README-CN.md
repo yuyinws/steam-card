@@ -16,11 +16,11 @@
 </p>
 
 <p align="center">
-<a href="https://card.yuy1n.io">
-<img src="https://api.netlify.com/api/v1/badges/26879726-2f6e-49e2-8abe-550512e9095c/deploy-status"></img>
+<a href="https://https://netlifycard.yuy1n.io/">
+<img src="https://therealsujitk-vercel-badge.vercel.app/?app=steam-card"></img>
 </a>
 <a href="https://card.yuy1n.io">
-<img src="https://therealsujitk-vercel-badge.vercel.app/?app=steam-card"></img>
+<img src="https://api.netlify.com/api/v1/badges/26879726-2f6e-49e2-8abe-550512e9095c/deploy-status"></img>
 </a>
 </p>
 
@@ -75,4 +75,4 @@ npm run dev
 ```
 
 ## Credits
-[github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
+灵感来自[github-readme-stats](https://github.com/anuraghazra/github-readme-stats)

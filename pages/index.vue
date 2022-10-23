@@ -269,12 +269,12 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- <ABtn
+      <ABtn
         color="success"
         @click="generateCard"
       >
         {{ $t('generate') }}
-      </ABtn> -->
+      </ABtn>
     </div>
 
     <div w="400px" p-10px>

@@ -11,7 +11,6 @@ specifiers:
   '@intlify/nuxt3': ^0.2.4
   '@nuxtjs/color-mode': ^3.1.6
   '@pinia/nuxt': ^0.4.2
-  '@types/lodash-es': ^4.17.6
   '@types/tunnel': ^0.0.3
   '@unocss/nuxt': ^0.45.25
   '@vueuse/nuxt': ^9.3.0
@@ -20,7 +19,6 @@ specifiers:
   cheerio: 1.0.0-rc.12
   eslint: ^8.24.0
   lodash: ^4.17.21
-  lodash-es: ^4.17.21
   nuxt: ^3.0.0-rc.11
   pinia: ^2.0.22
   tunnel: ^0.0.6
@@ -32,7 +30,6 @@ dependencies:
   axios: 0.27.2
   cheerio: 1.0.0-rc.12
   lodash: 4.17.21
-  lodash-es: 4.17.21
   vue-toastification: 2.0.0-rc.5
 
 devDependencies:
@@ -46,7 +43,6 @@ devDependencies:
   '@intlify/nuxt3': 0.2.4
   '@nuxtjs/color-mode': 3.1.8
   '@pinia/nuxt': 0.4.2_typescript@4.8.4
-  '@types/lodash-es': 4.17.6
   '@types/tunnel': 0.0.3
   '@unocss/nuxt': 0.45.26
   '@vueuse/nuxt': 9.3.0_nuxt@3.0.0-rc.11
@@ -1140,16 +1136,6 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
-    dev: true
-
-  /@types/lodash-es/4.17.6:
-    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
-    dependencies:
-      '@types/lodash': 4.14.186
-    dev: true
-
-  /@types/lodash/4.14.186:
-    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
     dev: true
 
   /@types/mdast/3.0.10:
@@ -4411,10 +4397,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
-
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
 
   /lodash._reinterpolate/3.0.0:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
