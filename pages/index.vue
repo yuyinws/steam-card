@@ -147,6 +147,10 @@ function steamID64Page() {
     window.open('https://steamid.pro/', '_blank')
 }
 
+function colorPage() {
+  window.open('https://htmlcolorcodes.com/', '_blank')
+}
+
 onKeyStroke('Enter', (e) => {
   e.preventDefault()
   generateCard()
@@ -159,10 +163,10 @@ onMounted(() => {
 
 <template>
   <div flex="~ wrap" items-start justify-around>
-    <div w="500px" p-10px flex="~ col" gap-20px>
+    <div w="400px" p-10px flex="~ col" gap-20px>
       <div flex="~ col" w-full>
-        <div flex justify-center gap-5px>
-          <div text="center sm" font-bold mb-10px>
+        <div text="center sm" flex justify-center gap-5px>
+          <div font-bold mb-10px>
             SteamID64
           </div>
           <div cursor-pointer i-bi:question-circle @click="steamID64Page" />
@@ -208,16 +212,19 @@ onMounted(() => {
       </ASelect>
 
       <div>
-        <div text="center sm" font-bold mb-20px>
-          {{ $t('custom-color') }}
+        <div text="center sm" items-center flex justify-center gap-5px font-bold mb-20px>
+          <div>{{ $t('custom-color') }}</div>
+          <div cursor-pointer i-bi:question-circle @click="colorPage" />
         </div>
 
-        <div flex gap-10px items-center>
-          <div text-12px>
+        <div flex gap-10px items-center mb-10px>
+          <div text="12px right">
             {{ $t('text') }}
           </div>
           <AInput v-model="config.textColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#666666`" />
-          <div text-12px>
+        </div>
+        <div flex gap-10px items-center>
+          <div :class="[locale === 'en' ? 'w-66px' : '']" text="12px right">
             {{ $t('bg') }}
           </div>
           <AInput v-model="config.bgColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
@@ -262,16 +269,15 @@ onMounted(() => {
         </div>
       </div>
 
-      <ABtn
-        class="w-full"
+      <!-- <ABtn
         color="success"
         @click="generateCard"
       >
         {{ $t('generate') }}
-      </abtn>
+      </ABtn> -->
     </div>
 
-    <div w="500px" p-10px>
+    <div w="400px" p-10px>
       <div flex="~ col" gap-10px items-center>
         <div text="center xl" font-bold>
           {{ $t('preview') }}
