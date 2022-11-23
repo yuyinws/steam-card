@@ -221,7 +221,7 @@ class Card {
         </div>
   
         <div class="bottom">
-          <div style="font-size:12px;margin-bottom:5px">
+          <div style="font-size:12px;margin-bottom:12px">
               ${this.playTime} ${this.i18n.get('hours')} (${this.i18n.get('past_2_weeks')})
           </div>
           <div class="game-list">
