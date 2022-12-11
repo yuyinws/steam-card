@@ -125,23 +125,18 @@ class Card {
     <svg width="400" height="150" xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg">
     <style>
-        .foregin{
-        background-color: ${this.style.bgColor};
-        padding:10px;
-        width:400px;
-        height:150px;
-        border-radius:5px;
-        font-family: "Microsoft YaHei";
-        }
-        
         .card {
         color: ${this.style.fontColor};
+        background-color: ${this.style.bgColor};
         font-size:14px;
         height:130px;
         width:380px;
+        padding: 10px;
         gap:10px;
         display:flex;
         flex-direction:column;
+        font-family: "Microsoft YaHei";
+        border-radius: 5px;
         }
 
         .online {
@@ -197,7 +192,7 @@ class Card {
           gap: 10px;
         }
     </style>
-    <foreignObject class="foregin">
+    <foreignObject width="400" height="150">
       <div class="card"
         xmlns="http://www.w3.org/1999/xhtml">
         <div class="top">
