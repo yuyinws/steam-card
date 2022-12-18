@@ -1,6 +1,6 @@
 import { getImage } from '../request/steamApi'
 
-export const imageUrl2Base64 = async(url: string): Promise<string> => {
+export const imageUrl2Base64 = async (url: string): Promise<string> => {
   const image: any = await getImage(url)
   if (image) {
     const _base64 = Buffer.from(image).toString('base64')

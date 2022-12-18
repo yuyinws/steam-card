@@ -2,7 +2,7 @@
 import { ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { POSITION, useToast } from 'vue-toastification'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 
 interface Config {
   steamId: string
