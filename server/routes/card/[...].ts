@@ -12,13 +12,15 @@ import { crawler, data, setting } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 
 const i18n = initLocale('zhCN')
+const key: string = process.env.STEAM_KEY || ''
+const cacheTime: string = process.env.CACHE_TIME || '3600'
+const JPEG_PREFIX = 'data:image/jpeg;base64,'
+const PNG_PREFIX = 'data:image/png;base64,'
+
 export default defineEventHandler(async (event) => {
   try {
     setHeader(event, 'Content-Type', 'image/svg+xml')
-    setHeader(event, 'Cache-Control', `public, max-age=${3600 * 24}`)
-    const key: any = process.env.STEAM_KEY
-    const JPEG_PREFIX = 'data:image/jpeg;base64,'
-    const PNG_PREFIX = 'data:image/png;base64,'
+    setHeader(event, 'Cache-Control', `public, max-age=${cacheTime}`)
     const { _ } = event.context.params
     const splitArr = _.split('/')
     const steamid = splitArr[0]
