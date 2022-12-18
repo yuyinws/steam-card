@@ -34,6 +34,9 @@
 
 ## Deployment
 
+> **Note** 
+> Card information will be cached for 24 hours. If you want a shorter card information update time, you can try to deploy the project yourself.
+
 **Environment Variables**
 
 | Name      | Description |
