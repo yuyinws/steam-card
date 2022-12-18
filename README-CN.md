@@ -34,10 +34,14 @@
 
 ## 部署
 
-> **Note** 
-> 如果你需要自己部署这个项目，则需要先准备一个 **[Steam Api Key](https://steamcommunity.com/dev/apikey)** 
+**环境变量**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY&envDescription=YOUR_STEAM_KEY&envLink=https%3A%2F%2Fsteamcommunity.com%2Fdev%2Fapikey)
+| 名称      | 描述 |
+| ----------- | ----------- |
+| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) |
+| CACHE_TIME   | 请求缓存时间        |
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
@@ -45,6 +49,7 @@
 
 ## 开发
 
+> **Note** 
 > 前置条件:
 >
 > **Node >=16**

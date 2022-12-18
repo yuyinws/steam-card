@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import * as tunnel from 'tunnel'
-import type { MyResponseType } from '~/types/index'
+import type { MyResponseType } from 'server/core/types/index'
 
 const agent = tunnel.httpOverHttp({
   proxy: {
