@@ -7,7 +7,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import { presetCore, presetThemeDefault } from 'anu-vue'
+import { presetAnu, presetIconExtraProperties } from 'anu-vue'
+import { presetThemeDefault } from '@anu-vue/preset-theme-default'
 
 export default defineConfig({
   presets: [
@@ -15,9 +16,12 @@ export default defineConfig({
     presetAttributify(),
     presetIcons({
       scale: 1.2,
+      extraProperties: presetIconExtraProperties,
     }),
     presetTypography(),
-    presetCore(),
+    // anu-vue preset
+    presetAnu(),
+    // default theme preset
     presetThemeDefault(),
   ],
   transformers: [

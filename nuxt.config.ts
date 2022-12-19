@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
-    '@pinia/nuxt',
+    '@anu-vue/nuxt',
     '@nuxtjs/color-mode',
     '@intlify/nuxt3',
   ],
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     server: fileURLToPath(new URL('./server', import.meta.url)),
   },
   css: [
-    'anu-vue/dist/style.css',
+    '@anu-vue/preset-theme-default/dist/styles.scss',
     'vue-toastification/dist/index.css',
   ],
   intlify: {
