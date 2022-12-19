@@ -113,7 +113,7 @@ class Card {
     this.counts.forEach((count: Count) => {
       this.countSvg += `
         <div class="count-item">
-          <div class="count">${count.count}</div>
+          <div class="count">${count.count || 0}</div>
           <div class="name">${count.name}</div>
         </div>
       `

@@ -9,8 +9,8 @@ export function data(userInfo: any, playedGames: any, badges: any) {
   let playTime = 0
   let games = playedGames.response.games || []
 
-  const badgeCount = badges.response.badges.length
-  const playerLevel = badges.response.player_level
+  const badgeCount = badges.response?.badges?.length || 0
+  const playerLevel = badges.response?.player_level || 0
 
   games.forEach((game: any) => {
     playTime += game.playtime_2weeks
