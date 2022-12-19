@@ -44,11 +44,17 @@
 | STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
 | CACHE_TIME   | 请求缓存时间(秒)  | 3600 |
 
+### PaaS
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 > 理论上你可以在所有[Nuxt3](https://v3.nuxtjs.org/getting-started/deployment/#supported-hosting-providers) 支持的平台部署此项目.
+
+### Docker
+
+`docker pull lyc575757/steam-card`
 
 ## 开发
 

@@ -10,4 +10,6 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
 COPY . .
 RUN pnpm build
 
+EXPOSE 3000
+
 CMD node .output/server/index.mjs
