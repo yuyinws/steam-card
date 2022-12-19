@@ -39,10 +39,10 @@
 
 **Environment Variables**
 
-| Name      | Description |
-| ----------- | ----------- |
-| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) |
-| CACHE_TIME   | request cache time|
+| Name      | Description | Example |
+| ----------- | ----------- | ----------- |
+| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
+| CACHE_TIME   | request cache time (second)| 3600 |
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 

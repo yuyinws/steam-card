@@ -39,10 +39,10 @@
 
 **环境变量**
 
-| 名称      | 描述 |
-| ----------- | ----------- |
-| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) |
-| CACHE_TIME   | 请求缓存时间        |
+| 名称      | 描述 | 示例 |
+| ----------- | ----------- | ----------- |
+| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
+| CACHE_TIME   | 请求缓存时间(秒)  | 3600 |
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
