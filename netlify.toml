@@ -14,3 +14,4 @@
 
 [template.environment]
   STEAM_KEY = "your steam API key"
+  CACHE_TIME = "request cache time(second)"
