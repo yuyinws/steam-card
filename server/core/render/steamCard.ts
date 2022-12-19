@@ -1,3 +1,4 @@
+import type { Count } from '../types'
 import Card from './Card'
 
 const steamCard = (
@@ -15,8 +16,7 @@ const steamCard = (
   groupIconList: string[],
   badgeIcon: string,
   i18n: any,
-  counts,
-
+  counts: Count[],
 ) => {
   const card = new Card({
     name,
@@ -38,10 +38,10 @@ const steamCard = (
   card.setStyle()
   card.renderGames()
   card.renderCounts()
-  if (isGroup)
+  if (isGroup && groupIconList?.length > 0)
     card.renderGroup()
 
-  if (isBadge)
+  if (isBadge && badgeIcon)
     card.renderBadge()
 
   return card.render()
