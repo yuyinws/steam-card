@@ -41,7 +41,7 @@
 ## 📦 Deployment  
 
 > **Note** 
-> Card information will be cached for 24 hours. If you want a shorter card information update time, you can try to deploy the project yourself.
+> Card information will be automatically update every 24 hours. If your want a shorter update time, deploy it by your self.
 
 **Environment Variables**
 

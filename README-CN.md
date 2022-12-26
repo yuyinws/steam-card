@@ -42,7 +42,7 @@
 ## 📦 部署
 
 > **Note** 
-> 卡片信息会有24小时的缓存，如果你想要更短的卡片信息更新时间，可以尝试自己部署该项目。
+> 卡片信息每24小时更新一次，如果你想要更短的卡片信息更新时间，可以自己部署该项目。
 
 **环境变量**
 
@@ -56,8 +56,6 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
-
-> 理论上你可以在所有[Nuxt3](https://v3.nuxtjs.org/getting-started/deployment/#supported-hosting-providers) 支持的平台部署此项目.
 
 ### Docker
 
