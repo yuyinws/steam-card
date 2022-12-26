@@ -36,7 +36,7 @@
 - **User Friendly**: Generate your Steam card on [Online Config Page](https://card.yuy1n.io)
 - **i18n**: Support multiple languages (PR Welcome for more language)
 - **Customizable**: Support more than 10 Custom items.
-- **Deployable**: Support deploy it with `Verlcel`, `Netlify` or `Docker`.
+- **Deployable**: Support deploy it with `Vercel`, `Netlify` or `Docker`.
 
 ## 📦 Deployment  
 
