@@ -31,14 +31,14 @@
 </a>
 <p>
 
-## Features
+## 🔥 Features
+- **Dynamic**: The card content will be dynamically generated according to your Steam status.
+- **User Friendly**: Generate your Steam card on [Online Config Page](https://card.yuy1n.io)
+- **i18n**: Support multiple languages (PR Welcome for more language)
+- **Customizable**: Support more than 10 Custom items.
+- **Deployable**: Support deploy it with `Verlcel`, `Netlify` or `Docker`.
 
-- **Dynamic Generation**: The card content will be dynamically generated according to your Steam status.
-- **Rich Content**: `Icon`, `Online Status`, `Statistics`, `Played Time` and more.
-- **Customizable**: **10+** Custom items.
-- **Deployable**: The project can be deployed autonomously on multiple platforms.
-
-## Deployment
+## 📦 Deployment  
 
 > **Note** 
 > Card information will be cached for 24 hours. If you want a shorter card information update time, you can try to deploy the project yourself.
@@ -55,8 +55,6 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
-
-> In theory, you can deploy this project on all [Nuxt3](https://v3.nuxtjs.org/getting-started/deployment/#supported-hosting-providers) supported platform
 
 ### Docker
 
