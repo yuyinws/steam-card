@@ -14,6 +14,7 @@ import initLocale from 'server/core/locales'
 const i18n = initLocale('zhCN')
 const key: string = process.env.STEAM_KEY || ''
 const cacheTime: string = process.env.CACHE_TIME || '3600'
+const blockUsers: string = process.env.BLOCK_USERS || ''
 const JPEG_PREFIX = 'data:image/jpeg;base64,'
 const PNG_PREFIX = 'data:image/png;base64,'
 
@@ -30,6 +31,9 @@ export default defineEventHandler(async (event) => {
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
       return errorCard(i18n.get('invalid_steamid'), i18n.get('error-info'))
+
+    if (blockUsers.split(',').includes(steamid))
+      return errorCard('Sorry, your account had been banned.', i18n.get('error-info'))
 
     const AllData: Array<MyResponseType> = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
