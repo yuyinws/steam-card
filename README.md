@@ -60,7 +60,7 @@
 
 `docker pull lyc575757/steam-card`
 
-## Develop
+## ⚒️ Develop
 
 > Requirement:
 >
@@ -90,5 +90,5 @@ npm install
 npm run dev
 ```
 
-## Credits
+## ❤️ Credits
 Inspired by [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
