@@ -29,5 +29,21 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
