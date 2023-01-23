@@ -1,4 +1,6 @@
-export function data(userInfo: any, playedGames: any, badges: any) {
+import type { PlayedGames, Player } from 'types'
+
+export function data(userInfo: Player, playedGames: PlayedGames) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
   const blockApps = process.env.BLOCK_APPS || ''
   const blockAppList = blockApps.split(',')
@@ -6,18 +8,15 @@ export function data(userInfo: any, playedGames: any, badges: any) {
   const _name = name.replaceAll('<', '&lt;')
 
   let playTime = 0
-  let games = playedGames.response.games || []
+  let games = playedGames.games || []
 
-  const badgeCount = badges.response?.badges?.length || 0
-  const playerLevel = badges.response?.player_level || 0
-
-  games.forEach((game: any) => {
+  games.forEach((game) => {
     playTime += game.playtime_2weeks
   })
 
   playTime = parseInt(String(playTime / 60), 10)
-  games = games.filter((game: any) => !blockAppList.includes(String(game.appid)))
+  games = games.filter(game => !blockAppList.includes(String(game.appid)))
   games.splice(5, games.length - 5)
 
-  return { games, playTime, badgeCount, playerLevel, avatarUrl, name: _name, isOnline }
+  return { games, playTime, avatarUrl, name: _name, isOnline }
 }

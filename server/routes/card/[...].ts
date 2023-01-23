@@ -1,15 +1,14 @@
 import {
-  getBadges,
   getPlayerSummaries,
   getRecentlyPlayedGames,
   getSteamProfile,
 } from 'server/core/request/steamApi'
-import type { Count, MyResponseType } from 'server/core/types/index'
 import { steamCard } from 'server/core/render/steamCard'
-import { imageUrl2Base64 } from 'server/core/utils/tools'
 import errorCard from 'server/core/render/errorCard'
 import { crawler, data, setting } from 'server/core/logic'
 import initLocale from 'server/core/locales'
+import type { Count } from 'types'
+import { imageUrl2Base64 } from 'server/core/utils'
 
 const i18n = initLocale('zhCN')
 const key: string = process.env.STEAM_KEY || ''
@@ -35,7 +34,7 @@ export default defineEventHandler(async (event) => {
     if (blockUsers.split(',').includes(steamid))
       return errorCard('Sorry, your account had been banned.', i18n.get('error-info'))
 
-    const AllData: Array<MyResponseType> = await Promise.all([
+    const AllData = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
       getRecentlyPlayedGames({
         format: 'json',
@@ -44,9 +43,8 @@ export default defineEventHandler(async (event) => {
         count: 0,
       }),
       getSteamProfile(steamid),
-      getBadges({ key, steamid }),
     ])
-    const [player, playedGames, profile, badges] = AllData
+    const [player, playedGames, profile] = AllData
 
     const {
       gameCount,
@@ -57,8 +55,10 @@ export default defineEventHandler(async (event) => {
       artWorkCount,
       reviewCount,
       guideCount,
-    } = crawler(profile) as any
-    const { games, playTime, badgeCount, playerLevel, avatarUrl, name, isOnline } = data(player?.response?.players[0], playedGames, badges)
+      badgeCount,
+      playerLevel,
+    } = crawler(profile)
+    const { games, playTime, avatarUrl, name, isOnline } = data(player.response.players[0], playedGames.response)
     let badgeIcon = ''
     if (badgeIconUrl) {
       badgeIcon = await imageUrl2Base64(badgeIconUrl)
@@ -73,10 +73,12 @@ export default defineEventHandler(async (event) => {
       groupIconList[i] = JPEG_PREFIX + groupIconList[i]
     }
 
+    const gameImgs = []
+
     for (let i = 0; i < games.length; i++) {
       const url = `https://steamcdn-a.akamaihd.net/steam/apps/${games[i].appid}/header.jpg`
-      games[i] = await imageUrl2Base64(url)
-      games[i] = JPEG_PREFIX + games[i]
+      gameImgs[i] = await imageUrl2Base64(url)
+      gameImgs[i] = JPEG_PREFIX + gameImgs[i]
     }
 
     const counts: Count[] = []
@@ -133,7 +135,7 @@ export default defineEventHandler(async (event) => {
       avatarUrlBase64,
       playerLevel,
       isOnline,
-      games,
+      gameImgs,
       _setting.theme,
       _setting.badge,
       _setting.group,
