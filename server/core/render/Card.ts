@@ -1,4 +1,5 @@
-import type { Count } from 'server/core/types'
+import type { Count } from 'types'
+import type { I18n } from '../locales'
 import { themes } from './theme'
 
 class Card {
@@ -27,7 +28,7 @@ class Card {
 
   private onlineSvg = ''
 
-  private i18n: any
+  private i18n: I18n
   private countSvg = ''
   private counts: Count[]
 

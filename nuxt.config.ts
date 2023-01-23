@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   },
   alias: {
     server: fileURLToPath(new URL('./server', import.meta.url)),
+    types: fileURLToPath(new URL('./server/types', import.meta.url)),
   },
   css: [
     '@anu-vue/preset-theme-default/dist/styles.scss',

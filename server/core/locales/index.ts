@@ -3,10 +3,15 @@ import zhCN from './zhCN.json' assert {type: 'json'}
 
 type Locales = 'en' | 'zhCN'
 
+export interface I18n {
+  setLocale: Function
+  get: Function
+}
+
 export default (_default: Locales) => {
   const Locales = {
-    en: en as any,
-    zhCN: zhCN as any,
+    en: en as Record<string, string>,
+    zhCN: zhCN as Record<string, string>,
   }
 
   let defaultLocale: Locales = _default
@@ -24,4 +29,3 @@ export default (_default: Locales) => {
     get,
   }
 }
-

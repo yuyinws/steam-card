@@ -9,8 +9,8 @@ interface Config {
   theme: string
   groupIcon: boolean
   badgeIcon: boolean
-  textColor: string | null
-  bgColor: string | null
+  textColor: string
+  bgColor: string
   statistics: string[]
   lang: string
 }
@@ -44,8 +44,8 @@ const config: Config = reactive({
   theme: 'dark',
   badgeIcon: true,
   groupIcon: true,
-  textColor: null,
-  bgColor: null,
+  textColor: '',
+  bgColor: '',
   statistics: ['games', 'groups', 'badges'],
   lang: locale.value,
 })
@@ -188,7 +188,7 @@ onMounted(() => {
         :options="languages"
         dark:bg="#222"
         prepend-icon="i-mdi:language"
-        @update:modelValue="onLanguageChange"
+        @update:model-value="onLanguageChange"
       >
         <template #label>
           <label for="a-input-language">

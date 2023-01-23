@@ -1,6 +1,6 @@
 import { load } from 'cheerio'
 
-export function crawler(html: any) {
+export function crawler(html: string) {
   const $ = load(html)
 
   let gameCount = '0'
@@ -8,6 +8,7 @@ export function crawler(html: any) {
   let artWorkCount = '0'
   let reviewCount = '0'
   let guideCount = '0'
+  let badgeCount = '0'
 
   const groupIconList: string[] = []
   $('.profile_group_links')
@@ -35,21 +36,29 @@ export function crawler(html: any) {
     let itemCount = $(el).children().find('.profile_count_link_total').text()
     itemCount = itemCount.toString().replaceAll('\n', '').replaceAll('\t', '')
 
-    if (itemName === 'Games')
-      gameCount = itemCount
-
-    if (itemName === 'Screenshots')
-      screenshotCount = itemCount
-
-    if (itemName === 'Artwork')
-      artWorkCount = itemCount
-
-    if (itemName === 'Reviews')
-      reviewCount = itemCount
-
-    if (itemName === 'Guides')
-      guideCount = itemCount
+    switch (itemName) {
+      case 'Games':
+        gameCount = itemCount
+        break
+      case 'Screenshots':
+        screenshotCount = itemCount
+        break
+      case 'Artwork':
+        artWorkCount = itemCount
+        break
+      case 'Reviews':
+        reviewCount = itemCount
+        break
+      case 'Guides':
+        guideCount = itemCount
+        break
+      case 'Badges':
+        badgeCount = itemCount
+        break
+    }
   })
+
+  const playerLevel = $('.persona_name,.persona_level').find('.friendPlayerLevelNum').text()
 
   return {
     gameCount,
@@ -60,5 +69,7 @@ export function crawler(html: any) {
     artWorkCount,
     reviewCount,
     guideCount,
+    badgeCount,
+    playerLevel,
   }
 }

@@ -9,7 +9,7 @@
     "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "postinstall": "nuxi prepare",
     "generate": "nuxi generate"
   },
