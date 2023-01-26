@@ -31,29 +31,29 @@ export function crawler(html: string) {
 
   const badgeIconUrl = $('.favorite_badge_icon').children().attr('src') as string
 
-  $('.profile_item_links').children().each((i, el) => {
-    const itemName = $(el).children().find('.count_link_label').text()
-    let itemCount = $(el).children().find('.profile_count_link_total').text()
-    itemCount = itemCount.toString().replaceAll('\n', '').replaceAll('\t', '')
+  $('.count_link_label').each((i, el) => {
+    const itemName = $(el).text()
+    let count = $(el).next().text()
+    count = count.toString().replaceAll('\n', '').replaceAll('\t', '')
 
     switch (itemName) {
       case 'Games':
-        gameCount = itemCount
+        gameCount = count
         break
       case 'Screenshots':
-        screenshotCount = itemCount
+        screenshotCount = count
         break
       case 'Artwork':
-        artWorkCount = itemCount
+        artWorkCount = count
         break
       case 'Reviews':
-        reviewCount = itemCount
+        reviewCount = count
         break
       case 'Guides':
-        guideCount = itemCount
+        guideCount = count
         break
       case 'Badges':
-        badgeCount = itemCount
+        badgeCount = count
         break
     }
   })

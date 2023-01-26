@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     types: fileURLToPath(new URL('./server/types', import.meta.url)),
   },
   css: [
-    '@anu-vue/preset-theme-default/dist/styles.scss',
+    '@anu-vue/preset-theme-default/dist/style.css',
     'vue-toastification/dist/index.css',
   ],
   intlify: {
