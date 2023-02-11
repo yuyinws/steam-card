@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@anu-vue/nuxt',
     '@nuxtjs/color-mode',
     '@intlify/nuxt3',
+    '@nuxt/devtools',
   ],
   build: {
     transpile: ['vue-toastification'],
