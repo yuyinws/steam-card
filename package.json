@@ -32,6 +32,7 @@
     "@iconify-json/mdi": "^1.1.44",
     "@iconify-json/twemoji": "^1.1.10",
     "@intlify/nuxt3": "^0.2.4",
+    "@nuxt/devtools": "^0.1.0",
     "@nuxtjs/color-mode": "^3.2.0",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.18",
