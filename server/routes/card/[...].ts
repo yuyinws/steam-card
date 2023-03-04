@@ -1,14 +1,10 @@
-import {
-  getPlayerSummaries,
-  getRecentlyPlayedGames,
-  getSteamProfile,
-} from 'server/core/request/steamApi'
+import { getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
 import { steamCard } from 'server/core/render/steamCard'
 import errorCard from 'server/core/render/errorCard'
 import { crawler, data, setting } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 import type { Count } from 'types'
-import { imageUrl2Base64 } from 'server/core/utils'
+import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
 
 const i18n = initLocale('zhCN')
 const key: string = process.env.STEAM_KEY || ''
@@ -62,11 +58,11 @@ export default defineEventHandler(async (event) => {
     let badgeIcon = ''
     if (badgeIconUrl) {
       badgeIcon = await imageUrl2Base64(badgeIconUrl)
-      badgeIcon = PNG_PREFIX + badgeIcon
+      badgeIcon = badgeIcon ? PNG_PREFIX + badgeIcon : transparentImageBase64
     }
 
     let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
-    avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : ''
+    avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : transparentImageBase64
 
     for (let i = 0; i < groupIconList.length; i++) {
       groupIconList[i] = await imageUrl2Base64(groupIconList[i])
@@ -78,7 +74,7 @@ export default defineEventHandler(async (event) => {
     for (let i = 0; i < games.length; i++) {
       const url = `https://steamcdn-a.akamaihd.net/steam/apps/${games[i].appid}/header.jpg`
       gameImgs[i] = await imageUrl2Base64(url)
-      gameImgs[i] = JPEG_PREFIX + gameImgs[i]
+      gameImgs[i] = gameImgs[i] ? JPEG_PREFIX + gameImgs[i] : transparentImageBase64
     }
 
     const counts: Count[] = []
