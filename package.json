@@ -6,7 +6,8 @@
   "author": "yuyinws",
   "license": "MIT",
   "scripts": {
-    "build": "nuxi build",
+    "build": "NITRO_PRESET=vercel-edge nuxi build",
+    "build:netlify": "NITRO_PRESET=netlify-edge nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint . --fix",
