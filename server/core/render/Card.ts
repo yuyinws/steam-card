@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import type { Count } from 'types'
 import type { I18n } from '../locales'
 import { themes } from './theme'
