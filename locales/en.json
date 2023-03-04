@@ -20,5 +20,7 @@
   "copy-failed": "Copy Failed",
   "loading": "Loading...",
   "generate": "Generate",
-  "eg": "Eg"
+  "eg": "Eg",
+  "login": "Login",
+  "logout": "Logout"
 }

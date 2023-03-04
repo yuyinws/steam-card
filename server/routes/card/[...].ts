@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   try {
     setHeader(event, 'Content-Type', 'image/svg+xml')
     setHeader(event, 'Cache-Control', `public, max-age=${cacheTime}`)
-    const { _ } = event.context.params
+    const { _ } = event.context.params as { _: string }
     const splitArr = _.split('/')
     const steamid = splitArr[0]
     const settings = splitArr[1]
@@ -145,6 +145,8 @@ export default defineEventHandler(async (event) => {
     )
   }
   catch (error) {
+    // eslint-disable-next-line no-console
+    console.log('🚀 ~ file: [...].ts:148 ~ defineEventHandler ~ error:', error)
     return errorCard(error as string, 'error')
   }
 })
