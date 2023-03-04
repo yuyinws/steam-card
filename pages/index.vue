@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
+import { AAvatar, ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { POSITION, useToast } from 'vue-toastification'
 import { cloneDeep } from 'lodash-es'
+import { parse } from 'cookie'
 
 interface Config {
   steamId: string
@@ -17,6 +18,8 @@ interface Config {
 
 const toast = useToast()
 const { locale, t } = useI18n()
+const steamId = parse(document.cookie).openid
+const avatar = ref('')
 
 const themeList = ['dark', 'light', 'radical', 'tokyonight', 'solarized-light', 'ocean-dark']
 const languages = [
@@ -40,7 +43,7 @@ const statisticsList = [
 ]
 
 const config: Config = reactive({
-  steamId: '76561198028121353',
+  steamId: steamId || '76561198028121353',
   theme: 'dark',
   badgeIcon: true,
   groupIcon: true,
@@ -151,13 +154,60 @@ function colorPage() {
   window.open('https://htmlcolorcodes.com/', '_blank')
 }
 
+async function handleLogin() {
+  try {
+    const origin = encodeURI(location.origin)
+    const { redirectUrl } = await $fetch('/auth/steam', {
+      params: {
+        origin,
+      },
+    })
+    window.location.replace(redirectUrl)
+  }
+  catch (error) {
+
+  }
+}
+
+function handleLogout() {
+  document.cookie = 'openid' + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+  localStorage.removeItem('avatar')
+  avatar.value = ''
+}
+
+async function onLogBtnClick() {
+  if (avatar.value)
+    handleLogout()
+
+  else
+    handleLogin()
+}
+
 onKeyStroke('Enter', (e) => {
   e.preventDefault()
   generateCard()
 })
 
+async function getAvatar() {
+  try {
+    if (localStorage.getItem('avatar')) {
+      avatar.value = localStorage.getItem('avatar')!
+    }
+    else {
+      const { avatar: _avatar } = await $fetch(`/info/${steamId}`)
+      localStorage.setItem('avatar', _avatar)
+      avatar.value = _avatar
+    }
+  }
+  catch (error) {
+
+  }
+}
+
 onMounted(() => {
   generateCard()
+  if (steamId)
+    getAvatar()
 })
 </script>
 
@@ -171,14 +221,23 @@ onMounted(() => {
           </div>
           <div cursor-pointer i-bi:question-circle @click="steamID64Page" />
         </div>
-        <AInput
-          id="steamid"
-          v-model="config.steamId"
-          class="text-xs"
-          type="number"
-          dark:bg="#222"
-          prepend-icon="i-mdi:steam"
-        />
+        <div flex items-center gap-10px>
+          <AInput
+            id="steamid"
+            v-model="config.steamId"
+            class="text-xs"
+            type="number"
+            dark:bg="#222"
+            prepend-icon="i-mdi:steam"
+          />
+          <ABtn variant="light" :color=" avatar ? 'danger' : 'info'" class="text-xs" @click="onLogBtnClick">
+            <AAvatar v-if="avatar" w-14px h-14px :src="avatar" />
+            <i v-else class="i-mdi:steam" />
+            <span>
+              {{ avatar ? $t('logout') : $t('login') }}
+            </span>
+          </ABtn>
+        </div>
       </div>
 
       <ASelect

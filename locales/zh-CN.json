@@ -20,5 +20,7 @@
   "copy-failed": "复制失败",
   "loading": "加载中...",
   "generate": "生成",
-  "eg": "示例"
+  "eg": "示例",
+  "login": "登录",
+  "logout": "注销"
 }
