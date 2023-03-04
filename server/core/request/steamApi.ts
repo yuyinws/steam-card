@@ -24,5 +24,10 @@ export function getRecentlyPlayedGames(params: RecentlyPlayedGames) {
 }
 
 export function getSteamProfile(steamid: string) {
-  return $fetch<string>(`https://steamcommunity.com/profiles/${steamid}/`)
+  return $fetch<string>(`https://steamcommunity.com/profiles/${steamid}/`, {
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36',
+    },
+  })
 }
