@@ -1,5 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
-import type { Count } from 'types'
+import type { Count, Theme } from 'types'
 import type { I18n } from '../locales'
 import { themes } from './theme'
 
@@ -64,7 +63,7 @@ class Card {
   }
 
   public setStyle() {
-    const { bg_color, text_color, online_color, offline_color } = themes[this.theme]
+    const { bg_color, text_color, online_color, offline_color } = themes[this.theme as Theme]
     this.style.bgColor = this.bgColor || bg_color
     this.style.fontColor = this.textColor || text_color
     this.style.onlineColor = online_color
@@ -129,7 +128,7 @@ class Card {
     <style>
         .card {
         color: ${this.style.fontColor};
-        background-color: ${this.style.bgColor};
+        background: linear-gradient(90deg, ${this.style.bgColor});
         font-size:14px;
         height:130px;
         width:380px;

@@ -1,45 +1,46 @@
-interface Theme {
-  bg_color: string
-  text_color: string
-  online_color: string
-  offline_color: string
-}
+import type { Theme, ThemeProp } from 'types'
 
-export const themes: Record<string, Theme> = {
+export const themes: Record<Theme, ThemeProp> = {
   'dark': {
-    bg_color: '#1B2838',
-    text_color: 'white',
+    bg_color: '#1B2838,#1B2838',
+    text_color: '#ffffff',
     online_color: '#10B981',
-    offline_color: 'white',
+    offline_color: '#ffffff',
   },
   'light': {
-    bg_color: '#f7f7f7',
+    bg_color: '#f7f7f7,#f7f7f7',
     text_color: '#363636',
     online_color: '#10B981',
     offline_color: '#363636',
   },
   'radical': {
-    bg_color: '#141321',
+    bg_color: '#141321,#141321',
     text_color: '#a9fef7',
     online_color: '#10B981',
     offline_color: '#a9fef7',
   },
   'tokyonight': {
+    bg_color: '#1a1b27,#1a1b27',
     text_color: '#38bdae',
-    bg_color: '#1a1b27',
     online_color: '#10B981',
     offline_color: '#38bdae',
   },
   'solarized-light': {
+    bg_color: '#fdf6e3,#fdf6e3',
     text_color: '#859900',
-    bg_color: '#fdf6e3',
     online_color: '#10B981',
     offline_color: '#859900',
   },
   'ocean-dark': {
+    bg_color: '#151A28,#151A28',
     text_color: '#92D534',
-    bg_color: '#151A28',
     online_color: '#10B981',
     offline_color: '#92D534',
+  },
+  'gradient1': {
+    bg_color: '#564ecb,#2bcc88',
+    text_color: '#ffffff',
+    online_color: '#10B981',
+    offline_color: '#ffffff',
   },
 }

@@ -79,7 +79,7 @@ export default defineEventHandler(async (event) => {
 
     const counts: Count[] = []
 
-    _setting.counts.forEach((item) => {
+    _setting.statistics.forEach((item) => {
       switch (item) {
         case 'games':
           counts.push({

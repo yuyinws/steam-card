@@ -4,27 +4,17 @@ import { useI18n } from 'vue-i18n'
 import { cloneDeep } from 'lodash-es'
 import { parse } from 'cookie'
 import { useStorage } from '@vueuse/core'
+import type { Config } from 'types'
 
 const emits = defineEmits(['update:loading', 'update:url'])
-
-interface Config {
-  steamId: string
-  theme: string
-  groupIcon: boolean
-  badgeIcon: boolean
-  textColor: string
-  bgColor: string
-  statistics: string[]
-  lang: string
-}
 
 const { locale } = useI18n()
 const steamId = parse(document.cookie).openid
 const defaultConifg: Config = {
   steamId: steamId || defaultSteamId,
   theme: 'dark',
-  badgeIcon: true,
-  groupIcon: true,
+  badge: true,
+  group: true,
   textColor: '',
   bgColor: '',
   statistics: ['games', 'groups', 'badges'],
@@ -43,10 +33,10 @@ function generateCard() {
   if (_config.lang !== 'zh-CN')
     settings.push(_config.lang)
 
-  if (_config.badgeIcon)
+  if (_config.badge)
     settings.push('badge')
 
-  if (_config.groupIcon)
+  if (_config.group)
     settings.push('group')
 
   if (_config.textColor) {
@@ -217,12 +207,12 @@ onKeyStroke('Enter', (e) => {
         {{ $t('icons') }}
       </div>
       <div flex justify-between>
-        <ASwitch v-model="config.badgeIcon" class="text-sm i-switch">
+        <ASwitch v-model="config.badge" class="text-sm i-switch">
           <template #default>
             <span>{{ $t('badge-icon') }}</span>
           </template>
         </ASwitch>
-        <ASwitch v-model="config.groupIcon" class="text-sm i-switch">
+        <ASwitch v-model="config.group" class="text-sm i-switch">
           <template #default>
             <span>{{ $t('group-icon') }}</span>
           </template>
