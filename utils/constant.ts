@@ -18,3 +18,4 @@ export const statisticsList = [
   'artworks',
   'reviews',
 ]
+export const defaultSteamId = '76561198028121353'

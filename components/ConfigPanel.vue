@@ -21,7 +21,7 @@ interface Config {
 const { locale } = useI18n()
 const steamId = parse(document.cookie).openid
 const defaultConifg: Config = {
-  steamId: steamId || '76561198028121353',
+  steamId: steamId || defaultSteamId,
   theme: 'dark',
   badgeIcon: true,
   groupIcon: true,
@@ -32,6 +32,8 @@ const defaultConifg: Config = {
 }
 
 const config = useStorage('config', defaultConifg)
+
+locale.value = config.value.lang
 
 function generateCard() {
   const _config = cloneDeep(config.value)
