@@ -3,6 +3,7 @@ import { AAvatar, ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { cloneDeep } from 'lodash-es'
 import { parse } from 'cookie'
+import { useStorage } from '@vueuse/core'
 
 const emits = defineEmits(['update:loading', 'update:url'])
 
@@ -19,8 +20,7 @@ interface Config {
 
 const { locale } = useI18n()
 const steamId = parse(document.cookie).openid
-
-const config: Config = reactive({
+const defaultConifg: Config = {
   steamId: steamId || '76561198028121353',
   theme: 'dark',
   badgeIcon: true,
@@ -29,10 +29,12 @@ const config: Config = reactive({
   bgColor: '',
   statistics: ['games', 'groups', 'badges'],
   lang: locale.value,
-})
+}
+
+const config = useStorage('config', defaultConifg)
 
 function generateCard() {
-  const _config = cloneDeep(config)
+  const _config = cloneDeep(config.value)
   emits('update:loading', true)
   const settings = []
   settings.push(_config.theme)
@@ -112,7 +114,7 @@ function steamID64Page() {
 }
 
 const isDisabled = computed(() => {
-  return config.statistics.length >= 3
+  return config.value.statistics.length >= 3
 })
 
 function colorPage() {
