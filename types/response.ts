@@ -28,3 +28,11 @@ export interface BadgesResponse {
   player_level: number
   badges: []
 }
+
+export interface OwnedGames {
+  game_count: number
+  games: {
+    appid: number
+    playtime_forever: number
+  }[]
+}

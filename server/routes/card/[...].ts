@@ -5,6 +5,7 @@ import { crawler, data, setting } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 import type { Count } from 'types'
 import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
+import { getGameCoverUrl } from '@/utils/common'
 
 const i18n = initLocale('zhCN')
 const key: string = process.env.STEAM_KEY || ''
@@ -72,14 +73,14 @@ export default defineEventHandler(async (event) => {
     const gameImgs = []
 
     for (let i = 0; i < games.length; i++) {
-      const url = `https://steamcdn-a.akamaihd.net/steam/apps/${games[i].appid}/header.jpg`
+      const url = getGameCoverUrl(games[i].appid)
       gameImgs[i] = await imageUrl2Base64(url)
       gameImgs[i] = gameImgs[i] ? JPEG_PREFIX + gameImgs[i] : transparentImageBase64
     }
 
     const counts: Count[] = []
 
-    _setting.counts.forEach((item) => {
+    _setting.statistics.forEach((item) => {
       switch (item) {
         case 'games':
           counts.push({
@@ -126,6 +127,21 @@ export default defineEventHandler(async (event) => {
       }
     })
 
+    if (_setting.bg.includes('bg-game')) {
+      const arrs = _setting.bg.split('-')
+      let url = ''
+      if (arrs.length < 3) {
+        const { appid } = await $fetch(`/info/games/${steamid}`)
+        url = getGameCoverUrl(appid!)
+      }
+      else {
+        url = getGameCoverUrl(arrs[2])
+      }
+      let gameBase64 = await imageUrl2Base64(url)
+      gameBase64 = JPEG_PREFIX + gameBase64
+      _setting.bg = `game-${gameBase64}`
+    }
+
     return steamCard(
       name,
       avatarUrlBase64,
@@ -135,7 +151,7 @@ export default defineEventHandler(async (event) => {
       _setting.theme,
       _setting.badge,
       _setting.group,
-      _setting.bgColor,
+      _setting.bg,
       _setting.textColor,
       playTime,
       groupIconList,

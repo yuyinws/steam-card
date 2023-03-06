@@ -3,46 +3,64 @@ import { AAvatar, ABtn, ACheckbox, AInput, ASelect, ASwitch } from 'anu-vue'
 import { useI18n } from 'vue-i18n'
 import { cloneDeep } from 'lodash-es'
 import { parse } from 'cookie'
+import { useStorage } from '@vueuse/core'
+import type { Config } from 'types'
 
 const emits = defineEmits(['update:loading', 'update:url'])
 
-interface Config {
-  steamId: string
-  theme: string
-  groupIcon: boolean
-  badgeIcon: boolean
-  textColor: string
-  bgColor: string
-  statistics: string[]
-  lang: string
-}
-
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const steamId = parse(document.cookie).openid
-
-const config: Config = reactive({
-  steamId: steamId || '76561198028121353',
-  theme: 'dark',
-  badgeIcon: true,
-  groupIcon: true,
-  textColor: '',
-  bgColor: '',
-  statistics: ['games', 'groups', 'badges'],
-  lang: locale.value,
+const bgTypeList = ref([
+  {
+    label: computed(() => t('color')),
+    value: 'color',
+  },
+  {
+    label: computed(() => t('game_cover')),
+    value: 'game',
+  },
+])
+const themeList = computed(() => {
+  return themes.map((i) => {
+    return {
+      label: t(`themes.${i}`),
+      value: i,
+    }
+  })
 })
 
+const defaultConifg: Config = {
+  steamId: steamId || defaultSteamId,
+  bgType: 'color',
+  theme: 'dark',
+  badge: true,
+  group: true,
+  textColor: '',
+  bg: '',
+  statistics: ['games', 'groups', 'badges'],
+  lang: locale.value,
+}
+
+const config = useStorage('config', defaultConifg)
+
+locale.value = config.value.lang
+if (steamId)
+  config.value.steamId = steamId
+else
+  config.value.steamId = defaultSteamId
+
 function generateCard() {
-  const _config = cloneDeep(config)
+  const _config = cloneDeep(config.value)
   emits('update:loading', true)
   const settings = []
   settings.push(_config.theme)
   if (_config.lang !== 'zh-CN')
     settings.push(_config.lang)
 
-  if (_config.badgeIcon)
+  if (_config.badge)
     settings.push('badge')
 
-  if (_config.groupIcon)
+  if (_config.group)
     settings.push('group')
 
   if (_config.textColor) {
@@ -50,9 +68,20 @@ function generateCard() {
     settings.push(`text-${textColor}`)
   }
 
-  if (_config.bgColor) {
-    const bgColor = _config.bgColor.replaceAll('#', '')
-    settings.push(`bg-${bgColor}`)
+  if (_config.bgType === 'color' && _config.bg) {
+    let color = _config.bg.replaceAll('#', '')
+    color = color.split(',').join('-')
+    settings.push(`bg-${color}`)
+  }
+
+  if (_config.bgType === 'game') {
+    let gameBg = ''
+    if (_config.bg)
+      gameBg = `bg-game-${_config.bg}`
+    else
+      gameBg = 'bg-game'
+
+    settings.push(gameBg)
   }
 
   if (!_config.statistics.includes('games') || !_config.statistics.includes('groups') || !_config.statistics.includes('badges'))
@@ -112,7 +141,7 @@ function steamID64Page() {
 }
 
 const isDisabled = computed(() => {
-  return config.statistics.length >= 3
+  return config.value.statistics.length >= 3
 })
 
 function colorPage() {
@@ -145,7 +174,6 @@ onKeyStroke('Enter', (e) => {
           v-model="config.steamId"
           class="text-xs"
           type="number"
-          dark:bg="#222"
           prepend-icon="i-mdi:steam"
         />
         <ABtn variant="light" :color=" avatar ? 'danger' : 'info'" class="text-xs" @click="onLogBtnClick">
@@ -163,7 +191,6 @@ onKeyStroke('Enter', (e) => {
       v-model="config.lang"
       class="text-xs"
       :options="languages"
-      dark:bg="#222"
       prepend-icon="i-mdi:language"
       @update:model-value="(val:string) => locale = val"
     >
@@ -178,7 +205,6 @@ onKeyStroke('Enter', (e) => {
       v-model="config.theme"
       class="text-xs"
       :options="themeList"
-      dark:bg="#222"
       prepend-icon="i-gridicons:themes"
     >
       <template #label>
@@ -190,7 +216,7 @@ onKeyStroke('Enter', (e) => {
 
     <div>
       <div text="center sm" items-center flex justify-center gap-5px font-bold mb-20px>
-        <div>{{ $t('custom-color') }}</div>
+        <div>{{ $t('text-color') }}</div>
         <div cursor-pointer i-bi:question-circle @click="colorPage" />
       </div>
 
@@ -198,13 +224,34 @@ onKeyStroke('Enter', (e) => {
         <div text="12px right">
           {{ $t('text') }}
         </div>
-        <AInput v-model="config.textColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#666666`" />
+        <AInput v-model="config.textColor" class="text-xs" :placeholder="`${$t('eg')}:#666666`" />
+      </div>
+    </div>
+
+    <div>
+      <div text="center sm" items-center flex justify-center gap-5px font-bold mb-20px>
+        <div>{{ $t('custom-bg') }}</div>
       </div>
       <div flex gap-10px items-center>
-        <div :class="[locale === 'en' ? 'w-66px' : '']" text="12px right">
-          {{ $t('bg') }}
+        <div text="12px right">
+          {{ $t('bg-type') }}
         </div>
-        <AInput v-model="config.bgColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
+        <ASelect
+          v-model="config.bgType"
+          class="text-xs"
+          :options="bgTypeList"
+          @update:model-value="config.bg = ''"
+        />
+      </div>
+      <div mt-10px flex gap-10px items-center>
+        <div text="12px right">
+          {{ config.bgType === 'color' ? $t('bg-color-value') : $t('bg-game-value') }}
+        </div>
+        <AInput
+          v-model="config.bg"
+          class="text-xs flex-1"
+          :placeholder="config.bgType === 'game' ? t('bg-game-placeholder') : t('bg-color-placeholder')"
+        />
       </div>
     </div>
 
@@ -213,14 +260,14 @@ onKeyStroke('Enter', (e) => {
         {{ $t('icons') }}
       </div>
       <div flex justify-between>
-        <ASwitch v-model="config.badgeIcon" class="text-sm i-switch">
+        <ASwitch v-model="config.badge" class="text-sm i-switch">
           <template #default>
-            <span>{{ $t('badge-icon') }}</span>
+            <span text-12px>{{ $t('badge-icon') }}</span>
           </template>
         </ASwitch>
-        <ASwitch v-model="config.groupIcon" class="text-sm i-switch">
+        <ASwitch v-model="config.group" class="text-sm i-switch">
           <template #default>
-            <span>{{ $t('group-icon') }}</span>
+            <span text-12px>{{ $t('group-icon') }}</span>
           </template>
         </ASwitch>
       </div>
@@ -238,7 +285,7 @@ onKeyStroke('Enter', (e) => {
           :value="i"
         >
           <template #default>
-            <span text-sm w-80px>
+            <span text-12px w-80px>
               {{ $t(i) }}
             </span>
           </template>

@@ -25,4 +25,8 @@ html, body , #__nuxt{
 html.dark {
   background: #222;
 }
+
+:root,:root.dark {
+  --a-primary: 235, 97.7%, 66.3%
+}
 </style>

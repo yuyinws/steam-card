@@ -1,5 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
-import type { Count } from 'types'
+import type { Count, Theme } from 'types'
 import type { I18n } from '../locales'
 import { themes } from './theme'
 
@@ -14,11 +13,11 @@ class Card {
   private badgeIcon = ''
   private badgeSvg = ''
   private theme = 'dark'
-  private bgColor = ''
+  private bg = ''
   private textColor = ''
   private playTime = 0
+  private bgSvg = ''
   private style = {
-    bgColor: '',
     borderColor: '',
     fontColor: '',
     onlineColor: '',
@@ -40,7 +39,7 @@ class Card {
     isOnline,
     gameImgList,
     theme,
-    bgColor,
+    bg,
     textColor,
     playTime,
     groupIconList,
@@ -53,22 +52,32 @@ class Card {
     this.playerLevel = playerLevel
     this.isOnline = isOnline
     this.gameImgList = gameImgList
-    this.theme = theme
+    this.theme = theme || 'dark'
     this.playTime = playTime
     this.groupIconList = groupIconList
     this.badgeIcon = badgeIcon
     this.i18n = i18n
     this.counts = counts
-    this.bgColor = bgColor
+    this.bg = bg
     this.textColor = textColor
   }
 
   public setStyle() {
-    const { bg_color, text_color, online_color, offline_color } = themes[this.theme]
-    this.style.bgColor = this.bgColor || bg_color
+    const { text_color, online_color, offline_color } = themes[this.theme as Theme]
     this.style.fontColor = this.textColor || text_color
     this.style.onlineColor = online_color
     this.style.offlineColor = offline_color
+  }
+
+  public setBg() {
+    const { bg_color } = themes[this.theme as Theme]
+    if (this.bg.includes('game')) {
+      const arrs = this.bg?.split('-')
+      this.bgSvg = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${arrs[1]}) no-repeat center`
+    }
+    else {
+      this.bgSvg = `linear-gradient(90deg, ${this.bg || bg_color})`
+    }
   }
 
   public updateIsOnline() {
@@ -129,7 +138,7 @@ class Card {
     <style>
         .card {
         color: ${this.style.fontColor};
-        background-color: ${this.style.bgColor};
+        background: ${this.bgSvg};
         font-size:14px;
         height:130px;
         width:380px;

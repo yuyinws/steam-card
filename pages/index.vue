@@ -4,7 +4,7 @@ const isImgLoading = ref(true)
 </script>
 
 <template>
-  <div flex="~ wrap" items-start justify-around>
+  <div flex="~ wrap" items-start justify-center gap-20px>
     <ConfigPanel
       v-model:loading="isImgLoading"
       v-model:url="steamcardUrl"

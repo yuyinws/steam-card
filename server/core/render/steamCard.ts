@@ -11,7 +11,7 @@ const steamCard = (
   theme: string,
   isBadge: boolean,
   isGroup: boolean,
-  bgColor: string,
+  bg: string,
   textColor: string,
   playTime: number,
   groupIconList: string[],
@@ -26,7 +26,7 @@ const steamCard = (
     isOnline,
     gameImgList,
     theme,
-    bgColor,
+    bg,
     textColor,
     playTime,
     groupIconList,
@@ -37,6 +37,7 @@ const steamCard = (
 
   card.updateIsOnline()
   card.setStyle()
+  card.setBg()
   card.renderGames()
   card.renderCounts()
   if (isGroup && groupIconList?.length > 0)

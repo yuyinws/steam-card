@@ -1,9 +1,15 @@
 {
   "theme": "Theme",
   "icons": "Icons",
-  "custom-color": "Custom Color",
+  "text-color": "Text Color",
   "text": "Text",
   "bg": "Background",
+  "custom-bg": "Custom Background",
+  "bg-type": "Background Type",
+  "bg-color-value": "colors",
+  "bg-game-value": "appid",
+  "bg-color-placeholder": "example:#564ecb,#2bcc88",
+  "bg-game-placeholder": "example: 400",
   "language": "Language",
   "badge-icon": "Badge Icon",
   "group-icon": "Group Icon",
@@ -22,5 +28,18 @@
   "generate": "Generate",
   "eg": "Eg",
   "login": "Login",
-  "logout": "Logout"
+  "logout": "Logout",
+  "color": "Color",
+  "game_cover": "Game cover",
+  "themes": {
+    "dark": "dark",
+    "light": "light",
+    "radical": "radical",
+    "tokyonight": "tokyonight",
+    "solarized-light": "solarized-light",
+    "ocean-dark": "ocean-dark",
+    "gradient1": "gradient1",
+    "gradient2": "gradient2",
+    "gradient3": "gradient3"
+  }
 }

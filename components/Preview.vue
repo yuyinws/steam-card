@@ -73,7 +73,7 @@ function openImgPage() {
         @click="openImgPage"
         @load="emits('update:loading', false)"
       >
-      <div v-show="loading" w-400px h-150px b-1 text-center leading-150px>
+      <div v-show="loading" w-380px h-150px b-1 text-center leading-150px b-rd-5px>
         {{ $t('loading') }}
       </div>
       <div v-for="(item, index) in referenceList" :key="index" cursor-pointer relative pt-20px pb-10px px-10px rounded shadow-sm b-1 w-full>

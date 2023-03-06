@@ -1,7 +1,7 @@
 import type {
   BaseResponse,
-  PlayedGames, PlayerParams,
-  PlayerSummaries, RecentlyPlayedGames,
+  OwnedGames, OwnedParams,
+  PlayedGames, PlayerParams, PlayerSummaries, RecentlyPlayedGames,
 } from 'types'
 import { apiFetch } from './fetch'
 
@@ -19,6 +19,12 @@ export function getPlayerSummaries(params: PlayerParams) {
 
 export function getRecentlyPlayedGames(params: RecentlyPlayedGames) {
   return apiFetch<BaseResponse<PlayedGames>>('/IPlayerService/GetRecentlyPlayedGames/v0001/', {
+    params,
+  })
+}
+
+export function getOwnedGames(params: OwnedParams) {
+  return apiFetch<BaseResponse<OwnedGames>>('/IPlayerService/GetOwnedGames/v0001/', {
     params,
   })
 }
