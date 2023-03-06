@@ -14,7 +14,7 @@ export interface Config {
   group: boolean
   badge: boolean
   textColor: string
-  bgColor: string
+  bg: string
   statistics: Statistic[]
   lang: string
 }

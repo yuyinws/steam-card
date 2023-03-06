@@ -16,7 +16,7 @@ const defaultConifg: Config = {
   badge: true,
   group: true,
   textColor: '',
-  bgColor: '',
+  bg: '',
   statistics: ['games', 'groups', 'badges'],
   lang: locale.value,
 }
@@ -24,6 +24,10 @@ const defaultConifg: Config = {
 const config = useStorage('config', defaultConifg)
 
 locale.value = config.value.lang
+if (steamId)
+  config.value.steamId = steamId
+else
+  config.value.steamId = defaultSteamId
 
 function generateCard() {
   const _config = cloneDeep(config.value)
@@ -44,9 +48,9 @@ function generateCard() {
     settings.push(`text-${textColor}`)
   }
 
-  if (_config.bgColor) {
-    const bgColor = _config.bgColor.replaceAll('#', '')
-    settings.push(`bg-${bgColor}`)
+  if (_config.bg) {
+    const bg = _config.bg.replaceAll('#', '')
+    settings.push(`bg-${bg}`)
   }
 
   if (!_config.statistics.includes('games') || !_config.statistics.includes('groups') || !_config.statistics.includes('badges'))
@@ -198,7 +202,7 @@ onKeyStroke('Enter', (e) => {
         <div :class="[locale === 'en' ? 'w-66px' : '']" text="12px right">
           {{ $t('bg') }}
         </div>
-        <AInput v-model="config.bgColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
+        <AInput v-model="config.bg" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
       </div>
     </div>
 

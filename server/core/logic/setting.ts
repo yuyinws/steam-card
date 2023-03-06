@@ -9,11 +9,8 @@ export function setting(_setting: string) {
     lang: 'zhCN',
     statistics: [],
     textColor: '',
-    bgColor: '',
+    bg: '',
   }
-
-  const textReg = /text-([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/
-  const bgReg = /^bg-([0-9a-fA-F]{6})(?:-([0-9a-fA-F]{6}))?$/
 
   const statisticSet: Set<Statistic> = new Set()
 
@@ -23,21 +20,27 @@ export function setting(_setting: string) {
       if (themeList.includes(item)) {
         setting.theme = item
       }
-      else if ((item.match(textReg) || {}).input) {
+      else if (item.includes('text-')) {
         setting.textColor = `#${item.split('-')[1]}`
       }
-      else if ((item.match(bgReg) || {}).input) {
-        let bgColor = ''
-        const colors = item.split('-')
-        colors.shift()
-        if (colors.length === 1)
-          colors.push(colors[0])
-        for (let i = 0; i < colors.length; i++) {
-          bgColor += `#${colors[i]}`
-          if (i < colors.length - 1)
-            bgColor += ','
+      else if (item.includes('bg-')) {
+        let bg = ''
+        if (item.includes('game')) {
+          bg = item
         }
-        setting.bgColor = bgColor
+        else {
+          const colors = item.split('-')
+          colors.shift()
+          if (colors.length === 1)
+            colors.push(colors[0])
+          for (let i = 0; i < colors.length; i++) {
+            bg += `#${colors[i]}`
+            if (i < colors.length - 1)
+              bg += ','
+          }
+        }
+
+        setting.bg = bg
       }
       else if (item === 'group') {
         setting.group = true
