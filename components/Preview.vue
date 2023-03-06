@@ -65,10 +65,10 @@ function openImgPage() {
       <div text="center xl" font-bold>
         {{ $t('preview') }}
       </div>
-      <div v-show="!loading" w-400px shadow-xl>
+      <div v-show="!loading" w-380px shadow-xl>
         <Atropos :shadow="false">
           <img
-            w-400px cursor-pointer
+            cursor-pointer
             :src="steamcardUrl"
             alt="steamCard"
             srcset=""
