@@ -1,6 +1,7 @@
 import type { Statistic, Theme } from 'types'
 
-export const themeList: Theme[] = ['dark', 'light', 'radical', 'tokyonight', 'solarized-light', 'ocean-dark', 'gradient1']
+export const themes: Theme[] = ['dark', 'light', 'radical', 'tokyonight', 'solarized-light', 'ocean-dark', 'gradient1', 'gradient2', 'gradient3']
+
 export const languages = [
   {
     label: '简体中文',

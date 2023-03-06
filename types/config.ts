@@ -1,4 +1,4 @@
-export type Theme = 'dark' | 'light' | 'radical' | 'tokyonight' | 'solarized-light' | 'ocean-dark' | 'gradient1'
+export type Theme = 'dark' | 'light' | 'radical' | 'tokyonight' | 'solarized-light' | 'ocean-dark' | 'gradient1' | 'gradient2' | 'gradient3'
 export type Statistic = 'groups' | 'badges' | 'games' | 'screenshots' | 'guides' | 'artworks' | 'reviews'
 
 export interface ThemeProp {
@@ -10,6 +10,7 @@ export interface ThemeProp {
 
 export interface Config {
   steamId?: string
+  bgType?: string
   theme: Theme
   group: boolean
   badge: boolean

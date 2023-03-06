@@ -1,5 +1,5 @@
 import type { Config, Statistic } from 'types'
-import { defaultStatistics, statisticsList, themeList } from '@/utils/constant'
+import { defaultStatistics, statisticsList, themes } from '@/utils/constant'
 
 export function setting(_setting: string) {
   const setting: Config = {
@@ -17,7 +17,7 @@ export function setting(_setting: string) {
   if (_setting) {
     const settings = _setting.split(',')
     settings.forEach((item: any) => {
-      if (themeList.includes(item)) {
+      if (themes.includes(item)) {
         setting.theme = item
       }
       else if (item.includes('text-')) {

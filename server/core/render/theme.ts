@@ -38,7 +38,19 @@ export const themes: Record<Theme, ThemeProp> = {
     offline_color: '#92D534',
   },
   'gradient1': {
-    bg_color: '#564ecb,#2bcc88',
+    bg_color: '#06B7DB,#FF4ECD',
+    text_color: '#ffffff',
+    online_color: '#10B981',
+    offline_color: '#ffffff',
+  },
+  'gradient2': {
+    bg_color: '#42d392,#647eff',
+    text_color: '#ffffff',
+    online_color: '#10B981',
+    offline_color: '#ffffff',
+  },
+  'gradient3': {
+    bg_color: '#a6c0fe,#f68084',
     text_color: '#ffffff',
     online_color: '#10B981',
     offline_color: '#ffffff',

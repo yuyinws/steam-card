@@ -2,9 +2,14 @@
   "theme": "主题",
   "icons": "图标",
   "language": "语言",
-  "custom-color": "自定义颜色",
+  "text-color": "文本颜色",
   "text": "文本",
-  "bg": "背景",
+  "custom-bg": "自定义背景",
+  "bg-type": "背景类型",
+  "bg-color-value": "颜色值",
+  "bg-game-value": "appid",
+  "bg-color-placeholder": "示例:#564ecb,#2bcc88",
+  "bg-game-placeholder": "示例:400",
   "badge-icon": "徽章图标",
   "group-icon": "群组图标",
   "statistics": "统计信息",
@@ -22,5 +27,18 @@
   "generate": "生成",
   "eg": "示例",
   "login": "登录",
-  "logout": "注销"
+  "logout": "注销",
+  "color": "颜色",
+  "game_cover": "游戏封面",
+  "themes": {
+    "dark": "暗色",
+    "light": "亮色",
+    "radical": "暗夜亮",
+    "tokyonight": "霓虹黑",
+    "solarized-light": "日光亮",
+    "ocean-dark": "海洋黑",
+    "gradient1": "渐变色1",
+    "gradient2": "渐变色2",
+    "gradient3": "渐变色3"
+  }
 }

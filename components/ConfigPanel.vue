@@ -8,10 +8,30 @@ import type { Config } from 'types'
 
 const emits = defineEmits(['update:loading', 'update:url'])
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const steamId = parse(document.cookie).openid
+const bgTypeList = ref([
+  {
+    label: computed(() => t('color')),
+    value: 'color',
+  },
+  {
+    label: computed(() => t('game_cover')),
+    value: 'game',
+  },
+])
+const themeList = computed(() => {
+  return themes.map((i) => {
+    return {
+      label: t(`themes.${i}`),
+      value: i,
+    }
+  })
+})
+
 const defaultConifg: Config = {
   steamId: steamId || defaultSteamId,
+  bgType: 'color',
   theme: 'dark',
   badge: true,
   group: true,
@@ -48,9 +68,20 @@ function generateCard() {
     settings.push(`text-${textColor}`)
   }
 
-  if (_config.bg) {
-    const bg = _config.bg.replaceAll('#', '')
-    settings.push(`bg-${bg}`)
+  if (_config.bgType === 'color' && _config.bg) {
+    let color = _config.bg.replaceAll('#', '')
+    color = color.split(',').join('-')
+    settings.push(`bg-${color}`)
+  }
+
+  if (_config.bgType === 'game') {
+    let gameBg = ''
+    if (_config.bg)
+      gameBg = `bg-game-${_config.bg}`
+    else
+      gameBg = 'bg-game'
+
+    settings.push(gameBg)
   }
 
   if (!_config.statistics.includes('games') || !_config.statistics.includes('groups') || !_config.statistics.includes('badges'))
@@ -188,7 +219,7 @@ onKeyStroke('Enter', (e) => {
 
     <div>
       <div text="center sm" items-center flex justify-center gap-5px font-bold mb-20px>
-        <div>{{ $t('custom-color') }}</div>
+        <div>{{ $t('text-color') }}</div>
         <div cursor-pointer i-bi:question-circle @click="colorPage" />
       </div>
 
@@ -198,11 +229,33 @@ onKeyStroke('Enter', (e) => {
         </div>
         <AInput v-model="config.textColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#666666`" />
       </div>
+    </div>
+
+    <div>
+      <div text="center sm" items-center flex justify-center gap-5px font-bold mb-20px>
+        <div>{{ $t('custom-bg') }}</div>
+      </div>
       <div flex gap-10px items-center>
-        <div :class="[locale === 'en' ? 'w-66px' : '']" text="12px right">
-          {{ $t('bg') }}
+        <div text="12px right">
+          {{ $t('bg-type') }}
         </div>
-        <AInput v-model="config.bg" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#1e2837`" />
+        <ASelect
+          v-model="config.bgType"
+          class="text-xs"
+          :options="bgTypeList"
+          @update:model-value="config.bg = ''"
+        />
+      </div>
+      <div mt-10px flex gap-10px items-center>
+        <div text="12px right">
+          {{ config.bgType === 'color' ? $t('bg-color-value') : $t('bg-game-value') }}
+        </div>
+        <AInput
+          v-model="config.bg"
+          class="text-xs flex-1"
+          dark:bg="#222"
+          :placeholder="config.bgType === 'game' ? t('bg-game-placeholder') : t('bg-color-placeholder')"
+        />
       </div>
     </div>
 
@@ -213,12 +266,12 @@ onKeyStroke('Enter', (e) => {
       <div flex justify-between>
         <ASwitch v-model="config.badge" class="text-sm i-switch">
           <template #default>
-            <span>{{ $t('badge-icon') }}</span>
+            <span text-12px>{{ $t('badge-icon') }}</span>
           </template>
         </ASwitch>
         <ASwitch v-model="config.group" class="text-sm i-switch">
           <template #default>
-            <span>{{ $t('group-icon') }}</span>
+            <span text-12px>{{ $t('group-icon') }}</span>
           </template>
         </ASwitch>
       </div>
@@ -236,7 +289,7 @@ onKeyStroke('Enter', (e) => {
           :value="i"
         >
           <template #default>
-            <span text-sm w-80px>
+            <span text-12px w-80px>
               {{ $t(i) }}
             </span>
           </template>
