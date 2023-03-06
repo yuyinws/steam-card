@@ -58,7 +58,17 @@
 
 ### Docker
 
-`docker pull lyc575757/steam-card`
+```shell
+docker pull lyc575757/steam-card
+```
+
+```shell
+docker run -d \
+-e STEAM_KEY=5B23D7ECE730xxxxxxxxx57BC242 \
+-e CACHE_TIME=3600 \
+-p 3000:3000 \
+lyc575757/steam-card
+```
 
 ## ⚒️ Develop
 
