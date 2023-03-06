@@ -22,6 +22,7 @@ specifiers:
   '@vueuse/core': ^9.13.0
   '@vueuse/nuxt': ^9.13.0
   anu-vue: ^0.12.0
+  atropos: ^1.0.2
   cheerio: 1.0.0-rc.12
   cookie: ^0.5.0
   eslint: ^8.35.0
@@ -35,6 +36,7 @@ specifiers:
 
 dependencies:
   anu-vue: 0.12.0_@vueuse+core@9.13.0
+  atropos: 1.0.2
   cheerio: 1.0.0-rc.12
   cookie: 0.5.0
   lodash-es: 4.17.21
@@ -3109,6 +3111,11 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
     optional: true
+
+  /atropos/1.0.2:
+    resolution: {integrity: sha512-0RqyHfMyIhRXgnHuSQz2LVOE81jtAQ7EZTrF75ngiipklIsxajZ2vD042EXdiIEDs6eEAzfE10k+YhIbNl4/eg==}
+    engines: {node: '>= 12.0.0'}
+    dev: false
 
   /autoprefixer/10.4.13_postcss@8.4.21:
     resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { POSITION, useToast } from 'vue-toastification'
 import { useI18n } from 'vue-i18n'
+import Atropos from 'atropos/vue'
 
 const props = defineProps({
   steamcardUrl: {
@@ -64,15 +65,18 @@ function openImgPage() {
       <div text="center xl" font-bold>
         {{ $t('preview') }}
       </div>
-      <img
-        v-show="!loading"
-        w-400px cursor-pointer
-        :src="steamcardUrl"
-        alt="steamCard"
-        srcset=""
-        @click="openImgPage"
-        @load="emits('update:loading', false)"
-      >
+      <div v-show="!loading" w-400px shadow-xl>
+        <Atropos :shadow="false">
+          <img
+            w-400px cursor-pointer
+            :src="steamcardUrl"
+            alt="steamCard"
+            srcset=""
+            @click="openImgPage"
+            @load="emits('update:loading', false)"
+          >
+        </Atropos>
+      </div>
       <div v-show="loading" w-380px h-150px b-1 text-center leading-150px b-rd-5px>
         {{ $t('loading') }}
       </div>
