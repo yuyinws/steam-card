@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "anu-vue": "^0.12.0",
+    "atropos": "^1.0.2",
     "cheerio": "1.0.0-rc.12",
     "cookie": "^0.5.0",
     "lodash-es": "^4.17.21",
