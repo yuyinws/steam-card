@@ -174,7 +174,6 @@ onKeyStroke('Enter', (e) => {
           v-model="config.steamId"
           class="text-xs"
           type="number"
-          dark:bg="#222"
           prepend-icon="i-mdi:steam"
         />
         <ABtn variant="light" :color=" avatar ? 'danger' : 'info'" class="text-xs" @click="onLogBtnClick">
@@ -192,7 +191,6 @@ onKeyStroke('Enter', (e) => {
       v-model="config.lang"
       class="text-xs"
       :options="languages"
-      dark:bg="#222"
       prepend-icon="i-mdi:language"
       @update:model-value="(val:string) => locale = val"
     >
@@ -207,7 +205,6 @@ onKeyStroke('Enter', (e) => {
       v-model="config.theme"
       class="text-xs"
       :options="themeList"
-      dark:bg="#222"
       prepend-icon="i-gridicons:themes"
     >
       <template #label>
@@ -227,7 +224,7 @@ onKeyStroke('Enter', (e) => {
         <div text="12px right">
           {{ $t('text') }}
         </div>
-        <AInput v-model="config.textColor" class="text-xs" dark:bg="#222" :placeholder="`${$t('eg')}:#666666`" />
+        <AInput v-model="config.textColor" class="text-xs" :placeholder="`${$t('eg')}:#666666`" />
       </div>
     </div>
 
@@ -253,7 +250,6 @@ onKeyStroke('Enter', (e) => {
         <AInput
           v-model="config.bg"
           class="text-xs flex-1"
-          dark:bg="#222"
           :placeholder="config.bgType === 'game' ? t('bg-game-placeholder') : t('bg-color-placeholder')"
         />
       </div>
