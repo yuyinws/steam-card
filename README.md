@@ -36,7 +36,7 @@
 - **User Friendly**: Generate your Steam card on [Online Config Page](https://card.yuy1n.io)
 - **i18n**: Support multiple languages (PR Welcome for more language)
 - **Customizable**: Support more than 10 Custom items.
-- **Deployable**: Support deploy it with `Vercel`, `Netlify` or `Docker`.
+- **Deployable**: Support deploy it with `Vercel`, `Netlify`, `Railway` or `Docker`.
 
 ## 📦 Deployment  
 
@@ -55,6 +55,8 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/ajXBZ6?referralCode=fpKTNq)
 
 ### Docker
 
