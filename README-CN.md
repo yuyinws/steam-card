@@ -37,7 +37,7 @@
 - **用户友好**: 通过[在线配置页面](https://card.yuy1n.io)生成你的Steam资料卡片
 - **国际化**: 支持多种语言
 - **可定制化**: 超过10项的可定制化项目
-- **可部署**: 支持以`Vercel`, `Netlify`或者 `Docker`方式部署
+- **可部署**: 支持以`Vercel`, `Netlify`, `Railway`或者 `Docker`方式部署
 
 ## 📦 部署
 
@@ -57,6 +57,7 @@
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/ajXBZ6?referralCode=fpKTNq)
 ### Docker
 
 ```shell
