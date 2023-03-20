@@ -16,6 +16,8 @@ const props = defineProps({
 
 const emits = defineEmits(['update:loading'])
 
+const origin = __ORIGIN__ || window.location.origin
+
 const toast = useToast()
 const { t } = useI18n()
 
@@ -23,15 +25,15 @@ const referenceList = computed(() => {
   return [
     {
       type: 'BBCode',
-      url: `[img]${window.location.origin}${props.steamcardUrl}[/img]`,
+      url: `[img]${origin}${props.steamcardUrl}[/img]`,
     },
     {
       type: 'Html',
-      url: `<img width="400" height="140" src="${window.location.origin}${props.steamcardUrl}">`,
+      url: `<img width="400" height="140" src="${origin}${props.steamcardUrl}">`,
     },
     {
       type: 'Markdown',
-      url: `![Steam Card](${window.location.origin}${props.steamcardUrl})`,
+      url: `![Steam Card](${origin}${props.steamcardUrl})`,
     },
   ]
 })
