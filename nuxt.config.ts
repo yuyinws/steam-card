@@ -35,4 +35,9 @@ export default defineNuxtConfig({
       locale: 'en',
     },
   },
+  vite: {
+    define: {
+      __ORIGIN__: JSON.stringify(process.env.ORIGIN || ''),
+    },
+  },
 })
