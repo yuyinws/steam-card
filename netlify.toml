@@ -1,10 +1,10 @@
 [build.environment]
   NPM_FLAGS = "--version"
-  NODE_VERSION = "16"
+  NODE_VERSION = "18.15.0"
 
 [build]
   publish = "dist"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
+  command = "node -v && npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
   ignore = "git log -1 --pretty=%B | grep skipci"
 
 [[redirects]]
