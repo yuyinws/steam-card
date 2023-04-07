@@ -5,8 +5,11 @@
   "description": "⚡ Generate Your Steam Profile Card Quickly/快速生成你的Steam资料卡片⚡",
   "author": "yuyinws",
   "license": "MIT",
+  "engines": {
+    "node": "^16"
+  },
   "scripts": {
-    "build": "nuxi build",
+    "build": "node -v && nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint . --fix",
