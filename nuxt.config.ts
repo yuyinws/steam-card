@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
   ],
   build: {
-    transpile: ['vue-toastification'],
+    transpile: ['vue-sonner'],
   },
   ssr: false,
   unocss: {
@@ -26,7 +26,6 @@ export default defineNuxtConfig({
   },
   css: [
     '@anu-vue/preset-theme-default/dist/style.css',
-    'vue-toastification/dist/index.css',
     'atropos/css',
   ],
   intlify: {

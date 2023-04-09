@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { POSITION, useToast } from 'vue-toastification'
 import { useI18n } from 'vue-i18n'
 import Atropos from 'atropos/vue'
 
@@ -18,7 +17,7 @@ const emits = defineEmits(['update:loading'])
 
 const origin = __ORIGIN__ || window.location.origin
 
-const toast = useToast()
+const { $toast } = useNuxtApp()
 const { t } = useI18n()
 
 const referenceList = computed(() => {
@@ -41,18 +40,10 @@ const referenceList = computed(() => {
 async function copyUrl(url: string) {
   try {
     await navigator.clipboard.writeText(url)
-    toast.success(t('copy-success'),
-      {
-        timeout: 2000,
-        position: POSITION.TOP_CENTER,
-      })
+    $toast.success(t('copy-success'))
   }
   catch (error) {
-    toast.error(t('copy-failed'),
-      {
-        timeout: 2000,
-        position: POSITION.TOP_CENTER,
-      })
+    $toast.error(t('copy-failed'))
   }
 }
 
