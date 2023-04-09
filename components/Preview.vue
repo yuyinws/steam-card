@@ -73,11 +73,11 @@ function openImgPage() {
       <div v-show="loading" w-380px h-150px b-1 text-center leading-150px b-rd-5px>
         {{ $t('loading') }}
       </div>
-      <div v-for="(item, index) in referenceList" :key="index" cursor-pointer relative pt-20px pb-10px px-10px rounded shadow-sm b-1 w-full>
+      <div v-for="(item, index) in referenceList" :key="index" cursor-pointer relative pt-20px pb-10px px-10px rounded shadow-sm b-1 w-full @click="copyUrl(item.url)">
         <div text-gray-300 text-sm absolute top-3px right-5px>
           {{ item.type }}
         </div>
-        <div text-center break-all text-sm @click="copyUrl(item.url)">
+        <div text-center break-all text-sm>
           {{ item.url }}
         </div>
       </div>
