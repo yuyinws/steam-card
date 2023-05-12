@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { defineNuxtConfig } from 'nuxt/config'
+import TurboConsole from 'vite-plugin-turbo-console'
 
 export default defineNuxtConfig({
   modules: [
@@ -38,5 +39,8 @@ export default defineNuxtConfig({
     define: {
       __ORIGIN__: JSON.stringify(process.env.ORIGIN || ''),
     },
+    plugins: [
+      TurboConsole(),
+    ],
   },
 })
