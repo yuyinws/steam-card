@@ -1,43 +1,28 @@
 import { fileURLToPath } from 'node:url'
+import { env } from 'node:process'
 import { defineNuxtConfig } from 'nuxt/config'
 import TurboConsole from 'vite-plugin-turbo-console'
 
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
-    '@anu-vue/nuxt',
-    '@nuxtjs/color-mode',
-    '@intlify/nuxt3',
+    '@nuxt/ui',
     '@nuxt/devtools',
   ],
   build: {
     transpile: ['vue-sonner'],
   },
   ssr: false,
-  unocss: {
-    preflight: true,
-  },
-  colorMode: {
-    classSuffix: '',
-  },
   alias: {
     server: fileURLToPath(new URL('./server', import.meta.url)),
     types: fileURLToPath(new URL('./types', import.meta.url)),
   },
   css: [
-    '@anu-vue/preset-theme-default/dist/style.css',
     'atropos/css',
   ],
-  intlify: {
-    localeDir: 'locales',
-    vueI18n: {
-      locale: 'en',
-    },
-  },
   vite: {
     define: {
-      __ORIGIN__: JSON.stringify(process.env.ORIGIN || ''),
+      __ORIGIN__: JSON.stringify(env.ORIGIN || ''),
     },
     plugins: [
       TurboConsole(),
