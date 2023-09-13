@@ -1,49 +1,18 @@
 <script setup lang="ts">
-
+import TablerSteam from '~icons/tabler/steam'
 </script>
 
 <template>
-  <header class="header" sticky top-0 w-full p-10px z-100>
-    <div flex justify-between>
-      <a i-carbon-logo-github href="https://github.com/yuyinws/steam-card" target="_blank" />
-      <div class="title">
-        Steam Card
+  <header class="bg-background/75 backdrop-blur border-b -mb-px sticky top-0 z-50 border-gray-200 dark:border-gray-600">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-1">
+      <div class="flex justify-between items-center">
+        <TablerSteam class="text-[#38bdf8] dark:text-blue-100 w-6 h-6" />
+        <AppName v-if="$route.name !== 'login'" />
+        <div>
+          <DarkToggle />
+          <LanguageToggle />
+        </div>
       </div>
-      <DarkToggle />
     </div>
   </header>
 </template>
-
-<style>
-.header {
-  background-size: 4px 4px;
-  -webkit-backdrop-filter: saturate(50%) blur(4px);
-  backdrop-filter: saturate(50%) blur(4px);
-  background-image: radial-gradient(transparent 1px,var(--bg-color) 1px);
-  border-bottom: 1px solid #dcdfe6;
-}
-
-.title {
-  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-</style>

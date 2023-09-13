@@ -1,4 +1,7 @@
 {
+  "system": {
+    "slogan": "⚡ Generate your Steam profile card quickly"
+  },
   "theme": "Theme",
   "icons": "Icons",
   "text-color": "Text Color",
