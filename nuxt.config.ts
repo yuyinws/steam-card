@@ -8,7 +8,33 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/ui',
     '@nuxt/devtools',
+    'unplugin-icons/nuxt',
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    langDir: 'locales',
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        file: 'en.json',
+        name: 'English',
+      },
+      {
+        code: 'zhCN',
+        iso: 'zh-CN',
+        file: 'zh-CN.json',
+        name: '简体中文',
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
+  },
   build: {
     transpile: ['vue-sonner'],
   },

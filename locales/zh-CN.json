@@ -1,4 +1,7 @@
 {
+  "system": {
+    "slogan": "⚡ 快速生成你的Steam资料卡片"
+  },
   "theme": "主题",
   "icons": "图标",
   "language": "语言",

@@ -25,6 +25,7 @@
     "lodash-es": "^4.17.21",
     "openid": "^2.0.10",
     "sass": "^1.66.1",
+    "unplugin-icons": "^0.17.0",
     "vue-sonner": "^0.4.4"
   },
   "devDependencies": {
@@ -34,8 +35,10 @@
     "@iconify-json/carbon": "^1.1.21",
     "@iconify-json/gridicons": "^1.1.11",
     "@iconify-json/mdi": "^1.1.54",
+    "@iconify-json/tabler": "^1.1.91",
     "@iconify-json/twemoji": "^1.1.12",
     "@nuxt/devtools": "^0.8.3",
+    "@nuxtjs/i18n": "8.0.0-rc.4",
     "@types/cookie": "^0.5.2",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^18.17.15",

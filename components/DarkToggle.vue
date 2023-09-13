@@ -1,13 +1,28 @@
-<script setup lang="ts">
-const color = useColorMode()
+<script setup>
+const colorMode = useColorMode()
 
-function toggleDark() {
-  color.preference = color.value === 'dark' ? 'light' : 'dark'
-}
+const isDark = computed({
+  get() {
+    return colorMode.value === 'dark'
+  },
+  set() {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  },
+})
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark">
-    <div class="dark:i-carbon-moon i-carbon-sun" />
-  </button>
+  <ClientOnly>
+    <UButton
+      :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+      color="gray"
+      variant="ghost"
+      aria-label="Theme"
+      @click="isDark = !isDark"
+    />
+
+    <template #fallback>
+      <div class="w-8 h-8" />
+    </template>
+  </ClientOnly>
 </template>
