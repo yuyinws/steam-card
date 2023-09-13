@@ -38,6 +38,7 @@
     "@iconify-json/tabler": "^1.1.91",
     "@iconify-json/twemoji": "^1.1.12",
     "@nuxt/devtools": "^0.8.3",
+    "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/i18n": "8.0.0-rc.4",
     "@types/cookie": "^0.5.2",
     "@types/lodash-es": "^4.17.9",

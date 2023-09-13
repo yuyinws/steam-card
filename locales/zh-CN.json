@@ -1,6 +1,12 @@
 {
   "system": {
-    "slogan": "⚡ 快速生成你的Steam资料卡片"
+    "slogan": "⚡ 快速生成你的Steam资料卡片",
+    "or": "或",
+    "login": "Steam 登录",
+    "steamid": "请输入 SteamID"
+  },
+  "toast": {
+    "login-fail": "登录失败"
   },
   "theme": "主题",
   "icons": "图标",

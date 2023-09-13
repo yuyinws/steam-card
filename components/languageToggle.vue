@@ -1,31 +1,23 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, locales } = useI18n() as any
 
-const items = [
-  [
-    {
-      label: 'English',
-      click: () => {
-        locale.value = 'en'
-      },
-    },
-    {
-      label: '简体中文',
-      click: () => {
-        locale.value = 'zhCN'
-      },
-    },
-  ],
-]
-
-// const languageItems = locales.value.map((i) => ({
-//   label: i.
-// }))
+const items = locales.value.map((i: any) => ({
+  label: i.name,
+  code: i.code,
+  click: () => {
+    locale.value = i.code
+  },
+}))
 </script>
 
 <template>
-  <UDropdown mode="hover" :items="items">
+  <UDropdown mode="hover" :items="[items]" :popper="{ placement: 'bottom-end' }">
     <UButton icon="i-heroicons-language" color="gray" variant="ghost" aria-label="Theme" />
+    <template #item="{ item }">
+      <div class="w-full text-left" :class="locale === item.code ? 'font-bold cursor-not-allowed' : ''">
+        {{ item.label }}
+      </div>
+    </template>
     <template #fallback>
       <div class="w-8 h-8" />
     </template>

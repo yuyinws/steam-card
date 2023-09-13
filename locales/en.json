@@ -1,6 +1,12 @@
 {
   "system": {
-    "slogan": "⚡ Generate your Steam profile card quickly"
+    "slogan": "⚡ Generate your Steam profile card quickly",
+    "or": "or",
+    "login": "Login with Steam",
+    "steamid": "Enter SteamID"
+  },
+  "toast": {
+    "login-fail": "Login Failed"
   },
   "theme": "Theme",
   "icons": "Icons",
