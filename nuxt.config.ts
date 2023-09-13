@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     'unplugin-icons/nuxt',
     '@nuxtjs/i18n',
+    '@nuxt/image',
   ],
   i18n: {
     langDir: 'locales',
@@ -35,10 +36,12 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  ui: {
+    icons: ['bi'],
+  },
   build: {
     transpile: ['vue-sonner'],
   },
-  ssr: false,
   alias: {
     server: fileURLToPath(new URL('./server', import.meta.url)),
     types: fileURLToPath(new URL('./types', import.meta.url)),

@@ -7,8 +7,8 @@ export default defineEventHandler(async (event) => {
     const { callback } = steamAuth(origin)
 
     const openid = await callback(event.node.req)
-    setCookie(event, 'openid', openid)
-    return sendRedirect(event, '/', 302)
+
+    return sendRedirect(event, `/?openid=${openid}`, 302)
   }
   catch (error) {
     throw createError({

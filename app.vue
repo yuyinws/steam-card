@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 useHead({
   title: 'Steam Card',
   link: [
@@ -12,22 +12,8 @@ useHead({
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <Toaster rich-colors position="top-center" />
+    <ClientOnly>
+      <Toaster rich-colors position="top-center" />
+    </ClientOnly>
   </NuxtLayout>
 </template>
-
-<style>
-html, body , #__nuxt{
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-html.dark {
-  background: #222;
-}
-
-:root,:root.dark {
-  --a-primary: 235, 97.7%, 66.3%
-}
-</style>
