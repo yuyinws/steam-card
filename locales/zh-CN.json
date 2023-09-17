@@ -10,10 +10,21 @@
     "add-account-success": "账号添加成功",
     "alreay-exist": "账号已存在"
   },
-  "theme": "主题",
+  "config": {
+    "theme": "主题",
+    "text-color": "文本颜色",
+    "eg": "示例",
+    "bg": {
+      "text": "背景类型",
+      "color": "颜色",
+      "game-cover": "游戏封面",
+      "bg-color": "背景颜色值",
+      "bg-color-helper": "输入多个值以创建渐变色",
+      "bg-game-id": "游戏的appid"
+    }
+  },
   "icons": "图标",
   "language": "语言",
-  "text-color": "文本颜色",
   "text": "文本",
   "custom-bg": "自定义背景",
   "bg-type": "背景类型",

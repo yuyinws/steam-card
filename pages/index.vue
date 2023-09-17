@@ -15,10 +15,8 @@ else {
 </script>
 
 <template>
-  <div>
-    <!-- <ConfigPanel
-      v-model:loading="isImgLoading"
-      v-model:url="steamcardUrl"
-    /> -->
+  <div class="flex flex-col md:flex-row gap-5 my-5">
+    <ConfigCard />
+    <PreviewCard />
   </div>
 </template>
