@@ -8,9 +8,10 @@ import TablerSteam from '~icons/tabler/steam'
       <div class="flex justify-between items-center">
         <TablerSteam class="text-[#38bdf8] dark:text-blue-100 w-6 h-6" />
         <AppName v-if="$route.name !== 'login'" />
-        <div>
+        <div class="flex items-center">
           <DarkToggle />
           <LanguageToggle />
+          <AccountList />
         </div>
       </div>
     </div>

@@ -6,7 +6,9 @@
     "steamid": "请输入 SteamID"
   },
   "toast": {
-    "login-fail": "登录失败"
+    "login-fail": "登录失败",
+    "add-account-success": "账号添加成功",
+    "alreay-exist": "账号已存在"
   },
   "theme": "主题",
   "icons": "图标",

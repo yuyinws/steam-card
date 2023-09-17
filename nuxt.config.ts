@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     'unplugin-icons/nuxt',
     '@nuxtjs/i18n',
     '@nuxt/image',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   i18n: {
     langDir: 'locales',
@@ -36,6 +38,10 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  piniaPersistedstate: {
+    storage: 'localStorage',
+  },
+  ssr: false,
   ui: {
     icons: ['bi'],
   },

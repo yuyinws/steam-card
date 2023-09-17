@@ -4,6 +4,7 @@ const { locale, locales } = useI18n() as any
 const items = locales.value.map((i: any) => ({
   label: i.name,
   code: i.code,
+  disabled: i.code === locale.value,
   click: () => {
     locale.value = i.code
   },
