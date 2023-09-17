@@ -6,7 +6,9 @@
     "steamid": "Enter SteamID"
   },
   "toast": {
-    "login-fail": "Login Failed"
+    "login-fail": "Login Failed",
+    "add-account-success": "Account added successfully",
+    "alreay-exist": "Account already exist"
   },
   "theme": "Theme",
   "icons": "Icons",

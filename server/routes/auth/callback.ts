@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
 
     const openid = await callback(event.node.req)
 
-    return sendRedirect(event, `/?openid=${openid}`, 302)
+    return sendRedirect(event, `/login?openid=${openid}`, 302)
   }
   catch (error) {
     throw createError({
