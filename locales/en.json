@@ -10,13 +10,23 @@
     "add-account-success": "Account added successfully",
     "alreay-exist": "Account already exist"
   },
-  "theme": "Theme",
+  "config": {
+    "theme": "Theme",
+    "text-color": "Text color",
+    "eg": "Example",
+    "bg": {
+      "text": "Background type",
+      "color": "Color",
+      "game-cover": "Game cover",
+      "bg-color": "Background color value",
+      "bg-color-helper": "Enter multiple values to create a gradient color",
+      "bg-game-id": "Game's appid"
+    }
+  },
   "icons": "Icons",
-  "text-color": "Text Color",
   "text": "Text",
   "bg": "Background",
   "custom-bg": "Custom Background",
-  "bg-type": "Background Type",
   "bg-color-value": "colors",
   "bg-game-value": "appid",
   "bg-color-placeholder": "example:#564ecb,#2bcc88",

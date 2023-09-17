@@ -18,7 +18,7 @@
     "update:deps": "taze major -w"
   },
   "dependencies": {
-    "@nuxt/ui": "^2.8.1",
+    "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
     "atropos": "^2.0.2",
     "cheerio": "1.0.0-rc.12",
     "cookie": "^0.5.0",
@@ -35,6 +35,7 @@
     "@iconify-json/carbon": "^1.1.21",
     "@iconify-json/gridicons": "^1.1.11",
     "@iconify-json/mdi": "^1.1.54",
+    "@iconify-json/ri": "^1.1.12",
     "@iconify-json/tabler": "^1.1.91",
     "@iconify-json/twemoji": "^1.1.12",
     "@nuxt/devtools": "^0.8.3",
