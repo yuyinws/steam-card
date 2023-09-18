@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   },
   ssr: false,
   ui: {
-    icons: ['bi', 'gridicons', 'ri'],
+    icons: ['bi', 'gridicons', 'ri', 'icon-park-outline', 'tabler'],
   },
   build: {
     transpile: ['vue-sonner'],

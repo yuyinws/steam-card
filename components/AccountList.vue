@@ -5,6 +5,7 @@ import { storeToRefs } from 'pinia'
 const { accounts, currentAccount, currentAccountIndex } = storeToRefs(useAccount())
 const isModalOpen = ref(false)
 const router = useRouter()
+const { t } = useI18n()
 
 const items = computed<DropdownItem[][]>(() => {
   return [
@@ -27,14 +28,14 @@ const items = computed<DropdownItem[][]>(() => {
       }
     }),
     [{
-      label: 'Add Account',
+      label: t('system.add-account'),
       icon: 'i-heroicons-plus-circle',
       onclick: () => {
         isModalOpen.value = true
       },
     },
     {
-      label: 'Sign out',
+      label: t('system.sign-out'),
       icon: 'i-heroicons-arrow-left-on-rectangle',
       onclick: () => {
         accounts.value.splice(currentAccountIndex.value, 1)
@@ -71,7 +72,7 @@ const items = computed<DropdownItem[][]>(() => {
       <UCard class="w-full" :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
           <h1 class="text-xl font-semibold">
-            Add Account
+            {{ $t('system.add-account') }}
           </h1>
         </template>
         <div class="flex flex-col items-center">

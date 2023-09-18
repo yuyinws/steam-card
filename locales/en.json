@@ -3,7 +3,11 @@
     "slogan": "⚡ Generate your Steam profile card quickly",
     "or": "or",
     "login": "Login with Steam",
-    "steamid": "Enter SteamID"
+    "steamid": "Enter SteamID",
+    "generate": "Generate",
+    "add": "Add",
+    "add-account": "Add account",
+    "sign-out": "Sign out"
   },
   "toast": {
     "login-fail": "Login Failed",
@@ -11,47 +15,37 @@
     "alreay-exist": "Account already exist"
   },
   "config": {
+    "name": "Config",
     "theme": "Theme",
     "text-color": "Text color",
     "eg": "Example",
     "bg": {
-      "text": "Background type",
+      "name": "Background type",
       "color": "Color",
       "game-cover": "Game cover",
-      "bg-color": "Background color value",
+      "bg-color": "Background color",
       "bg-color-helper": "Enter multiple values to create a gradient color",
-      "bg-game-id": "Game's appid"
+      "bg-game-id": "Game's appid",
+      "bg-game-helper": "If empty, take the highest game duration"
+    },
+    "statistics": {
+      "name": "Statistics",
+      "groups": "Groups",
+      "badges": "Badges",
+      "games": "Games",
+      "screenshots": "Screenshots",
+      "guides": "Guides",
+      "artworks": "Artworks",
+      "reviews": "Reviews",
+      "help": "Choose up to 3"
+    },
+    "icon": {
+      "name": "Icon",
+      "badge": "Badge icon",
+      "group": "Group icon",
+      "helper": "Whether to display icons"
     }
   },
-  "icons": "Icons",
-  "text": "Text",
-  "bg": "Background",
-  "custom-bg": "Custom Background",
-  "bg-color-value": "colors",
-  "bg-game-value": "appid",
-  "bg-color-placeholder": "example:#564ecb,#2bcc88",
-  "bg-game-placeholder": "example: 400",
-  "language": "Language",
-  "badge-icon": "Badge Icon",
-  "group-icon": "Group Icon",
-  "statistics": "Statistics",
-  "groups": "Groups",
-  "badges": "Badges",
-  "games": "Games",
-  "screenshots": "Screenshots",
-  "guides": "Guides",
-  "artworks": "Artworks",
-  "reviews": "Reviews",
-  "preview": "Preview",
-  "copy-success": "Copy Success!",
-  "copy-failed": "Copy Failed",
-  "loading": "Loading...",
-  "generate": "Generate",
-  "eg": "Eg",
-  "login": "Login",
-  "logout": "Logout",
-  "color": "Color",
-  "game_cover": "Game cover",
   "themes": {
     "dark": "dark",
     "light": "light",

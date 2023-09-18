@@ -3,7 +3,11 @@
     "slogan": "⚡ 快速生成你的Steam资料卡片",
     "or": "或",
     "login": "Steam 登录",
-    "steamid": "请输入 SteamID"
+    "steamid": "请输入 SteamID",
+    "generate": "生成",
+    "add": "添加",
+    "add-account": "添加账号",
+    "sign-out": "退出登录"
   },
   "toast": {
     "login-fail": "登录失败",
@@ -11,47 +15,38 @@
     "alreay-exist": "账号已存在"
   },
   "config": {
+    "name": "配置",
     "theme": "主题",
     "text-color": "文本颜色",
     "eg": "示例",
     "bg": {
-      "text": "背景类型",
+      "name": "背景类型",
       "color": "颜色",
       "game-cover": "游戏封面",
       "bg-color": "背景颜色值",
       "bg-color-helper": "输入多个值以创建渐变色",
-      "bg-game-id": "游戏的appid"
+      "bg-game-id": "游戏的appid",
+      "bg-game-helper": "如果为空，则取用户游戏时长最高的游戏"
+    },
+    "statistics": {
+      "name": "统计信息",
+      "groups": "群组",
+      "badges": "徽章",
+      "games": "游戏",
+      "screenshots": "截图",
+      "guides": "指南",
+      "artworks": "艺术作品",
+      "reviews": "评测",
+      "preview": "预览",
+      "help": "最多选择3个"
+    },
+    "icon": {
+      "name": "图标",
+      "badge": "徽章图标",
+      "group": "群组图标",
+      "helper": "是否显示图标"
     }
   },
-  "icons": "图标",
-  "language": "语言",
-  "text": "文本",
-  "custom-bg": "自定义背景",
-  "bg-type": "背景类型",
-  "bg-color-value": "颜色值",
-  "bg-game-value": "appid",
-  "bg-color-placeholder": "示例:#564ecb,#2bcc88",
-  "bg-game-placeholder": "示例:400",
-  "badge-icon": "徽章图标",
-  "group-icon": "群组图标",
-  "statistics": "统计信息",
-  "groups": "群组",
-  "badges": "徽章",
-  "games": "游戏",
-  "screenshots": "截图",
-  "guides": "指南",
-  "artworks": "艺术作品",
-  "reviews": "评测",
-  "preview": "预览",
-  "copy-success": "复制成功！",
-  "copy-failed": "复制失败",
-  "loading": "加载中...",
-  "generate": "生成",
-  "eg": "示例",
-  "login": "登录",
-  "logout": "注销",
-  "color": "颜色",
-  "game_cover": "游戏封面",
   "themes": {
     "dark": "暗色",
     "light": "亮色",

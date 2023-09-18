@@ -1,5 +1,5 @@
 <template>
-  <div class="title">
+  <div class="title text-[1.3rem] sm:text-[2rem]">
     Steam Card
   </div>
 </template>
@@ -11,7 +11,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
-  font-size: 2rem;
   background-size: 400% 400%;
   animation: gradient 12s ease infinite;
 }
