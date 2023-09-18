@@ -21,11 +21,8 @@
     "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
     "atropos": "^1.0.2",
     "cheerio": "1.0.0-rc.12",
-    "cookie": "^0.5.0",
-    "lodash-es": "^4.17.21",
     "openid": "^2.0.10",
     "sass": "^1.66.1",
-    "unplugin-icons": "^0.17.0",
     "vue-sonner": "^0.4.4"
   },
   "devDependencies": {
@@ -44,8 +41,6 @@
     "@nuxtjs/i18n": "8.0.0-rc.4",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@pinia/nuxt": "^0.4.11",
-    "@types/cookie": "^0.5.2",
-    "@types/lodash-es": "^4.17.9",
     "@types/node": "^18.17.15",
     "@types/openid": "^2.0.3",
     "@types/tunnel": "^0.0.3",
