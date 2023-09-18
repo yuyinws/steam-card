@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-
+// @ts-expect-error any
+import Atropos from 'atropos/vue'
 </script>
 
 <template>
@@ -12,6 +13,12 @@
         </h1>
       </div>
     </template>
+
+    <div class="w-full flex items-center justify-center">
+      <Atropos :shadow="false">
+        <NuxtImg src="https://card.yuy1n.io/card/76561198028121353/ocean-dark,en,badge,group,bg-game,games,screenshots,guides" />
+      </Atropos>
+    </div>
   </UCard>
 </template>
 

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import BiQuestionCircle from '~icons/bi/question-circle'
 
 const emits = defineEmits<{
   callback: []
@@ -88,13 +87,19 @@ onMounted(() => {
       <span class="bg-white dark:bg-[#131313] text-gray-600 px-2">{{ $t('system.or') }}</span>
     </div>
   </div>
-  <div class="flex items-center gap-2 w-[18rem] ">
-    <UInput v-model="steamId" :placeholder="$t('system.steamid')" class="flex-1 flex-shrink-0" size="lg" />
-    <NuxtLink :to="locale === 'zhCN' ? 'https://keylol.com/t38759-1-1' : 'https://steamid.pro/'" target="_blank">
-      <BiQuestionCircle class="text-gray-500" />
-    </NuxtLink>
+  <div class="flex flex-col items-start">
+    <div class="flex items-center gap-2 w-[18rem] ">
+      <UInput v-model="steamId" :placeholder="$t('system.steamid')" class="flex-1 flex-shrink-0" size="lg" />
+      <NuxtLink :to="locale === 'zhCN' ? 'https://keylol.com/t38759-1-1' : 'https://steamid.pro/'" target="_blank">
+        <UIcon name="i-bi-question-circle" class="text-gray-500" />
+      </NuxtLink>
+    </div>
+    <p class="mt-1 text-gray-500 text-xs">
+      ※ {{ $t('config.eg') }}: 76561198340841543
+    </p>
   </div>
+
   <UButton :loading="addBtnLoading" :disabled="steamId.length !== 17" class="w-[18rem] mt-3 justify-center" size="lg" @click="handleAdd">
-    Add
+    {{ $t('system.add') }}
   </UButton>
 </template>

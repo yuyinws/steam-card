@@ -1,3 +1,4 @@
+import { env } from 'node:process'
 import { getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
 import { steamCard } from 'server/core/render/steamCard'
 import errorCard from 'server/core/render/errorCard'
@@ -8,9 +9,9 @@ import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
 import { getGameCoverUrl } from '@/utils/common'
 
 const i18n = initLocale('zhCN')
-const key: string = process.env.STEAM_KEY || ''
-const cacheTime: string = process.env.CACHE_TIME || '3600'
-const blockUsers: string = process.env.BLOCK_USERS || ''
+const key: string = env.STEAM_KEY || ''
+const cacheTime: string = env.CACHE_TIME || '3600'
+const blockUsers: string = env.BLOCK_USERS || ''
 const JPEG_PREFIX = 'data:image/jpeg;base64,'
 const PNG_PREFIX = 'data:image/png;base64,'
 
