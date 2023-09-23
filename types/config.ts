@@ -8,14 +8,13 @@ export interface ThemeProp {
   offline_color: string
 }
 
-export interface Config {
-  steamId?: string
-  bgType?: string
+export interface ConfigMeta {
   theme: Theme
+  textColor: string
+  bgType: 'color' | 'game-cover'
+  bgColor: string
+  bgGameId: string
   group: boolean
   badge: boolean
-  textColor: string
-  bg: string
   statistics: Statistic[]
-  lang: string
 }

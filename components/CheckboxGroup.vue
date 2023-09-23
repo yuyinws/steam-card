@@ -34,6 +34,10 @@ watch(selected, (val) => {
 
 <template>
   <div>
-    <UCheckbox v-for="option in options" :key="option.value" v-model="selected[option.value]" :disabled="!value.includes(option.value) && value.length >= 3" :label="option.label" />
+    <UCheckbox v-for="option in options" :key="option.value" v-model="selected[option.value]" :disabled="!value.includes(option.value) && value.length >= 3" :label="option.label">
+      <template #label>
+        <span class="text-gray-500 font-[400]">{{ option.label }}</span>
+      </template>
+    </UCheckbox>
   </div>
 </template>

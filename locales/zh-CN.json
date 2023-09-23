@@ -7,7 +7,9 @@
     "generate": "生成",
     "add": "添加",
     "add-account": "添加账号",
-    "sign-out": "退出登录"
+    "sign-out": "退出登录",
+    "copy-success": "复制成功",
+    "copy-fail": "复制失败"
   },
   "toast": {
     "login-fail": "登录失败",
