@@ -1,7 +1,8 @@
+import { env } from 'node:process'
 import { getOwnedGames } from 'server/core/request/steamApi'
 
-const key: string = process.env.STEAM_KEY || ''
-const blockApps = process.env.BLOCK_APPS || ''
+const key: string = env.STEAM_KEY || ''
+const blockApps = env.BLOCK_APPS || ''
 
 export default defineEventHandler(async (event) => {
   try {

@@ -2,8 +2,7 @@ import type { Count } from 'types'
 import type { I18n } from '../locales'
 import Card from './Card'
 
-const steamCard = (
-  name: string,
+function steamCard(name: string,
   avatarUrlBase64: string,
   playerLevel: string,
   isOnline: number,
@@ -17,8 +16,7 @@ const steamCard = (
   groupIconList: string[],
   badgeIcon: string,
   i18n: I18n,
-  counts: Count[],
-) => {
+  counts: Count[]) {
   const card = new Card({
     name,
     avatarUrlBase64,

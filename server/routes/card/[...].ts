@@ -81,7 +81,7 @@ export default defineEventHandler(async (event) => {
 
     const counts: Count[] = []
 
-    _setting.statistics.forEach((item) => {
+    _setting.statistics.forEach((item: any) => {
       switch (item) {
         case 'games':
           counts.push({
@@ -164,6 +164,6 @@ export default defineEventHandler(async (event) => {
   catch (error) {
     // eslint-disable-next-line no-console
     console.log('🚀 ~ file: [...].ts:148 ~ defineEventHandler ~ error:', error)
-    return errorCard(error as string, 'error')
+    return errorCard(String(error), 'error')
   }
 })

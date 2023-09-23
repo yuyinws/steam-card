@@ -1,6 +1,7 @@
+import { Buffer } from 'node:buffer'
 import { getImage } from '../request/steamApi'
 
-export const imageUrl2Base64 = async (url: string): Promise<string> => {
+export async function imageUrl2Base64(url: string): Promise<string> {
   try {
     const image = await getImage(url)
     if (image) {
@@ -14,7 +15,7 @@ export const imageUrl2Base64 = async (url: string): Promise<string> => {
   }
 }
 
-export const string2Boolean = (value: string) => {
+export function string2Boolean(value: string) {
   return value === 'true'
 }
 

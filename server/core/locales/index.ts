@@ -4,8 +4,8 @@ import zhCN from './zhCN.json' assert {type: 'json'}
 type Locales = 'en' | 'zhCN'
 
 export interface I18n {
-  setLocale: Function
-  get: Function
+  setLocale: () => void
+  get: () => void
 }
 
 export default (_default: Locales) => {

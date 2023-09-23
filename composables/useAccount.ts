@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import type { Account } from '~/types/common'
 
 export const useAccount = defineStore('account', () => {
   const accounts = ref<Account[]>([])

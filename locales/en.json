@@ -9,7 +9,8 @@
     "add-account": "Add account",
     "sign-out": "Sign out",
     "copy-success": "Copy success",
-    "copy-fail": "Copy fail"
+    "copy-fail": "Copy fail",
+    "preview": "Preview"
   },
   "toast": {
     "login-fail": "Login Failed",
