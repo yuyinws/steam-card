@@ -45,7 +45,7 @@ async function copyUrl(url: string) {
       <div class="flex items-center gap-1">
         <UIcon name="i-heroicons-eye" class="w-5 h-5 text-gray-500" />
         <h1 class="text-xl cursor-default font-semibold text-gray-500">
-          Preview
+          {{ t('system.preview') }}
         </h1>
       </div>
     </template>
@@ -60,9 +60,10 @@ async function copyUrl(url: string) {
             height="150" width="400"
             :src="ORIGIN + steamCardUrl"
             @load="() => { imgLoading = false }"
+            @error="() => { imgLoading = false }"
           >
 
-          <div v-show="imgLoading" class="flex justify-center items-center w-[400px] h-[150px] border border-gray-300 dark:border-gray-700 rounded-md">
+          <div v-show="imgLoading" class="flex justify-center items-center w-[25rem] h-[9.375rem] border border-gray-300 dark:border-gray-700 rounded-md">
             <div class="flex flex-col gap-2 justify-center items-center">
               <UIcon class="w-8 h-8 animate-spin text-gray-500" name="i-ant-design-loading-outlined" />
               <div class="text-gray-500">
