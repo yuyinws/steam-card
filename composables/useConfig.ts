@@ -21,10 +21,8 @@ export const useConfig = defineStore('config', () => {
     imgLoading.value = true
   })
 
-  function parseConfig(locale: string) {
-    const { currentAccount } = useAccount()
+  function parseConfig(locale: string, steamId: string) {
     const _configMeta = cloneDeep(configMeta.value)
-    const steamId = currentAccount?.steamId
     const configArr: string[] = [_configMeta.theme]
     if (locale !== 'zhCN')
       configArr.push(locale)

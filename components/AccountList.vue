@@ -3,9 +3,11 @@ import type { DropdownItem } from '@nuxt/ui/dist/runtime/types/dropdown'
 import { storeToRefs } from 'pinia'
 
 const { accounts, currentAccount, currentAccountIndex } = storeToRefs(useAccount())
+const { imgLoading } = storeToRefs(useConfig())
+const { parseConfig } = useConfig()
 const isModalOpen = ref(false)
 const router = useRouter()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const items = computed<DropdownItem[][]>(() => {
   return [
@@ -24,6 +26,7 @@ const items = computed<DropdownItem[][]>(() => {
         disabled: account.steamId === currentAccount.value?.steamId,
         onClick: () => {
           currentAccountIndex.value = index
+          parseConfig(locale.value, account.steamId)
         },
       }
     }),
@@ -39,6 +42,7 @@ const items = computed<DropdownItem[][]>(() => {
       icon: 'i-heroicons-arrow-left-on-rectangle',
       onclick: () => {
         accounts.value.splice(currentAccountIndex.value, 1)
+        imgLoading.value = true
         if (accounts.value?.length > 0) {
           currentAccountIndex.value = 0
         }
