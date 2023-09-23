@@ -2,7 +2,8 @@
 import { storeToRefs } from 'pinia'
 
 const { t, locale } = useI18n()
-const { configMeta, imgLoading } = storeToRefs(useConfig())
+const { configMeta, imgLoading, steamCardUrl } = storeToRefs(useConfig())
+const { currentAccount } = storeToRefs(useAccount())
 const { parseConfig } = useConfig()
 
 const themeList = computed(() => {
@@ -37,10 +38,15 @@ defineShortcuts({
   enter: {
     handler: () => {
       if (!imgLoading.value)
-        parseConfig(locale.value)
+        parseConfig(locale.value, currentAccount.value!.steamId)
     },
     usingInput: true,
   },
+})
+
+onMounted(() => {
+  if (!steamCardUrl.value)
+    parseConfig(locale.value, currentAccount.value!.steamId)
 })
 </script>
 
@@ -114,7 +120,7 @@ defineShortcuts({
       </FormGroup>
     </div>
     <template #footer>
-      <UButton :disabled="imgLoading" class="!w-[8rem] justify-center" @click="() => parseConfig(locale)">
+      <UButton :disabled="imgLoading" class="!w-[8rem] justify-center" @click="() => parseConfig(locale, currentAccount!.steamId)">
         {{ $t('system.generate') }}
         <template #trailing>
           <UIcon name="i-icon-park-outline-enter-key" />
