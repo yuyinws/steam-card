@@ -1,16 +1,9 @@
 <script lang="ts" setup>
-const { t } = useI18n()
+import { storeToRefs } from 'pinia'
 
-const configMeta = ref({
-  theme: 'dark',
-  textColor: '',
-  bgType: 'color',
-  bgColor: '',
-  bgGameId: '',
-  badge: true,
-  group: true,
-  statistics: ['groups', 'badges', 'games'],
-})
+const { t, locale } = useI18n()
+const { configMeta, imgLoading } = storeToRefs(useConfig())
+const { parseConfig } = useConfig()
 
 const themeList = computed(() => {
   return themes.map((i) => {
@@ -38,6 +31,16 @@ const statList = computed(() => {
       value: i,
     }
   })
+})
+
+defineShortcuts({
+  enter: {
+    handler: () => {
+      if (!imgLoading.value)
+        parseConfig(locale.value)
+    },
+    usingInput: true,
+  },
 })
 </script>
 
@@ -111,7 +114,7 @@ const statList = computed(() => {
       </FormGroup>
     </div>
     <template #footer>
-      <UButton class="!w-[8rem] justify-center">
+      <UButton :disabled="imgLoading" class="!w-[8rem] justify-center" @click="() => parseConfig(locale)">
         {{ $t('system.generate') }}
         <template #trailing>
           <UIcon name="i-icon-park-outline-enter-key" />
