@@ -1,11 +1,15 @@
+<script setup lang="ts">
+const ORIGIN = __ORIGIN__ || window.location.origin
+</script>
+
 <template>
   <div class="container mt-10">
     <div class="horizontal-scrolling-items gap-4">
       <div v-for="i in 2" :key="i" class="flex gap-4">
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" src="/example/1.svg" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" src="/example/2.svg" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" src="/example/3.svg" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" src="/example/4.svg" />
+        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/1.svg`" />
+        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/2.svg`" />
+        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/3.svg`" />
+        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/4.svg`" />
       </div>
     </div>
   </div>
