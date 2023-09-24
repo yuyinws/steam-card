@@ -8,6 +8,7 @@ const items = computed(() => {
     disabled: i.code === locale.value,
     click: () => {
       locale.value = i.code
+      localStorage.setItem('locale', i.code)
     },
   }))
 })
