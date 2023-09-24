@@ -3,7 +3,7 @@ import type { DropdownItem } from '@nuxt/ui/dist/runtime/types/dropdown'
 import { storeToRefs } from 'pinia'
 
 const { accounts, currentAccount, currentAccountIndex } = storeToRefs(useAccount())
-const { imgLoading } = storeToRefs(useConfig())
+const { imgLoading, steamCardUrl } = storeToRefs(useConfig())
 const { parseConfig } = useConfig()
 const isModalOpen = ref(false)
 const router = useRouter()
@@ -48,6 +48,7 @@ const items = computed<DropdownItem[][]>(() => {
         }
         else {
           currentAccountIndex.value = -1
+          steamCardUrl.value = ''
           router.replace('/login')
         }
       },

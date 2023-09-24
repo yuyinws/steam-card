@@ -17,6 +17,6 @@ if (accounts.length > 0)
         router.replace('/')
       }"
     />
-    <!-- <ScrollCard /> -->
+    <ScrollCard />
   </div>
 </template>
