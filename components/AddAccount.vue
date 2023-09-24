@@ -95,7 +95,7 @@ onMounted(() => {
       </NuxtLink>
     </div>
     <p class="mt-1 text-gray-500 text-xs">
-      ※ {{ $t('config.eg') }}: 76561198340841543
+      {{ $t('config.eg') }}: 76561198340841543
     </p>
   </div>
 
