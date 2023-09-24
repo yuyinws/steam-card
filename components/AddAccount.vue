@@ -84,7 +84,7 @@ onMounted(() => {
       <span class="w-[18rem] border-t border-gray-300 dark:border-gray-600" />
     </div>
     <div class="relative flex justify-center text-xs uppercase">
-      <span class="bg-white dark:bg-[#131313] text-gray-600 px-2">{{ $t('system.or') }}</span>
+      <span class="bg-white dark:bg-[#121212] text-gray-600 px-2">{{ $t('system.or') }}</span>
     </div>
   </div>
   <div class="flex flex-col items-start">
