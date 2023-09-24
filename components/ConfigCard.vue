@@ -5,6 +5,7 @@ const { t, locale } = useI18n()
 const { configMeta, imgLoading, steamCardUrl } = storeToRefs(useConfig())
 const { currentAccount } = storeToRefs(useAccount())
 const { parseConfig } = useConfig()
+const { presets } = storeToRefs(usePreset())
 
 const themeList = computed(() => {
   return themes.map((i) => {
@@ -53,11 +54,14 @@ onMounted(() => {
 <template>
   <UCard class="flex-[50%]">
     <template #header>
-      <div class="flex items-center gap-1">
-        <UIcon name="i-heroicons-cog-8-tooth" class="w-5 h-5 text-gray-500" />
-        <h1 class="text-xl cursor-default font-semibold text-gray-500">
-          {{ $t('config.name') }}
-        </h1>
+      <div class="flex justify-between">
+        <div class="flex items-center gap-1">
+          <UIcon name="i-heroicons-cog-8-tooth" class="w-5 h-5 text-gray-800 dark:text-gray-200" />
+          <h1 class="text-xl cursor-default font-semibold text-gray-800 dark:text-gray-200">
+            {{ $t('config.name') }}
+          </h1>
+        </div>
+        <LoadPreset v-if="presets.length > 0" />
       </div>
     </template>
     <div class="flex flex-col gap-4">
@@ -120,12 +124,15 @@ onMounted(() => {
       </FormGroup>
     </div>
     <template #footer>
-      <UButton :disabled="imgLoading" class="!w-[8rem] justify-center" @click="() => parseConfig(locale, currentAccount!.steamId)">
-        {{ $t('system.generate') }}
-        <template #trailing>
-          <UIcon name="i-icon-park-outline-enter-key" />
-        </template>
-      </UButton>
+      <div class="flex gap-2">
+        <UButton :disabled="imgLoading" size="lg" class="justify-center flex-1" @click="() => parseConfig(locale, currentAccount!.steamId)">
+          {{ $t('system.generate') }}
+          <template #trailing>
+            <UIcon name="i-icon-park-outline-enter-key" />
+          </template>
+        </UButton>
+        <SavePreset />
+      </div>
     </template>
   </UCard>
 </template>

@@ -15,7 +15,7 @@ else {
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row gap-5 my-5">
+  <div class="flex flex-col lg:flex-row gap-5 my-5">
     <ConfigCard />
     <PreviewCard />
   </div>

@@ -4,7 +4,7 @@
     "or": "或",
     "login": "Steam 登录",
     "steamid": "请输入 SteamID",
-    "generate": "生成",
+    "generate": "生成卡片",
     "add": "添加",
     "add-account": "添加账号",
     "sign-out": "退出登录",
@@ -60,5 +60,17 @@
     "gradient1": "渐变色1",
     "gradient2": "渐变色2",
     "gradient3": "渐变色3"
+  },
+  "preset": {
+    "name": "预设",
+    "preset-name": "预设名称",
+    "load-preset": "加载预设",
+    "save-preset": "保存预设",
+    "confirm": "确认",
+    "cancel": "取消",
+    "preset-saved": "预设已保存",
+    "preset-saved-fail": "预设保存失败",
+    "preset-loaded": "预设已加载",
+    "preset-loaded-fail": "预设加载失败"
   }
 }
