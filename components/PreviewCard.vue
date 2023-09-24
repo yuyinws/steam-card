@@ -58,12 +58,13 @@ async function copyUrl(url: string) {
             :key="steamCardUrl"
             alt="Steam Card"
             height="150" width="400"
+            class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]"
             :src="ORIGIN + steamCardUrl"
             @load="() => { imgLoading = false }"
             @error="() => { imgLoading = false }"
           >
 
-          <div v-show="imgLoading" class="flex justify-center items-center w-[25rem] h-[9.375rem] border border-gray-300 dark:border-gray-700 rounded-md">
+          <div v-show="imgLoading" class="flex justify-center items-center sm:h-[150px] sm:w-[400px] w-[311px] h-[117px] border border-gray-300 dark:border-gray-700 rounded-md">
             <div class="flex flex-col gap-2 justify-center items-center">
               <UIcon class="w-8 h-8 animate-spin text-gray-500" name="i-ant-design-loading-outlined" />
               <div class="text-gray-500">
