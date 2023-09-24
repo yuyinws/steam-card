@@ -12,7 +12,7 @@ defineProps<{
     </p>
     <slot />
     <p v-if="help" class="mt-1 text-gray-500 text-xs">
-      ※ {{ help }}
+      {{ help }}
     </p>
   </div>
 </template>
