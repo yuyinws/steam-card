@@ -60,6 +60,8 @@ export function crawler(html: string) {
 
   const playerLevel = $('.persona_name,.persona_level').find('.friendPlayerLevelNum').text()
 
+  const avatarUrl = $('.playerAvatarAutoSizeInner').children().last().attr('src')
+
   return {
     gameCount,
     groupCount,
@@ -71,5 +73,6 @@ export function crawler(html: string) {
     guideCount,
     badgeCount,
     playerLevel,
+    avatarUrl,
   }
 }
