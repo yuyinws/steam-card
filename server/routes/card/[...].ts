@@ -55,15 +55,17 @@ export default defineEventHandler(async (event) => {
       guideCount,
       badgeCount,
       playerLevel,
+      avatarUrl,
     } = crawler(profile)
-    const { games, playTime, avatarUrl, name, isOnline } = data(player.response.players[0], playedGames.response)
+
+    const { games, playTime, name, isOnline } = data(player.response.players[0], playedGames.response)
     let badgeIcon = ''
     if (badgeIconUrl) {
       badgeIcon = await imageUrl2Base64(badgeIconUrl)
       badgeIcon = badgeIcon ? PNG_PREFIX + badgeIcon : transparentImageBase64
     }
 
-    let avatarUrlBase64 = await imageUrl2Base64(avatarUrl)
+    let avatarUrlBase64 = await imageUrl2Base64(avatarUrl!)
     avatarUrlBase64 = avatarUrlBase64 ? JPEG_PREFIX + avatarUrlBase64 : transparentImageBase64
 
     for (let i = 0; i < groupIconList.length; i++) {
