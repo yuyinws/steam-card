@@ -15,7 +15,9 @@ useHead({
   ],
   link: [
     {
-      rel: 'icon', type: 'image/svg', href: '/icon.svg',
+      rel: 'icon',
+      type: 'image/svg',
+      href: '/icon.svg',
     },
   ],
 })
