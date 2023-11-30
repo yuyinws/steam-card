@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { env } from 'node:process'
 import { defineNuxtConfig } from 'nuxt/config'
-import TurboConsole from 'vite-plugin-turbo-console'
 
 export default defineNuxtConfig({
   modules: [
@@ -12,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    'vite-plugin-turbo-console/nuxt',
   ],
   i18n: {
     langDir: 'locales',
@@ -57,8 +57,5 @@ export default defineNuxtConfig({
     define: {
       __ORIGIN__: JSON.stringify(env.ORIGIN || ''),
     },
-    plugins: [
-      TurboConsole(),
-    ],
   },
 })
