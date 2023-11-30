@@ -9,8 +9,8 @@ dependencies:
     specifier: npm:@nuxt/ui-edge@latest
     version: /@nuxt/ui-edge@2.8.1-28257877.d088d8a(vue@3.3.9)(webpack@5.89.0)
   atropos:
-    specifier: ^2.0.2
-    version: 2.0.2
+    specifier: 1.0.2
+    version: 1.0.2
   cheerio:
     specifier: 1.0.0-rc.12
     version: 1.0.0-rc.12
@@ -3621,8 +3621,8 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: false
 
-  /atropos@2.0.2:
-    resolution: {integrity: sha512-8f0u0hEOlBTWTSvzY17TcHuQjxUIpkTBq70/I4+UF5B43ORtOoRjm8TPBYEgLM8Ba9AWf6PDtkagbYoybdjaKg==}
+  /atropos@1.0.2:
+    resolution: {integrity: sha512-0RqyHfMyIhRXgnHuSQz2LVOE81jtAQ7EZTrF75ngiipklIsxajZ2vD042EXdiIEDs6eEAzfE10k+YhIbNl4/eg==}
     engines: {node: '>= 12.0.0'}
     dev: false
 

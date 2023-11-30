@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
-    "atropos": "^2.0.2",
+    "atropos": "1.0.2",
     "cheerio": "1.0.0-rc.12",
     "openid": "^2.0.10",
     "sass": "^1.69.5",
