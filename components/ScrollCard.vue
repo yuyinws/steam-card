@@ -5,12 +5,13 @@ const ORIGIN = __ORIGIN__ || window.location.origin
 <template>
   <div class="container mt-10">
     <div class="horizontal-scrolling-items gap-4">
-      <div v-for="i in 2" :key="i" class="flex gap-4">
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/1.svg`" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/2.svg`" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/3.svg`" />
-        <NuxtImg class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px]" :src="`${ORIGIN}/example/4.svg`" />
-      </div>
+      <Vue3Marquee
+        :loop="0"
+        clone
+        pause-on-hover
+      >
+        <NuxtImg v-for="i in 4" :key="i" class="sm:h-[150px] sm:w-[400px] w-[311px] h-[117px] mr-5" :src="`${ORIGIN}/example/${i}.svg`" />
+      </Vue3Marquee>
     </div>
   </div>
 </template>

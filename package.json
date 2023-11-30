@@ -25,7 +25,8 @@
     "openid": "^2.0.10",
     "sass": "^1.67.0",
     "uuid": "^9.0.1",
-    "vue-sonner": "^0.4.4"
+    "vue-sonner": "^0.4.4",
+    "vue3-marquee": "^4.1.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.1.1",
