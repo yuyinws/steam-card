@@ -48,6 +48,6 @@
     "pinia": "^2.1.7",
     "taze": "^0.12.3",
     "typescript": "^5.3.2",
-    "vite-plugin-turbo-console": "^0.3.2"
+    "unplugin-turbo-console": "^1.1.2"
   }
 }

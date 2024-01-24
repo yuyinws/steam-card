@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    'vite-plugin-turbo-console/nuxt',
+    'unplugin-turbo-console/nuxt',
   ],
   i18n: {
     langDir: 'locales',
