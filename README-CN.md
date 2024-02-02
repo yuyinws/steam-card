@@ -58,6 +58,9 @@
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/ajXBZ6?referralCode=fpKTNq)
+
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/JREX1V)
+
 ### Docker
 
 ```shell

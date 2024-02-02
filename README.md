@@ -58,6 +58,8 @@
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/ajXBZ6?referralCode=fpKTNq)
 
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/JREX1V)
+
 ### Docker
 
 ```shell
