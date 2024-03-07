@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
 
     const fontPath = join(
       cwd(),
-      ...['fonts', 'PressStart2P-Regular.ttf'],
+      ...['dist', 'fonts', 'PressStart2P-Regular.ttf'],
     )
 
     const fontData = await readFile(fontPath)
