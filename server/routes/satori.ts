@@ -1,5 +1,5 @@
 import { join } from 'node:path'
-import { cwd } from 'node:process'
+import { cwd, env } from 'node:process'
 import { readFile } from 'node:fs/promises'
 import satori from 'satori'
 import { html } from 'satori-html'
@@ -10,10 +10,7 @@ export default defineEventHandler(async (event) => {
 
     const fontPath = join(
       cwd(),
-      'server',
-      'core',
-      'fonts',
-      'PressStart2P-Regular.ttf',
+      ...['fonts', 'PressStart2P-Regular.ttf'],
     )
 
     const fontData = await readFile(fontPath)
