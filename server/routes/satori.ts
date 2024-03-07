@@ -8,9 +8,12 @@ export default defineEventHandler(async (event) => {
   try {
     setHeader(event, 'Content-Type', 'image/svg+xml')
 
+    const { fontDir } = useRuntimeConfig()
+
     const fontPath = join(
       cwd(),
-      ...['dist', 'fonts', 'PressStart2P-Regular.ttf'],
+      ...fontDir,
+      'PressStart2P-Regular.ttf',
     )
 
     const fontData = await readFile(fontPath)
