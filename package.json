@@ -24,6 +24,8 @@
     "cheerio": "1.0.0-rc.12",
     "openid": "^2.0.11",
     "sass": "^1.71.1",
+    "satori": "^0.10.13",
+    "satori-html": "^0.3.2",
     "uuid": "^9.0.1",
     "vue-sonner": "^1.1.1",
     "vue3-marquee": "^4.2.0"
