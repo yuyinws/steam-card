@@ -58,4 +58,7 @@ export default defineNuxtConfig({
       __ORIGIN__: JSON.stringify(env.ORIGIN || ''),
     },
   },
+  runtimeConfig: {
+    fontDir: env.NODE_ENV === 'production' ? ['dist', 'fonts'] : ['public', 'fonts'],
+  },
 })
