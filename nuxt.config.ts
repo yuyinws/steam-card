@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     'unplugin-turbo-console/nuxt',
+    '@nuxt/test-utils/module',
   ],
   i18n: {
     langDir: 'locales',

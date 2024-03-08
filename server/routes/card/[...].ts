@@ -2,7 +2,7 @@ import { env } from 'node:process'
 import { getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
 import { steamCard } from 'server/core/render/steamCard'
 import errorCard from 'server/core/render/errorCard'
-import { crawler, data, setting } from 'server/core/logic'
+import { crawler, data, parseUrlConfig } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 import type { Count } from 'types'
 import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
@@ -23,14 +23,15 @@ export default defineEventHandler(async (event) => {
     const splitArr = _.split('/')
     const steamid = splitArr[0]
     const settings = splitArr[1]
-    const { setting: _setting } = setting(settings)
-    i18n.setLocale(_setting.lang as any)
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
       return errorCard(i18n.get('invalid_steamid'), i18n.get('error-info'))
 
     if (blockUsers.split(',').includes(steamid))
       return errorCard('Sorry, your account had been banned.', i18n.get('error-info'))
+
+    const { config } = parseUrlConfig(settings)
+    i18n.setLocale(config.lang)
 
     const AllData = await Promise.all([
       getPlayerSummaries({ key, steamids: steamid }),
@@ -83,7 +84,7 @@ export default defineEventHandler(async (event) => {
 
     const counts: Count[] = []
 
-    _setting.statistics.forEach((item: any) => {
+    config.statistics.forEach((item: any) => {
       switch (item) {
         case 'games':
           counts.push({
@@ -130,8 +131,8 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    if (_setting.bg.includes('bg-game')) {
-      const arrs = _setting.bg.split('-')
+    if (config.bg.includes('bg-game')) {
+      const arrs = config.bg.split('-')
       let url = ''
       if (arrs.length < 3) {
         const { appid } = await $fetch(`/info/games/${steamid}`)
@@ -142,7 +143,7 @@ export default defineEventHandler(async (event) => {
       }
       let gameBase64 = await imageUrl2Base64(url)
       gameBase64 = JPEG_PREFIX + gameBase64
-      _setting.bg = `game-${gameBase64}`
+      config.bg = `game-${gameBase64}`
     }
 
     return steamCard(
@@ -151,11 +152,11 @@ export default defineEventHandler(async (event) => {
       playerLevel,
       isOnline,
       gameImgs,
-      _setting.theme,
-      _setting.badge,
-      _setting.group,
-      _setting.bg,
-      _setting.textColor,
+      config.theme,
+      config.badge,
+      config.group,
+      config.bg,
+      config.textColor,
       playTime,
       groupIconList,
       badgeIcon,
