@@ -1,7 +1,6 @@
 import en from './en.json' assert {type: 'json'}
 import zhCN from './zhCN.json' assert {type: 'json'}
-
-type Locales = 'en' | 'zhCN'
+import type { Locales } from '~/types'
 
 export interface I18n {
   setLocale: (locale: Locales) => void

@@ -1,8 +1,8 @@
 import type { Config, Statistic } from 'types'
 import { defaultStatistics, statisticsList, themes } from '@/utils/constant'
 
-export function setting(_setting: string) {
-  const setting: Config = {
+export function parseUrlConfig(_setting: string) {
+  const config: Config = {
     theme: 'dark',
     group: false,
     badge: false,
@@ -18,10 +18,10 @@ export function setting(_setting: string) {
     const settings = _setting.split(',')
     settings.forEach((item: any) => {
       if (themes.includes(item)) {
-        setting.theme = item
+        config.theme = item
       }
       else if (item.includes('text-')) {
-        setting.textColor = `#${item.split('-')[1]}`
+        config.textColor = `#${item.split('-')[1]}`
       }
       else if (item.includes('bg-')) {
         let bg = ''
@@ -40,19 +40,19 @@ export function setting(_setting: string) {
           }
         }
 
-        setting.bg = bg
+        config.bg = bg
       }
       else if (item === 'group') {
-        setting.group = true
+        config.group = true
       }
       else if (item === 'badge') {
-        setting.badge = true
+        config.badge = true
       }
       else if (item === 'zhCN') {
-        setting.lang = 'zhCN'
+        config.lang = 'zhCN'
       }
       else if (item === 'en') {
-        setting.lang = 'en'
+        config.lang = 'en'
       }
       else if (statisticsList.includes(item)) {
         statisticSet.add(item)
@@ -69,8 +69,8 @@ export function setting(_setting: string) {
   if (statistics.length > 3)
     statistics.splice(3, statistics.length - 3)
 
-  setting.statistics = statistics
+  config.statistics = statistics
   return {
-    setting,
+    config,
   }
 }

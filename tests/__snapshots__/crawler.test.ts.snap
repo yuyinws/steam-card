@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`crawler > crawler 1`] = `
+{
+  "artWorkCount": "3",
+  "avatarUrl": "https://avatars.cloudflare.steamstatic.com/53e9999c84e72b247dde54082ca077dca89784d8_full.jpg",
+  "badgeCount": "38",
+  "badgeIconUrl": "https://community.cloudflare.steamstatic.com/public/images/badges/51_summer2021/54_54.png",
+  "gameCount": "218",
+  "groupCount": "5",
+  "groupIconList": [
+    "https://avatars.cloudflare.steamstatic.com/96dbe7106f59729272139f2fa076cddeb7e33730.jpg",
+    "https://avatars.cloudflare.steamstatic.com/f2a29784032f714eb79afbd2c94767d17101f871.jpg",
+    "https://avatars.cloudflare.steamstatic.com/4bef364761737e84a561c97740064d53d8ba3d36_medium.jpg",
+  ],
+  "guideCount": "0",
+  "playerLevel": "34",
+  "reviewCount": "11",
+  "screenshotCount": "62",
+}
+`;
