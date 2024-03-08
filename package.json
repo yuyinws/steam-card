@@ -7,7 +7,7 @@
   "author": "yuyinws",
   "license": "MIT",
   "engines": {
-    "node": ">18"
+    "node": ">=18"
   },
   "scripts": {
     "build": "node -v && nuxi build",
