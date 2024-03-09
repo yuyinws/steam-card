@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
 const { accounts } = useAccount()
 
 const router = useRouter()

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
+definePageMeta({
+  middleware: 'auth',
+})
+
 const router = useRouter()
 
 const { currentAccountIndex, accounts } = storeToRefs(useAccount())
