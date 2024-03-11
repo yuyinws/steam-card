@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { DropdownItem } from '@nuxt/ui/dist/runtime/types/dropdown'
 import { storeToRefs } from 'pinia'
 
 const { accounts, currentAccount, currentAccountIndex } = storeToRefs(useAccount())
@@ -9,7 +8,7 @@ const isModalOpen = ref(false)
 const router = useRouter()
 const { t, locale } = useI18n()
 
-const items = computed<DropdownItem[][]>(() => {
+const items = computed(() => {
   return [
     // [
     //   {
@@ -24,7 +23,7 @@ const items = computed<DropdownItem[][]>(() => {
         account,
         slot: 'account',
         disabled: account.steamId === currentAccount.value?.steamId,
-        onClick: () => {
+        click: () => {
           currentAccountIndex.value = index
           parseConfig(locale.value, account.steamId)
         },
@@ -33,13 +32,13 @@ const items = computed<DropdownItem[][]>(() => {
     [{
       label: t('system.add-account'),
       icon: 'i-heroicons-plus-circle',
-      onclick: () => {
+      click: () => {
         isModalOpen.value = true
       },
     }, {
       label: t('system.sign-out'),
       icon: 'i-heroicons-arrow-left-on-rectangle',
-      onclick: () => {
+      click: () => {
         accounts.value.splice(currentAccountIndex.value, 1)
         imgLoading.value = true
         if (accounts.value?.length > 0) {
