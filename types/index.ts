@@ -6,3 +6,4 @@ export interface Count {
 export * from './params'
 export * from './response'
 export * from './config'
+export * from './template'

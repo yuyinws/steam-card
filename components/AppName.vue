@@ -1,5 +1,5 @@
 <template>
-  <div class="title text-[1.3rem] sm:text-[2rem]">
+  <div class="title text-[1.3rem] sm:text-[2rem] cursor-default">
     Steam Card
   </div>
 </template>
