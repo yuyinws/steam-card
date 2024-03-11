@@ -46,6 +46,7 @@
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "eslint": "^8.57.0",
+    "happy-dom": "^13.7.1",
     "lodash": "^4.17.21",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",

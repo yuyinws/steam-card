@@ -21,7 +21,7 @@ export interface ConfigMeta {
 }
 
 export interface Config {
-  theme: string
+  theme: Theme
   group: boolean
   badge: boolean
   lang: Locales

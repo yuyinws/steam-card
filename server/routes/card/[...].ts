@@ -1,12 +1,12 @@
 import { env } from 'node:process'
 import { getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
-import { steamCard } from 'server/core/render/steamCard'
-import errorCard from 'server/core/render/errorCard'
 import { crawler, data, parseUrlConfig } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 import type { Count } from 'types'
 import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
+import { generateError } from '~/server/core/render/template/error'
 import { getGameCoverUrl } from '@/utils/common'
+import { generateSvg } from '~/server/core/render/template/svg'
 
 const i18n = initLocale('zhCN')
 const key: string = env.STEAM_KEY || ''
@@ -25,10 +25,10 @@ export default defineEventHandler(async (event) => {
     const settings = splitArr[1]
     const numberReg = /[A-Za-z]/
     if (steamid.match(numberReg) !== null)
-      return errorCard(i18n.get('invalid_steamid'), i18n.get('error-info'))
+      return generateError(i18n.get('invalid_steamid'), i18n.get('error-info'))
 
     if (blockUsers.split(',').includes(steamid))
-      return errorCard('Sorry, your account had been banned.', i18n.get('error-info'))
+      return generateError('Sorry, your account had been banned.', i18n.get('error-info'))
 
     const { config } = parseUrlConfig(settings)
     i18n.setLocale(config.lang)
@@ -146,27 +146,26 @@ export default defineEventHandler(async (event) => {
       config.bg = `game-${gameBase64}`
     }
 
-    return steamCard(
+    return generateSvg({
       name,
       avatarUrlBase64,
       playerLevel,
       isOnline,
       gameImgs,
-      config.theme,
-      config.badge,
-      config.group,
-      config.bg,
-      config.textColor,
+      theme: config.theme,
+      badge: config.badge,
+      group: config.group,
+      bg: config.bg,
+      textColor: config.textColor,
       playTime,
       groupIconList,
       badgeIcon,
       i18n,
       counts,
-    )
+    })
   }
   catch (error) {
-    // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: [...].ts:148 ~ defineEventHandler ~ error:', error)
-    return errorCard(String(error), 'error')
+    console.error('[Steam Card] generate error:', error)
+    return generateError(String(error), 'error')
   }
 })

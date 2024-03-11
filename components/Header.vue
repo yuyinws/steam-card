@@ -10,7 +10,7 @@
         <div class="flex items-center">
           <DarkToggle />
           <LanguageToggle />
-          <AccountList />
+          <AccountList v-if="$route.name !== 'login'" />
         </div>
       </div>
     </div>

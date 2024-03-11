@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { parseUrlConfig } from 'server/core/logic/setting'
+import { parseUrlConfig } from '~/server/core/logic/parse'
 
 describe('parse url config', () => {
   it('empty', () => {

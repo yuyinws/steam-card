@@ -89,9 +89,7 @@ onMounted(() => {
   </div>
   <div class="flex flex-col items-start">
     <div class="flex items-center gap-2 w-[18rem] ">
-      <UInput v-model="steamId" :placeholder="$t('system.steamid')" class="flex-1 flex-shrink-0" size="lg">
-        <template #trailing />
-      </UInput>
+      <UInput v-model="steamId" :placeholder="$t('system.steamid')" class="flex-1 flex-shrink-0" size="lg" />
     </div>
     <div class="mt-1 text-gray-500 gap-2 text-sm flex items-center">
       <div>

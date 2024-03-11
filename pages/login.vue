@@ -2,12 +2,6 @@
 definePageMeta({
   middleware: 'auth',
 })
-
-const { accounts } = useAccount()
-
-const router = useRouter()
-if (accounts.length > 0)
-  router.replace('/')
 </script>
 
 <template>
@@ -18,7 +12,7 @@ if (accounts.length > 0)
     </p>
     <AddAccount
       @callback="() => {
-        router.replace('/')
+        $router.replace('/')
       }"
     />
     <ScrollCard />
