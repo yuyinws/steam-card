@@ -1,4 +1,3 @@
-import { html } from 'satori-html'
 import { themes } from '../theme'
 import type { TemplateMeta } from '~/types'
 

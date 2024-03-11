@@ -1,7 +1,11 @@
 import type {
   BaseResponse,
-  OwnedGames, OwnedParams,
-  PlayedGames, PlayerParams, PlayerSummaries, RecentlyPlayedGames,
+  OwnedGames,
+  OwnedParams,
+  PlayedGames,
+  PlayerParams,
+  PlayerSummaries,
+  RecentlyPlayedGames,
 } from 'types'
 import { apiFetch } from './fetch'
 

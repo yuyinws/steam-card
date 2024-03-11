@@ -1,5 +1,5 @@
 import { join } from 'node:path'
-import { cwd, env } from 'node:process'
+import { cwd } from 'node:process'
 import { readFile } from 'node:fs/promises'
 import satori from 'satori'
 import { html } from 'satori-html'

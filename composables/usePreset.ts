@@ -13,7 +13,6 @@ export const usePreset = defineStore('preset', () => {
   return {
     presets,
   }
-},
-{
+}, {
   persist: true,
 })

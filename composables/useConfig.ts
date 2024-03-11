@@ -64,7 +64,6 @@ export const useConfig = defineStore('config', () => {
     steamCardUrl,
     imgLoading,
   }
-},
-{
+}, {
   persist: true,
 })
