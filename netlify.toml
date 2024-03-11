@@ -1,17 +1,17 @@
-[build.environment]
-  NPM_FLAGS = "--version"
-  NODE_VERSION = "18"
-
 [build]
-  publish = "dist"
-  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
-  ignore = "git log -1 --pretty=%B | grep skipci"
+publish = "dist"
+command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build"
+ignore = "git log -1 --pretty=%B | grep skipci"
+
+[build.environment]
+NPM_FLAGS = "--version"
+NODE_VERSION = "18"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
 
 [template.environment]
-  STEAM_KEY = "your steam API key"
-  CACHE_TIME = "request cache time(second)"
+STEAM_KEY = "your steam API key"
+CACHE_TIME = "request cache time(second)"

@@ -17,8 +17,6 @@ export const useAccount = defineStore('account', () => {
     currentAccount,
     currentAccountIndex,
   }
-},
-{
+}, {
   persist: true,
-},
-)
+})

@@ -36,8 +36,7 @@ const items = computed<DropdownItem[][]>(() => {
       onclick: () => {
         isModalOpen.value = true
       },
-    },
-    {
+    }, {
       label: t('system.sign-out'),
       icon: 'i-heroicons-arrow-left-on-rectangle',
       onclick: () => {

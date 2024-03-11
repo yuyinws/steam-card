@@ -19,11 +19,9 @@ watch(() => props.value, (val) => {
   val.forEach((item) => {
     selected.value[item] = true
   })
-},
-{
+}, {
   immediate: true,
-},
-)
+})
 
 watch(selected, (val) => {
   emits('update:value', Object.entries(val).filter(item => item[1]).map(item => item[0]))

@@ -1,3 +1,7 @@
-import antfu from '@antfu/eslint-config'
+import defineConfig from '@antfu/eslint-config'
 
-export default antfu()
+export default defineConfig({
+  ignores: [
+    '*.md',
+  ],
+})
