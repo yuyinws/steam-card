@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import templateMeta from './fixtures/templateMeta'
-import { renderTemplate } from '~/server/core/render/template'
+import { generateSvg } from '~/server/core/render/template/svg'
 
 describe('template', () => {
   it('template', async () => {
-    expect(await renderTemplate(templateMeta)).toMatchSnapshot()
+    expect(generateSvg(templateMeta)).toMatchSnapshot()
   })
 })
