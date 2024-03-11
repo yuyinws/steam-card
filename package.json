@@ -1,6 +1,7 @@
 {
   "name": "steam-card",
   "type": "module",
+  "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@8.7.5",
   "description": "⚡ Generate Your Steam Profile Card Quickly/快速生成你的Steam资料卡片⚡",
@@ -16,7 +17,8 @@
     "lint": "eslint . --fix",
     "postinstall": "nuxi prepare",
     "generate": "nuxi generate",
-    "update:deps": "taze major -w"
+    "update:deps": "taze major -w",
+    "test": "vitest"
   },
   "dependencies": {
     "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
