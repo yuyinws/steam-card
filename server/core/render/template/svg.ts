@@ -40,7 +40,7 @@ export function generateSvg(meta: TemplateMeta) {
 
         <div class="icon-list">
             ${generateGroups(meta)}
-            <img height="35" width="35" src="${meta.badgeIcon}" />
+            ${meta.badge ? `<img height="35" width="35" src="${meta.badgeIcon}" />` : ''}
         </div>
       </div>
     </foreignObject>
