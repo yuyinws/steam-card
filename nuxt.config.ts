@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/devtools',
     '@nuxtjs/i18n',
-    '@nuxt/image',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     'unplugin-turbo-console/nuxt',
