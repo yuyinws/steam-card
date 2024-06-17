@@ -47,8 +47,8 @@
 
 | Name      | Description | Example |
 | ----------- | ----------- | ----------- |
-| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
-| CACHE_TIME   | request cache time (second)| 3600 |
+| NUXT_STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
+| NUXT_CACHE_TIME   | request cache time (second)| 3600 |
 
 ### PaaS
 

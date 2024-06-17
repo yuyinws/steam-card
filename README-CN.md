@@ -48,8 +48,8 @@
 
 | 名称      | 描述 | 示例 |
 | ----------- | ----------- | ----------- |
-| STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
-| CACHE_TIME   | 请求缓存时间(秒)  | 3600 |
+| NUXT_STEAM_KEY      | [Steam Api Key](https://steamcommunity.com/dev/apikey) | 5B23D7ECExxxxxxB58C57BC242 |
+| NUXT_CACHE_TIME   | 请求缓存时间(秒)  | 3600 |
 
 ### PaaS
 
