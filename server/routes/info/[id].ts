@@ -1,13 +1,12 @@
-import { env } from 'node:process'
 import { getPlayerSummaries } from 'server/core/request/steamApi'
-
-const key: string = env.STEAM_KEY || ''
 
 export default defineEventHandler(async (event) => {
   try {
+    const runtimeConfig = useRuntimeConfig(event)
+    const steamKey = runtimeConfig.steamKey
     const id = getRouterParam(event, 'id')!
     const { response } = await getPlayerSummaries({
-      key,
+      key: steamKey,
       steamids: id,
     })
 

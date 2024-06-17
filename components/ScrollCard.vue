@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const ORIGIN = __ORIGIN__ || window.location.origin
+const appConfig = useAppConfig()
+const ORIGIN = appConfig.origin || window.location.origin
 </script>
 
 <template>

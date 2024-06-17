@@ -1,15 +1,15 @@
-import { env } from 'node:process'
 import { getOwnedGames } from 'server/core/request/steamApi'
-
-const key: string = env.STEAM_KEY || ''
-const blockApps = env.BLOCK_APPS || ''
 
 export default defineEventHandler(async (event) => {
   try {
+    const runtimeConfig = useRuntimeConfig(event)
+    const steamKey = runtimeConfig.steamKey
+    const blockApps = runtimeConfig.blockApps || ''
     const apps = blockApps.split(',')
+
     const id = getRouterParam(event, 'id')
     const { response } = await getOwnedGames({
-      key,
+      key: steamKey,
       steamid: id,
       format: 'json',
     })

@@ -1,9 +1,7 @@
-import { env } from 'node:process'
 import type { PlayedGames, Player } from 'types'
 
-export function data(userInfo: Player, playedGames: PlayedGames) {
+export function data(userInfo: Player, playedGames: PlayedGames, blockApps: string) {
   const { avatarfull: avatarUrl, personaname: name, personastate: isOnline } = userInfo
-  const blockApps = env.BLOCK_APPS || ''
   const blockAppList = blockApps.split(',')
   // '<' cause svg render error
   const _name = name.replaceAll('<', '&lt;')

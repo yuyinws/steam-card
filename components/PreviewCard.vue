@@ -3,7 +3,10 @@ import Atropos from 'atropos/vue'
 import { storeToRefs } from 'pinia'
 
 const { steamCardUrl, imgLoading } = storeToRefs(useConfig())
-const ORIGIN = __ORIGIN__ || window.location.origin
+
+const appConfig = useAppConfig()
+
+const ORIGIN = appConfig.origin || window.location.origin
 const { $toast } = useNuxtApp()
 const { t } = useI18n()
 
