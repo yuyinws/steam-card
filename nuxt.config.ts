@@ -65,6 +65,6 @@ export default defineNuxtConfig({
     blockApps: '',
     blockUsers: '',
     steamKey: '',
-    cacheTime: ''
+    cacheTime: '',
   },
 })
