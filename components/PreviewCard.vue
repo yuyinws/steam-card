@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// @ts-expect-error missing types
 import Atropos from 'atropos/vue'
 import { storeToRefs } from 'pinia'
 
