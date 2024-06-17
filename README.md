@@ -52,7 +52,7 @@
 
 ### PaaS
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=STEAM_KEY,CACHE_TIME)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyuyinws%2Fsteam-card&env=NUXT_STEAM_KEY,NUXT_CACHE_TIME)
 
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yuyinws/steam-card)
 
@@ -89,7 +89,7 @@ cp .env.example .env
 
 Add your Steam API KEY on .env file
 ```shell
-STEAM_KEY=YOUR_STEAM_KEY
+NUXT_STEAM_KEY=YOUR_STEAM_KEY
 ```
 
 ```shell
