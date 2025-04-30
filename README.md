@@ -12,7 +12,7 @@
 </p>
 <p align="center">
   <a href="https://card.yuy1n.io">
-		<img src="https://card.yuy1n.io/card/76561198028121353/en"/>
+		<img src="https://steam-profile-card.vercel.app/card/76561199217630051/en"/>
   </a>
 </p>
 
@@ -33,7 +33,7 @@
 
 ## 🔥 Features
 - **Dynamic**: The card content will be dynamically generated according to your Steam status.
-- **User Friendly**: Generate your Steam card on [Online Config Page](https://card.yuy1n.io)
+- **User Friendly**: Generate your Steam card on [Online Config Page](https://steam-profile-card.vercel.app/)
 - **i18n**: Support multiple languages (PR Welcome for more language)
 - **Customizable**: Support more than 10 Custom items.
 - **Deployable**: Support deploy it with `Vercel`, `Netlify`, `Railway` or `Docker`.
