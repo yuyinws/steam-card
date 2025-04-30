@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<a href="https://card.yuy1n.io" style="font-size:20px">Online Config Page</a>
+<a href="https://steam-profile-card.vercel.app/" style="font-size:20px">Online Config Page</a>
 </p>
 <p align="center">
   <a href="https://card.yuy1n.io">
