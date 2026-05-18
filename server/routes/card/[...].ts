@@ -1,10 +1,9 @@
-import { getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
+import { getGameCoverUrl, getPlayerSummaries, getRecentlyPlayedGames, getSteamProfile } from 'server/core/request/steamApi'
 import { crawler, data, parseUrlConfig } from 'server/core/logic'
 import initLocale from 'server/core/locales'
 import type { Count } from 'types'
 import { imageUrl2Base64, transparentImageBase64 } from 'server/core/utils'
 import { generateError } from '~/server/core/render/template/error'
-import { getGameCoverUrl } from '@/utils/common'
 import { generateSvg } from '~/server/core/render/template/svg'
 
 const i18n = initLocale('zhCN')
@@ -79,9 +78,16 @@ export default defineEventHandler(async (event) => {
     const gameImgs = []
 
     for (let i = 0; i < games.length; i++) {
-      const url = getGameCoverUrl(games[i].appid)
-      gameImgs[i] = await imageUrl2Base64(url)
-      gameImgs[i] = gameImgs[i] ? JPEG_PREFIX + gameImgs[i] : transparentImageBase64
+      const url = await getGameCoverUrl(games[i].appid)
+      if (url) {
+        gameImgs[i] = await imageUrl2Base64(url)
+        gameImgs[i] = gameImgs[i]
+          ? JPEG_PREFIX + gameImgs[i]
+          : transparentImageBase64
+      }
+      else {
+        gameImgs[i] = transparentImageBase64
+      }
     }
 
     const counts: Count[] = []
@@ -135,18 +141,21 @@ export default defineEventHandler(async (event) => {
 
     if (config.bg.includes('bg-game')) {
       const arrs = config.bg.split('-')
-      let url = ''
+      let url: string | null = null
       if (arrs.length < 3) {
         const { appid } = await $fetch<{
           appid: number
         }>(`/info/games/${steamid}`)
-        url = getGameCoverUrl(appid!)
+        url = await getGameCoverUrl(appid!)
       }
       else {
-        url = getGameCoverUrl(arrs[2])
+        url = await getGameCoverUrl(arrs[2])
       }
-      let gameBase64 = await imageUrl2Base64(url)
-      gameBase64 = JPEG_PREFIX + gameBase64
+      let gameBase64 = transparentImageBase64
+      if (url) {
+        gameBase64 = await imageUrl2Base64(url)
+        gameBase64 = gameBase64 ? JPEG_PREFIX + gameBase64 : transparentImageBase64
+      }
       config.bg = `game-${gameBase64}`
     }
 

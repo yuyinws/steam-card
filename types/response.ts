@@ -36,3 +36,15 @@ export interface OwnedGames {
     playtime_forever: number
   }[]
 }
+
+export interface GameDetailsResponse {
+  [appId: string]: {
+    success: boolean
+    data: {
+      // name: string
+      // type: string
+      // is_free: boolean
+      header_image: string
+    }
+  }
+}
