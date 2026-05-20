@@ -1,5 +1,6 @@
 import type {
   BaseResponse,
+  GameDetailsResponse,
   OwnedGames,
   OwnedParams,
   PlayedGames,
@@ -40,4 +41,18 @@ export function getSteamProfile(steamid: string) {
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36',
     },
   })
+}
+
+export function getGameDetails(id: string | number) {
+  return $fetch<GameDetailsResponse>(`https://store.steampowered.com/api/appdetails?appids=${id}`)
+}
+
+export async function getGameCoverUrl(id: string | number) {
+  const gameDetail = await getGameDetails(id)
+  const detail = gameDetail[id.toString()]
+  if (!detail?.success || !detail.data?.header_image) {
+    console.warn(`Failed to get cover for appid ${id}`)
+    return null
+  }
+  return detail.data.header_image
 }
